@@ -1,0 +1,210 @@
+[
+    {
+        "dir_name": "crawling_ca",
+        "pretty_name": "catalan crawling",
+        "source": ".cat crawling",
+        "provider": "bsc",
+        "parallel": "no",
+        "languages": "catalan",
+        "encoding": "utf-8",
+        "format": "bsc-crawl-json",
+        "license": "creative commons cc0 license",
+        "publication": "the corpus can be published according to its license.",
+        "corpus_versions": [
+            {
+                "version": "20200525",
+                "date": "28/05/2020",
+                "path": "crawling_ca_20200525"
+            },
+            {
+                "version": "20200617",
+                "date": "17/06/2020",
+                "path": "crawling_ca_20200617",
+                "corpus_version_states": [
+                    {
+                        "state": "deduplicated",
+                        "date": "20200610",
+                        "path": "crawling_ca_20200617_deduplicated_20200610",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "deduplication",
+                                "src": "txt",
+                                "tgt": "onion",
+                                "script": "onion",
+                                "order": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "state": "no_boilerplate",
+                        "date": "20200612",
+                        "path": "crawling_ca_20200617_no_boilerplate_20200612",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "boilerplate removal",
+                                "src": "html",
+                                "tgt": "txt",
+                                "script": "justtext",
+                                "order": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "dir_name": "elh-webcorp",
+        "pretty_name": "elhuyar web corpus",
+        "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
+        "provider": "elhuyar",
+        "parallel": "no",
+        "languages": "basque",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "creative commons cc0 license (“no rights reserved”)",
+        "publication": "the corpus has already been published",
+        "corpus_versions": [
+            {
+                "version": "20181008",
+                "date": "10/04/2020",
+                "path": "elh-webcorp_20181008"
+            },
+            {
+                "version": "20200617",
+                "date": "17/06/2020",
+                "path": "elh-webcorp_20200617",
+                "corpus_version_states": [
+                    {
+                        "state": "deduplicated",
+                        "date": "20200610",
+                        "path": "elh-webcorp_20200617_deduplicated_20200610",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "deduplication",
+                                "src": "txt",
+                                "tgt": "onion",
+                                "script": "onion",
+                                "order": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "dir_name": "subtitles_ca",
+        "pretty_name": "catalan subtitles",
+        "source": "http://opus.nlpl.eu/download.php?f=opensubtitles/v2018/mono/opensubtitles.raw.ca.gz",
+        "provider": "opensubtitles",
+        "parallel": "no",
+        "languages": "catalan",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "cite opensub",
+        "publication": "the corpus has already been published",
+        "corpus_versions": [
+            {
+                "version": "20180404",
+                "date": "28/05/2020",
+                "path": "subtitles_ca_20180404"
+            },
+            {
+                "version": "20200617",
+                "date": "17/06/2020",
+                "path": "subtitles_ca_20200617",
+                "corpus_version_states": [
+                    {
+                        "state": "cleaned",
+                        "date": "20200610",
+                        "path": "subtitles_ca_20200617_cleaned_20200610",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "cleaning",
+                                "src": "bsc-crawl-json",
+                                "tgt": "txt",
+                                "script": "corpuscleaner",
+                                "order": "0"
+                            },
+                            {
+                                "name": "deduplication",
+                                "src": "txt",
+                                "tgt": "onion",
+                                "script": "onion",
+                                "order": "1"
+                            },
+                            {
+                                "name": "tokenization",
+                                "src": "onion",
+                                "tgt": "txt",
+                                "script": "ixa pipes tokenizer",
+                                "order": "2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "dir_name": "oscar_eu",
+        "pretty_name": "basque oscar",
+        "source": "https://oscar-corpus.com/#corpus",
+        "provider": "inria",
+        "parallel": "no",
+        "languages": "basque",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "creative commons cc0 license",
+        "publication": "the corpus has already been published",
+        "corpus_versions": [
+            {
+                "version": "20200410",
+                "date": "10/04/2020",
+                "path": "oscar_eu_20200410"
+            },
+            {
+                "version": "20200617",
+                "date": "17/06/2020",
+                "path": "oscar_eu_20200617",
+                "corpus_version_states": [
+                    {
+                        "state": "tokenized",
+                        "date": "20200617",
+                        "path": "oscar_eu_20200617_tokenized_20200617",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "tokenization",
+                                "src": "txt",
+                                "tgt": "txt",
+                                "script": "scripts/tokenizer.sh",
+                                "order": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "state": "no_boilerplate",
+                        "date": "20200612",
+                        "path": "oscar_eu_20200617_no_boilerplate_20200612",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "boilerplate removal",
+                                "src": "xml",
+                                "tgt": "txt",
+                                "script": "fasttext",
+                                "order": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
