@@ -14,13 +14,30 @@
             {
                 "version": "20200525",
                 "date": "28/05/2020",
-                "path": "crawling_ca_20200525"
+                "path": "crawling_ca_20200525",
+                "states": [
+                    {
+                        "state": "cleaned",
+                        "date": "20200610",
+                        "path": "crawling_ca_20200525_cleaned_20200610",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "cleaning",
+                                "src": "txt",
+                                "tgt": "txt",
+                                "script": "corpuscleaner",
+                                "order": "0"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "crawling_ca_20200617",
-                "corpus_version_states": [
+                "states": [
                     {
                         "state": "deduplicated",
                         "date": "20200610",
@@ -70,13 +87,30 @@
             {
                 "version": "20181008",
                 "date": "10/04/2020",
-                "path": "elh-webcorp_20181008"
+                "path": "elh-webcorp_20181008",
+                "states": [
+                    {
+                        "state": "tokenized",
+                        "date": "20200610",
+                        "path": "elh-webcorp_20181008_tokenized_20200610",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "tokenization",
+                                "src": "onion",
+                                "tgt": "txt",
+                                "script": "corpuscleaner",
+                                "order": "1"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "elh-webcorp_20200617",
-                "corpus_version_states": [
+                "states": [
                     {
                         "state": "deduplicated",
                         "date": "20200610",
@@ -117,7 +151,7 @@
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "subtitles_ca_20200617",
-                "corpus_version_states": [
+                "states": [
                     {
                         "state": "cleaned",
                         "date": "20200610",
@@ -172,7 +206,7 @@
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "oscar_eu_20200617",
-                "corpus_version_states": [
+                "states": [
                     {
                         "state": "tokenized",
                         "date": "20200617",

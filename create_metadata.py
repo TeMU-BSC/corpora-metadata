@@ -35,10 +35,8 @@ def get_actions(state_entry):
     return actions
 
 
-def get_corpus_version(version, date, path, states):
+def get_corpus_version(version, date, path):
     corpus_version = {'version': version, 'date': date, 'path': path}
-    if len(states) > 0:
-        corpus_version['corpus_version_states'] = states
     return (corpus_version)
 
 
@@ -67,7 +65,7 @@ def get_state(state_entry,version_path):
 def process_corpora(entry):
     entry['corpus_versions'] = []
     path = entry['dir_name'] + '_' + entry['version']
-    entry['corpus_versions'].append(get_corpus_version(entry['version'], entry['date'], path, []))
+    entry['corpus_versions'].append(get_corpus_version(entry['version'], entry['date'], path))
     entry.pop('version')
     entry.pop('date')
     return entry
@@ -93,21 +91,27 @@ def main():
             if v_entry['pretty_name'] == c_entry['pretty_name']:
 
                 # Process corpus states sheet
-                states_list = []
-                corpus_version = v_entry['pretty_name'] + ' ' + v_entry['version']
                 path = c_entry['dir_name'] + '_' + v_entry['version']
-                for s_entry in dict_states:
-                    # Fix date format
-                    date = s_entry['date']
-                    if "/" in date:
-                        s_entry['date'] = date[-4:] + date[3:5] + date[:2]
-                    # Remove None values
-                    s_entry = {k: v for k, v in s_entry.items() if v != 'none'}
-                    if s_entry['corpus_version'] == corpus_version:  #TODO: add corpus versions from when you initiate a corpus
-                        states_list.append(get_state(s_entry,path))
-
                 c_entry['corpus_versions'].append(
-                    get_corpus_version(v_entry['version'], v_entry['date'], path, states_list))
+                    get_corpus_version(v_entry['version'], v_entry['date'], path))
+
+    # Now that all corpus versions have been appended
+    for corpus_data in dict_corpora:
+        for version_data in corpus_data['corpus_versions']:
+            corpus_version = corpus_data['pretty_name'] + ' ' + version_data['version']
+            path = corpus_data['dir_name'] + '_' + version_data['version']
+            states_list = []
+            for s_entry in dict_states:
+                # Fix date format
+                date = s_entry['date']
+                if "/" in date:
+                    s_entry['date'] = date[-4:] + date[3:5] + date[:2]
+                # Remove None values
+                s_entry = {k: v for k, v in s_entry.items() if v != 'none'}
+                if s_entry['corpus_version'] == corpus_version:  #TODO: add corpus versions from when you initiate a corpus
+                    states_list.append(get_state(s_entry,path))
+            if len(states_list) > 0:
+                version_data['states'] = states_list
 
     with open('metadata.json', 'w', encoding='utf-8') as metadata:
         json.dump(dict_corpora, metadata, indent=4, ensure_ascii=False)
