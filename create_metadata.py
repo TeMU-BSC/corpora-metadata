@@ -6,8 +6,8 @@ import json
 def open_spreadsheet(sheet_name):
     # Edit your credentials and share the spreadsheet with your client_email from the credentials fle
     gc = gspread.service_account(filename='credentials.json')
-    # spreadsheet = gc.open("Metadata (respostes)")
-    spreadsheet = gc.open("Data versioning proposal (respostes)")
+    # spreadsheet = gc.open("Data versioning proposal (respostes)")
+    spreadsheet = gc.open("Metadata for MT4ALL")
     sheet = spreadsheet.worksheet(sheet_name)
     return sheet
 

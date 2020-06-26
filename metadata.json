@@ -1,16 +1,38 @@
 [
     {
+        "dir_name": "cawac_ca",
+        "pretty_name": "catalan web corpus (cawac)",
+        "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
+        "provider": "nlp group from university of zagreb",
+        "langs": ["ca"],
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "html",
+        "license": "cc-by-sa 3.0",
+        "domain": "general",
+        "document-level": "yes",
+        "cleaning": "corpuscleaner pipeline should be applied",
+        "sentence splitting and tokenizer": "",
+        "corpus_versions": [
+            {
+                "version": "v1",
+                "date": "28/05/2020",
+                "path": "cawac_ca_v1",
+                "size": "780m",
+                "publication": "the corpus version has already been published"
+            }
+        ]
+    },
+    {
         "dir_name": "crawling_ca",
         "pretty_name": "catalan crawling",
         "source": ".cat crawling",
         "provider": "bsc",
-        "langs": [
-            "ca"
-        ],
+        "langs": ["ca"],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "bsc-crawl-json",
-        "license": "creative commons cc0 license",
+        "license": "unknown",
         "domain": "general",
         "document-level": "yes",
         "cleaning": "corpuscleaner pipeline should be applied",
@@ -21,141 +43,88 @@
                 "date": "28/05/2020",
                 "path": "crawling_ca_20200525",
                 "size": "3485m",
-                "publication": "the corpus can be published according to its license.",
-                "corpus_version_states": [
-                    {
-                        "state": "cleaned",
-                        "date": "20200610",
-                        "path": "crawling_ca_20200525_cleaned_20200610",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "cleaning",
-                                "src": "txt",
-                                "tgt": "txt",
-                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
-                                "order": "0"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "version": "20200617",
-                "date": "17/06/2020",
-                "path": "crawling_ca_20200617",
-                "size": "3.5m",
-                "publication": "the corpus can be published according to its license.",
-                "corpus_version_states": [
-                    {
-                        "state": "deduplicated",
-                        "date": "20200610",
-                        "path": "crawling_ca_20200617_deduplicated_20200610",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "deduplication",
-                                "src": "txt",
-                                "tgt": "onion",
-                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
-                                "order": "1"
-                            }
-                        ]
-                    },
-                    {
-                        "state": "no_boilerplate",
-                        "date": "20200612",
-                        "path": "crawling_ca_20200617_no_boilerplate_20200612",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "boilerplate removal",
-                                "src": "html",
-                                "tgt": "txt",
-                                "script": "python -m justext -s basque -o text.txt cat.json",
-                                "order": "0"
-                            }
-                        ]
-                    }
-                ]
+                "publication": "i am unsure whether the corpus can be published or not"
             }
         ]
     },
     {
-        "dir_name": "elh_webcorp",
-        "pretty_name": "elhuyar web corpus",
-        "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
-        "provider": "elhuyar",
-        "langs": [
-            "eu"
-        ],
-        "parallel": "no",
+        "dir_name": "dogc_ca_es",
+        "pretty_name": "parallel dogc",
+        "source": "http://opus.nlpl.eu/dogc-v2.php",
+        "provider": "dogc",
+        "langs": ["ca","es"],
+        "parallel": "yes",
         "encoding": "utf-8",
         "format": "plain text",
-        "license": "creative commons cc0 license (“no rights reserved”)",
-        "domain": "general",
+        "license": "cc0 de creative commons",
+        "domain": "legal",
         "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence splitting and tokenizer": "sentence split",
         "corpus_versions": [
             {
-                "version": "20181008",
-                "date": "10/04/2020",
-                "path": "elh_webcorp_20181008",
-                "size": "186m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": [
-                    {
-                        "state": "tokenized",
-                        "date": "20200610",
-                        "path": "elh_webcorp_20181008_tokenized_20200610",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "tokenization",
-                                "src": "onion",
-                                "tgt": "txt",
-                                "script": "python tokenize.py",
-                                "order": "1"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "version": "20200617",
-                "date": "17/06/2020",
-                "path": "elh_webcorp_20200617",
-                "size": "48m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": [
-                    {
-                        "state": "deduplicated",
-                        "date": "20200610",
-                        "path": "elh_webcorp_20200617_deduplicated_20200610",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "deduplication",
-                                "src": "txt",
-                                "tgt": "onion",
-                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
-                                "order": "0"
-                            }
-                        ]
-                    }
-                ]
+                "version": "v2",
+                "date": "28/05/2020",
+                "path": "dogc_ca_es_v2",
+                "size": "130m",
+                "publication": "the corpus version has already been published"
             }
         ]
     },
     {
-        "dir_name": "subtitles_ca",
-        "pretty_name": "catalan subtitles",
+        "dir_name": "oscar_ca",
+        "pretty_name": "catalan oscar",
+        "source": "https://traces1.inria.fr/oscar/",
+        "provider": "inria",
+        "langs": ["ca"],
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "creative commons cc0 license",
+        "domain": "general",
+        "document-level": "yes",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "",
+        "corpus_versions": [
+            {
+                "version": "20200127",
+                "date": "28/05/2020",
+                "path": "oscar_ca_20200127",
+                "size": "728m",
+                "publication": "the corpus version has already been published"
+            }
+        ]
+    },
+    {
+        "dir_name": "pangeanic_crawl_ca",
+        "pretty_name": "catalan pangeanic crawl",
+        "source": "pangeanic database",
+        "provider": "pangeanic",
+        "langs": ["ca"],
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "unknown",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "emojis, weird characters",
+        "sentence splitting and tokenizer": "",
+        "corpus_versions": [
+            {
+                "version": "v1",
+                "date": "29/05/2020",
+                "path": "pangeanic_crawl_ca_v1",
+                "size": "89m",
+                "publication": "i am unsure whether the corpus can be published or not"
+            }
+        ]
+    },
+    {
+        "dir_name": "open_subtitles_ca",
+        "pretty_name": "catalan open subtitles",
         "source": "http://opus.nlpl.eu/download.php?f=opensubtitles/v2018/mono/opensubtitles.raw.ca.gz",
         "provider": "opensubtitles",
-        "langs": [
-            "ca"
-        ],
+        "langs": ["ca"],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -168,48 +137,57 @@
             {
                 "version": "20180404",
                 "date": "28/05/2020",
-                "path": "subtitles_ca_20180404",
+                "path": "open_subtitles_ca_20180404",
                 "size": "3.5m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": []
-            },
+                "publication": "the corpus version has already been published"
+            }
+        ]
+    },
+    {
+        "dir_name": "tweetmt_ca_es_eu",
+        "pretty_name": "tweetmt corpus",
+        "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#downloads",
+        "provider": "tweet translation workshop at sepln 2015",
+        "langs": ["eu", "ca", "es"],
+        "parallel": "yes",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "twitter license: https://dev.twitter.com/overview/terms/agreement-and-policy#6._be_a_good_partner_to_twitter",
+        "domain": "general",
+        "document-level": "yes",
+        "cleaning": "corpuscleaner pipeline should be applied",
+        "sentence splitting and tokenizer": "",
+        "corpus_versions": [
+            {
+                "version": "v1",
+                "date": "29/05/2020",
+                "path": "tweetmt_ca_es_eu_v1",
+                "size": "ca: 84k, eu: 63k, es: 180k",
+                "publication": "the corpus version has already been published"
+            }
+        ]
+    },
+    {
+        "dir_name": "oscar_en",
+        "pretty_name": "english oscar",
+        "source": "https://oscar-corpus.com/#corpus",
+        "provider": "inria",
+        "langs": ["en"],
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "creative commons cc0 license",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "sentence split",
+        "corpus_versions": [
             {
                 "version": "20200617",
-                "date": "17/06/2020",
-                "path": "subtitles_ca_20200617",
-                "size": "3485m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": [
-                    {
-                        "state": "cleaned",
-                        "date": "20200610",
-                        "path": "subtitles_ca_20200617_cleaned_20200610",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "cleaning",
-                                "src": "bsc-crawl-json",
-                                "tgt": "txt",
-                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
-                                "order": "0"
-                            },
-                            {
-                                "name": "deduplication",
-                                "src": "txt",
-                                "tgt": "onion",
-                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
-                                "order": "1"
-                            },
-                            {
-                                "name": "tokenization",
-                                "src": "onion",
-                                "tgt": "txt",
-                                "script": "python tokenize.py",
-                                "order": "2"
-                            }
-                        ]
-                    }
-                ]
+                "date": "18/06/2020",
+                "path": "oscar_en_20200617",
+                "size": "215.841m",
+                "publication": "the corpus version has already been published"
             }
         ]
     },
@@ -218,9 +196,7 @@
         "pretty_name": "basque oscar",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "inria",
-        "langs": [
-            "eu"
-        ],
+        "langs": ["eu"],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -235,156 +211,55 @@
                 "date": "10/04/2020",
                 "path": "oscar_eu_20200410",
                 "size": "48m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": []
-            },
-            {
-                "version": "20200617",
-                "date": "17/06/2020",
-                "path": "oscar_eu_20200617",
-                "size": "186m",
-                "publication": "the corpus has already been published",
-                "corpus_version_states": [
-                    {
-                        "state": "tokenized",
-                        "date": "20200617",
-                        "path": "oscar_eu_20200617_tokenized_20200617",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "tokenization",
-                                "src": "txt",
-                                "tgt": "txt",
-                                "script": "python tokenize.py",
-                                "order": "0"
-                            }
-                        ]
-                    },
-                    {
-                        "state": "no_boilerplate",
-                        "date": "20200612",
-                        "path": "oscar_eu_20200617_no_boilerplate_20200612",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "boilerplate removal",
-                                "src": "xml",
-                                "tgt": "txt",
-                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter eu",
-                                "order": "0"
-                            }
-                        ]
-                    }
-                ]
+                "publication": "the corpus version has already been published"
             }
         ]
     },
     {
-        "dir_name": "oscar_en",
-        "pretty_name": "english oscar",
-        "source": "https://oscar-corpus.com/#corpus",
-        "provider": "inria",
-        "langs": [
-            "en"
-        ],
+        "dir_name": "elh_webcorp",
+        "pretty_name": "elhuyar web corpus",
+        "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
+        "provider": "elhuyar",
+        "langs": ["eu"],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
-        "license": "creative commons cc0 license (“no rights reserved”)",
+        "license": "creative commons attribution non-commercial  share alike license (cc-by-nc-sa)",
         "domain": "general",
         "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
-        "sentence splitting and tokenizer": "sentence split",
+        "sentence splitting and tokenizer": "",
         "corpus_versions": [
             {
-                "version": "20200617",
-                "date": "26/06/2020",
-                "path": "oscar_en_20200617",
-                "size": "215.841m",
-                "publication": "the corpus version has already been published",
-                "corpus_version_states": [
-                    {
-                        "state": "deduplicated",
-                        "date": "20200626",
-                        "path": "oscar_en_20200617_deduplicated_20200626",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "deduplication",
-                                "src": "txt",
-                                "tgt": "txt",
-                                "script": "sort -u oscar_en_20200617.txt > oscar_en_20200617/oscar_en_20200617_deduplicated/oscar_en_20200617_deduplicated_20200626.txt",
-                                "order": "0"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "version": "20200301",
-                "date": "28/05/2020",
-                "path": "oscar_en_20200301",
-                "size": "250m",
-                "publication": "the corpus version has already been published",
-                "corpus_version_states": []
+                "version": "20181008",
+                "date": "10/04/2020",
+                "path": "elh_webcorp_20181008",
+                "size": "186m",
+                "publication": "the corpus version can be published according to its license."
             }
         ]
     },
     {
-        "dir_name": "wikipedia_ca",
-        "pretty_name": "catalan wikipedia",
-        "source": "https://ca.wikipedia.org/",
-        "provider": "wikipedia",
-        "langs": [
-            "ca"
-        ],
+        "dir_name": "wmt_news_en",
+        "pretty_name": "wmt english news",
+        "source": "http://www.statmt.org/wmt14/translation-task.html",
+        "provider": "wmt shared task's organizers",
+        "langs": ["en"],
         "parallel": "no",
         "encoding": "utf-8",
-        "format": "bsc-crawl-json",
-        "license": "creative commons attribution-sharealike 3.0",
+        "format": "plain text",
+        "license": "no clear license provided - publically available on the web",
         "domain": "general",
-        "document-level": "yes",
-        "cleaning": "remove html, deduplicate, sentence splitting...",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence splitting and tokenizer": "",
         "corpus_versions": [
             {
-                "version": "20200525",
-                "date": "28/05/2020",
-                "path": "wikipedia_ca_20200525",
-                "size": "50m",
-                "publication": "the corpus version can be published according to its license.",
-                "corpus_version_states": [
-                    {
-                        "state": "deduplicated",
-                        "date": "20200528",
-                        "path": "wikipedia_ca_20200525_deduplicated_20200528",
-                        "release": "",
-                        "actions": [
-                            {
-                                "name": "boilerplate removal",
-                                "src": "bsc-crawl-json",
-                                "tgt": "txt",
-                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
-                                "order": "0"
-                            },
-                            {
-                                "name": "deduplication",
-                                "src": "txt",
-                                "tgt": "onion",
-                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
-                                "order": "1"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "version": "20200103",
-                "date": "25/05/2020",
-                "path": "wikipedia_ca_20200103",
-                "size": "40m",
-                "publication": "the corpus version can be published according to its license.",
-                "corpus_version_states": []
+                "version": "2014",
+                "date": "23/06/2020",
+                "path": "wmt_news_en_2014",
+                "size": "1900m",
+                "publication": "the corpus version has already been published"
             }
         ]
     }
