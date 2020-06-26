@@ -4,7 +4,9 @@
         "pretty_name": "catalan crawling",
         "source": ".cat crawling",
         "provider": "bsc",
-        "languages": "catalan",
+        "langs": [
+            "ca"
+        ],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "bsc-crawl-json",
@@ -20,7 +22,7 @@
                 "path": "crawling_ca_20200525",
                 "size": "3485m",
                 "publication": "the corpus can be published according to its license.",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "cleaned",
                         "date": "20200610",
@@ -31,7 +33,7 @@
                                 "name": "cleaning",
                                 "src": "txt",
                                 "tgt": "txt",
-                                "script": "corpuscleaner",
+                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
                                 "order": "0"
                             }
                         ]
@@ -44,7 +46,7 @@
                 "path": "crawling_ca_20200617",
                 "size": "3.5m",
                 "publication": "the corpus can be published according to its license.",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "deduplicated",
                         "date": "20200610",
@@ -55,7 +57,7 @@
                                 "name": "deduplication",
                                 "src": "txt",
                                 "tgt": "onion",
-                                "script": "onion",
+                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
                                 "order": "1"
                             }
                         ]
@@ -70,7 +72,7 @@
                                 "name": "boilerplate removal",
                                 "src": "html",
                                 "tgt": "txt",
-                                "script": "justtext",
+                                "script": "python -m justext -s basque -o text.txt cat.json",
                                 "order": "0"
                             }
                         ]
@@ -84,7 +86,9 @@
         "pretty_name": "elhuyar web corpus",
         "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
         "provider": "elhuyar",
-        "languages": "basque",
+        "langs": [
+            "eu"
+        ],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -100,7 +104,7 @@
                 "path": "elh_webcorp_20181008",
                 "size": "186m",
                 "publication": "the corpus has already been published",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "tokenized",
                         "date": "20200610",
@@ -111,7 +115,7 @@
                                 "name": "tokenization",
                                 "src": "onion",
                                 "tgt": "txt",
-                                "script": "corpuscleaner",
+                                "script": "python tokenize.py",
                                 "order": "1"
                             }
                         ]
@@ -124,7 +128,7 @@
                 "path": "elh_webcorp_20200617",
                 "size": "48m",
                 "publication": "the corpus has already been published",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "deduplicated",
                         "date": "20200610",
@@ -135,7 +139,7 @@
                                 "name": "deduplication",
                                 "src": "txt",
                                 "tgt": "onion",
-                                "script": "onion",
+                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
                                 "order": "0"
                             }
                         ]
@@ -149,7 +153,9 @@
         "pretty_name": "catalan subtitles",
         "source": "http://opus.nlpl.eu/download.php?f=opensubtitles/v2018/mono/opensubtitles.raw.ca.gz",
         "provider": "opensubtitles",
-        "languages": "catalan",
+        "langs": [
+            "ca"
+        ],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -164,7 +170,8 @@
                 "date": "28/05/2020",
                 "path": "subtitles_ca_20180404",
                 "size": "3.5m",
-                "publication": "the corpus has already been published"
+                "publication": "the corpus has already been published",
+                "corpus_version_states": []
             },
             {
                 "version": "20200617",
@@ -172,7 +179,7 @@
                 "path": "subtitles_ca_20200617",
                 "size": "3485m",
                 "publication": "the corpus has already been published",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "cleaned",
                         "date": "20200610",
@@ -183,21 +190,21 @@
                                 "name": "cleaning",
                                 "src": "bsc-crawl-json",
                                 "tgt": "txt",
-                                "script": "corpuscleaner",
+                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
                                 "order": "0"
                             },
                             {
                                 "name": "deduplication",
                                 "src": "txt",
                                 "tgt": "onion",
-                                "script": "onion",
+                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
                                 "order": "1"
                             },
                             {
                                 "name": "tokenization",
                                 "src": "onion",
                                 "tgt": "txt",
-                                "script": "ixa pipes tokenizer",
+                                "script": "python tokenize.py",
                                 "order": "2"
                             }
                         ]
@@ -211,7 +218,9 @@
         "pretty_name": "basque oscar",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "inria",
-        "languages": "basque",
+        "langs": [
+            "eu"
+        ],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -226,7 +235,8 @@
                 "date": "10/04/2020",
                 "path": "oscar_eu_20200410",
                 "size": "48m",
-                "publication": "the corpus has already been published"
+                "publication": "the corpus has already been published",
+                "corpus_version_states": []
             },
             {
                 "version": "20200617",
@@ -234,7 +244,7 @@
                 "path": "oscar_eu_20200617",
                 "size": "186m",
                 "publication": "the corpus has already been published",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "tokenized",
                         "date": "20200617",
@@ -245,7 +255,7 @@
                                 "name": "tokenization",
                                 "src": "txt",
                                 "tgt": "txt",
-                                "script": "scripts/tokenizer.sh",
+                                "script": "python tokenize.py",
                                 "order": "0"
                             }
                         ]
@@ -260,7 +270,7 @@
                                 "name": "boilerplate removal",
                                 "src": "xml",
                                 "tgt": "txt",
-                                "script": "fasttext",
+                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter eu",
                                 "order": "0"
                             }
                         ]
@@ -274,7 +284,9 @@
         "pretty_name": "english oscar",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "inria",
-        "languages": "english",
+        "langs": [
+            "en"
+        ],
         "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
@@ -290,7 +302,7 @@
                 "path": "oscar_en_20200617",
                 "size": "215.841m",
                 "publication": "the corpus version has already been published",
-                "states": [
+                "corpus_version_states": [
                     {
                         "state": "deduplicated",
                         "date": "20200626",
@@ -313,7 +325,66 @@
                 "date": "28/05/2020",
                 "path": "oscar_en_20200301",
                 "size": "250m",
-                "publication": "the corpus version has already been published"
+                "publication": "the corpus version has already been published",
+                "corpus_version_states": []
+            }
+        ]
+    },
+    {
+        "dir_name": "wikipedia_ca",
+        "pretty_name": "catalan wikipedia",
+        "source": "https://ca.wikipedia.org/",
+        "provider": "wikipedia",
+        "langs": [
+            "ca"
+        ],
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "bsc-crawl-json",
+        "license": "creative commons attribution-sharealike 3.0",
+        "domain": "general",
+        "document-level": "yes",
+        "cleaning": "remove html, deduplicate, sentence splitting...",
+        "sentence splitting and tokenizer": "",
+        "corpus_versions": [
+            {
+                "version": "20200525",
+                "date": "28/05/2020",
+                "path": "wikipedia_ca_20200525",
+                "size": "50m",
+                "publication": "the corpus version can be published according to its license.",
+                "corpus_version_states": [
+                    {
+                        "state": "deduplicated",
+                        "date": "20200528",
+                        "path": "wikipedia_ca_20200525_deduplicated_20200528",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "boilerplate removal",
+                                "src": "bsc-crawl-json",
+                                "tgt": "txt",
+                                "script": "python clean.py crawling_ca  --input-path data/test/ --input-format bsc-crawl-json --output-format fairseq-lm --lang-filter ca",
+                                "order": "0"
+                            },
+                            {
+                                "name": "deduplication",
+                                "src": "txt",
+                                "tgt": "onion",
+                                "script": "onion -m -n 1 -t  0.5 text.txt text_dedup.onion",
+                                "order": "1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "version": "20200103",
+                "date": "25/05/2020",
+                "path": "wikipedia_ca_20200103",
+                "size": "40m",
+                "publication": "the corpus version can be published according to its license.",
+                "corpus_version_states": []
             }
         ]
     }

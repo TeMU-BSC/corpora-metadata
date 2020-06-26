@@ -20,7 +20,6 @@ def get_values(sheet_name, range_cells, drop_columns=list()):
     df = df.apply(lambda x: x.astype(str).str.lower())
     return df
 
-
 def get_actions(state_entry):
     actions = list()
     for index in range(int(len(state_entry) / 5)):
@@ -54,18 +53,28 @@ def get_actions(state_entry):
     return actions
 
 
-def get_state(state_entry,version_path):
+def get_state(state_entry, version_path):
     new_path = version_path + '_' + state_entry['state_name'] + '_' + state_entry['date']
-    clean_state_entry = dict(state=state_entry['state_name'], date=state_entry['date'], path=new_path, release=state_entry['release'])
+    clean_state_entry = dict(state=state_entry['state_name'], date=state_entry['date'], path=new_path,
+                             release=state_entry['release'])
     actions = get_actions(state_entry)
     clean_state_entry['actions'] = actions
     return clean_state_entry
 
+def get_languages(langs):
+    langs_codes = dict(catalan='ca', english='en', spanish='es', basque='eu', finnish='fi', georgian='ka', kazah='kk',
+             latvian='lv', ukrainan='uk')
+    langs_list = []
+    for language in langs.split(', '):
+        langs_list.append(langs_codes[language])
+    return(langs_list)
 
 def process_corpora(entry):
     entry['corpus_versions'] = []
+    entry['langs'] = get_languages(entry['langs'])
     path = entry['dir_name'] + '_' + entry['version']
-    entry['corpus_versions'].append(get_corpus_version(entry['version'], entry['date'], path, entry['size'], entry['publication']))
+    entry['corpus_versions'].append(
+        get_corpus_version(entry['version'], entry['date'], path, entry['size'], entry['publication']))
     entry.pop('version')
     entry.pop('date')
     entry.pop('size')
@@ -89,11 +98,11 @@ def main():
         # Process corpus versions sheet
         for v_entry in dict_versions:
             if v_entry['pretty_name'] == c_entry['pretty_name']:
-
                 # Process corpus states sheet
                 path = c_entry['dir_name'] + '_' + v_entry['version']
                 c_entry['corpus_versions'].append(
-                    get_corpus_version(v_entry['version'], v_entry['date'], path, v_entry['size'], v_entry['publication']))
+                    get_corpus_version(v_entry['version'], v_entry['date'], path, v_entry['size'],
+                                       v_entry['publication']))
 
     # Now that all corpus versions have been appended
     for corpus_data in dict_corpora:
@@ -108,10 +117,10 @@ def main():
                     s_entry['date'] = date[-4:] + date[3:5] + date[:2]
                 # Remove None values
                 s_entry = {k: v for k, v in s_entry.items() if v != 'none'}
-                if s_entry['corpus_version'] == corpus_version:  #TODO: add corpus versions from when you initiate a corpus
-                    states_list.append(get_state(s_entry,path))
-            if len(states_list) > 0:
-                version_data['states'] = states_list
+                if s_entry[
+                    'corpus_version'] == corpus_version:  # TODO: add corpus versions from when you initiate a corpus
+                    states_list.append(get_state(s_entry, path))
+                version_data['corpus_version_states'] = states_list
 
     with open('metadata.json', 'w', encoding='utf-8') as metadata:
         json.dump(dict_corpora, metadata, indent=4, ensure_ascii=False)
