@@ -4,17 +4,22 @@
         "pretty_name": "catalan crawling",
         "source": ".cat crawling",
         "provider": "bsc",
-        "parallel": "no",
         "languages": "catalan",
+        "parallel": "no",
         "encoding": "utf-8",
         "format": "bsc-crawl-json",
         "license": "creative commons cc0 license",
-        "publication": "the corpus can be published according to its license.",
+        "domain": "general",
+        "document-level": "yes",
+        "cleaning": "corpuscleaner pipeline should be applied",
+        "sentence splitting and tokenizer": "",
         "corpus_versions": [
             {
                 "version": "20200525",
                 "date": "28/05/2020",
                 "path": "crawling_ca_20200525",
+                "size": "3485m",
+                "publication": "the corpus can be published according to its license.",
                 "states": [
                     {
                         "state": "cleaned",
@@ -37,6 +42,8 @@
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "crawling_ca_20200617",
+                "size": "3.5m",
+                "publication": "the corpus can be published according to its license.",
                 "states": [
                     {
                         "state": "deduplicated",
@@ -73,26 +80,31 @@
         ]
     },
     {
-        "dir_name": "elh-webcorp",
+        "dir_name": "elh_webcorp",
         "pretty_name": "elhuyar web corpus",
         "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
         "provider": "elhuyar",
-        "parallel": "no",
         "languages": "basque",
+        "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
         "license": "creative commons cc0 license (“no rights reserved”)",
-        "publication": "the corpus has already been published",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "sentence split",
         "corpus_versions": [
             {
                 "version": "20181008",
                 "date": "10/04/2020",
-                "path": "elh-webcorp_20181008",
+                "path": "elh_webcorp_20181008",
+                "size": "186m",
+                "publication": "the corpus has already been published",
                 "states": [
                     {
                         "state": "tokenized",
                         "date": "20200610",
-                        "path": "elh-webcorp_20181008_tokenized_20200610",
+                        "path": "elh_webcorp_20181008_tokenized_20200610",
                         "release": "",
                         "actions": [
                             {
@@ -109,12 +121,14 @@
             {
                 "version": "20200617",
                 "date": "17/06/2020",
-                "path": "elh-webcorp_20200617",
+                "path": "elh_webcorp_20200617",
+                "size": "48m",
+                "publication": "the corpus has already been published",
                 "states": [
                     {
                         "state": "deduplicated",
                         "date": "20200610",
-                        "path": "elh-webcorp_20200617_deduplicated_20200610",
+                        "path": "elh_webcorp_20200617_deduplicated_20200610",
                         "release": "",
                         "actions": [
                             {
@@ -135,22 +149,29 @@
         "pretty_name": "catalan subtitles",
         "source": "http://opus.nlpl.eu/download.php?f=opensubtitles/v2018/mono/opensubtitles.raw.ca.gz",
         "provider": "opensubtitles",
-        "parallel": "no",
         "languages": "catalan",
+        "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
         "license": "cite opensub",
-        "publication": "the corpus has already been published",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "sentence split",
         "corpus_versions": [
             {
                 "version": "20180404",
                 "date": "28/05/2020",
-                "path": "subtitles_ca_20180404"
+                "path": "subtitles_ca_20180404",
+                "size": "3.5m",
+                "publication": "the corpus has already been published"
             },
             {
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "subtitles_ca_20200617",
+                "size": "3485m",
+                "publication": "the corpus has already been published",
                 "states": [
                     {
                         "state": "cleaned",
@@ -190,22 +211,29 @@
         "pretty_name": "basque oscar",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "inria",
-        "parallel": "no",
         "languages": "basque",
+        "parallel": "no",
         "encoding": "utf-8",
         "format": "plain text",
         "license": "creative commons cc0 license",
-        "publication": "the corpus has already been published",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "",
         "corpus_versions": [
             {
                 "version": "20200410",
                 "date": "10/04/2020",
-                "path": "oscar_eu_20200410"
+                "path": "oscar_eu_20200410",
+                "size": "48m",
+                "publication": "the corpus has already been published"
             },
             {
                 "version": "20200617",
                 "date": "17/06/2020",
                 "path": "oscar_eu_20200617",
+                "size": "186m",
+                "publication": "the corpus has already been published",
                 "states": [
                     {
                         "state": "tokenized",
@@ -238,6 +266,54 @@
                         ]
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "dir_name": "oscar_en",
+        "pretty_name": "english oscar",
+        "source": "https://oscar-corpus.com/#corpus",
+        "provider": "inria",
+        "languages": "english",
+        "parallel": "no",
+        "encoding": "utf-8",
+        "format": "plain text",
+        "license": "creative commons cc0 license (“no rights reserved”)",
+        "domain": "general",
+        "document-level": "no/not easily parseable/don't know/can't assure for all the corpus",
+        "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
+        "sentence splitting and tokenizer": "sentence split",
+        "corpus_versions": [
+            {
+                "version": "20200617",
+                "date": "26/06/2020",
+                "path": "oscar_en_20200617",
+                "size": "215.841m",
+                "publication": "the corpus version has already been published",
+                "states": [
+                    {
+                        "state": "deduplicated",
+                        "date": "20200626",
+                        "path": "oscar_en_20200617_deduplicated_20200626",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "deduplication",
+                                "src": "txt",
+                                "tgt": "txt",
+                                "script": "sort -u oscar_en_20200617.txt > oscar_en_20200617/oscar_en_20200617_deduplicated/oscar_en_20200617_deduplicated_20200626.txt",
+                                "order": "0"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "version": "20200301",
+                "date": "28/05/2020",
+                "path": "oscar_en_20200301",
+                "size": "250m",
+                "publication": "the corpus version has already been published"
             }
         ]
     }

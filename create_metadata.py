@@ -35,8 +35,8 @@ def get_actions(state_entry):
     return actions
 
 
-def get_corpus_version(version, date, path):
-    corpus_version = {'version': version, 'date': date, 'path': path}
+def get_corpus_version(version, date, path, size, publication):
+    corpus_version = {'version': version, 'date': date, 'path': path, 'size': size, 'publication': publication}
     return (corpus_version)
 
 
@@ -65,18 +65,18 @@ def get_state(state_entry,version_path):
 def process_corpora(entry):
     entry['corpus_versions'] = []
     path = entry['dir_name'] + '_' + entry['version']
-    entry['corpus_versions'].append(get_corpus_version(entry['version'], entry['date'], path))
+    entry['corpus_versions'].append(get_corpus_version(entry['version'], entry['date'], path, entry['size'], entry['publication']))
     entry.pop('version')
     entry.pop('date')
+    entry.pop('size')
+    entry.pop('publication')
     return entry
 
 
 def main():
-    corpora_drop_columns = ['scale', 'domain', 'document-level', 'cleaning',
-                            'sentence splitting and tokenizer']
-    corpora = get_values('Corpora', 'B:R', corpora_drop_columns)
-    versions = get_values('Corpus versions', 'T:V')
-    states = get_values('States', 'W:AO')
+    corpora = get_values('Corpora', 'B:R')
+    versions = get_values('Corpus versions', 'T:X')
+    states = get_values('States', 'Y:AQ')
     dict_corpora = corpora.to_dict(orient='records')
     dict_versions = versions.to_dict(orient='records')
     dict_states = states.to_dict(orient='records')
@@ -93,7 +93,7 @@ def main():
                 # Process corpus states sheet
                 path = c_entry['dir_name'] + '_' + v_entry['version']
                 c_entry['corpus_versions'].append(
-                    get_corpus_version(v_entry['version'], v_entry['date'], path))
+                    get_corpus_version(v_entry['version'], v_entry['date'], path, v_entry['size'], v_entry['publication']))
 
     # Now that all corpus versions have been appended
     for corpus_data in dict_corpora:
