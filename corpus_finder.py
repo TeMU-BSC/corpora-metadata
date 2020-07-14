@@ -17,16 +17,13 @@ def parse_arguments():
             query[opt]=value
     return query
 
-def main():
-    metadata = json.loads(open ('metadata.json').read())
-    query = parse_arguments()
+def get_matches(query, metadata):
     all_matches = list()
     for query_item in query:
         if query_item == 'lang' or 'projects':
             match = list(filter(lambda x: query[query_item] in x[query_item], metadata))
         else:
             match = list(filter(lambda x: x[query_item] == query[query_item], metadata))
-
         all_matches.extend(match)
 
     results = list()
@@ -35,13 +32,18 @@ def main():
             results.append(match)
     if len(results) == 0:
         results = "No results found, please, try again with a new query"
+        return results
     else:
         results_df = pd.DataFrame(results).iloc[:, 0:2]
-        results_df.columns = results_df.columns.str.upper()
-        results_df = results_df.shift()[1:]
-        results = results_df
-    #results = [x for n, x in enumerate(all_matches) if x in all_matches[:n]]
-    print(results) #Decide which columns to return
+        results_df.columns = ['DIRECTORY', 'NAME']
+        results_df.set_index(pd.Series(range(1,len(results)+1)), inplace=True)
+        return results_df
 
+
+def main():
+    metadata = json.loads(open ('metadata.json').read())
+    query = parse_arguments()
+    results = get_matches(query, metadata)
+    print(results)
 
 main()
