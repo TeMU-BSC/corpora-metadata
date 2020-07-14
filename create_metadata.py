@@ -56,7 +56,7 @@ def get_actions(state_entry):
 def get_state(state_entry, version_path):
     new_path = version_path + '_' + state_entry['state_name'] + '_' + state_entry['date']
     clean_state_entry = dict(state=state_entry['state_name'], date=state_entry['date'], path=new_path,
-                             release=state_entry['release'])
+                             prior_state=state_entry['prior_state'], release=state_entry['release'])
     actions = get_actions(state_entry)
     clean_state_entry['actions'] = actions
     return clean_state_entry
@@ -73,6 +73,7 @@ def process_corpora(entry):
     entry['corpus_versions'] = []
     entry['langs'] = get_languages(entry['langs'])
     path = entry['dir_name'] + '_' + entry['version']
+    entry['projects'] = entry['projects'].split()
     entry['corpus_versions'].append(
         get_corpus_version(entry['version'], entry['date'], path, entry['size'], entry['publication']))
     entry.pop('version')
@@ -83,7 +84,7 @@ def process_corpora(entry):
 
 
 def main():
-    corpora = get_values('Corpora', 'B:R')
+    corpora = get_values('Corpora', 'B:T')
     versions = get_values('Corpus versions', 'T:X')
     states = get_values('States', 'Y:AQ')
     dict_corpora = corpora.to_dict(orient='records')
@@ -118,7 +119,7 @@ def main():
                 # Remove None values
                 s_entry = {k: v for k, v in s_entry.items() if v != 'none'}
                 if s_entry[
-                    'corpus_version'] == corpus_version:  # TODO: add corpus versions from when you initiate a corpus
+                    'corpus_version'] == corpus_version:
                     states_list.append(get_state(s_entry, path))
                 version_data['corpus_version_states'] = states_list
 
