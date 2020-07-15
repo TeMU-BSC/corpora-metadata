@@ -37,6 +37,7 @@ def get_matches(query, metadata):
         results_df = pd.DataFrame(results).iloc[:, 0:2]
         results_df.columns = ['DIRECTORY', 'NAME']
         results_df.set_index(pd.Series(range(1,len(results)+1)), inplace=True)
+        print("There are {} matches:\n".format(len(results)))
         return results_df
 
 
