@@ -10,13 +10,21 @@ def open_spreadsheet(sheet_name):
     sheet = spreadsheet.worksheet(sheet_name)
     return sheet
 
+def lowercase_df(column_names, df):
+    if set(column_names).issubset(df.columns):
+        lower_case_df = df.drop(column_names, axis=1)
+        lower_case_df = lower_case_df.apply(lambda x: x.astype(str).str.lower())
+        df = pd.concat([lower_case_df, df[column_names]], axis=1)
+    else:
+        df = df.apply(lambda x: x.astype(str).str.lower())
+    return df
 
 def get_values(sheet_name, range_cells, drop_columns=list()):
     sheet = open_spreadsheet(sheet_name)
     data = sheet.get(range_cells)
     df = pd.DataFrame(data[1:], columns=data[0])
     df.drop(drop_columns, axis=1, inplace=True)
-    df = df.apply(lambda x: x.astype(str).str.lower())
+    df = lowercase_df(['comments','publication'], df) #write here the columns we DO NOT want to lowercase
     return df
 
 def get_actions(state_entry):
@@ -83,14 +91,13 @@ def process_corpora(entry):
 
 
 def main():
-    corpora = get_values('Corpora', 'B:T')
+    corpora = get_values('Corpora', 'C:U')
     versions = get_values('Corpus versions', 'T:X')
     states = get_values('States', 'Y:AQ')
     dict_corpora = corpora.to_dict(orient='records')
     dict_versions = versions.to_dict(orient='records')
     dict_states = states.to_dict(orient='records')
 
-    data_to_write = {}
     # Process corpora sheet
     for c_entry in dict_corpora:
         c_entry = process_corpora(c_entry)

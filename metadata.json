@@ -14,14 +14,14 @@
         "document_level": "yes",
         "cleaning": "corpuscleaner pipeline should be applied",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "none",
+        "comments": null,
         "corpus_versions": [
             {
                 "version": "v1",
                 "date": "28/05/2020",
                 "path": "cawac_ca_v1",
                 "size": "780m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -40,14 +40,14 @@
         "document_level": "yes",
         "cleaning": "corpuscleaner pipeline should be applied",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "we're studying the license matters with the bsc lawyer",
+        "comments": "We're studying the license matters with the BSC lawyer",
         "corpus_versions": [
             {
                 "version": "20200525",
                 "date": "28/05/2020",
                 "path": "crawling_ca_20200525",
                 "size": "3485m",
-                "publication": "i am unsure whether the corpus can be published or not"
+                "publication": "I am unsure whether the corpus can be published or not"
             }
         ]
     },
@@ -56,7 +56,7 @@
         "pretty_name": "parallel dogc",
         "source": "http://opus.nlpl.eu/dogc-v2.php",
         "provider": "dogc",
-        "langs": ["ca", "es"],
+        "langs": ["ca","es"],
         "parallel": "yes",
         "encoding": "utf-8",
         "format": "plain text",
@@ -66,14 +66,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "sentence split",
-        "comments": "collection of documents from the official journal of the catalan goverment in catalan and spanish",
+        "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
         "corpus_versions": [
             {
                 "version": "v2",
                 "date": "28/05/2020",
                 "path": "dogc_ca_es_v2",
                 "size": "130m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -92,14 +92,14 @@
         "document_level": "yes",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "each line could be considered as a document as they are no sentence splitted.",
+        "comments": "Each line could be considered as a document as they are no sentence splitted.",
         "corpus_versions": [
             {
                 "version": "20200127",
                 "date": "28/05/2020",
                 "path": "oscar_ca_20200127",
                 "size": "728m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -118,14 +118,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "emojis, weird characters",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "the crawling was made on the following domains and years: .ad (2015,2017), .com (2018), news crawling (2011,2015,2016,2017) and other domains (2004). all the documents have been merged into a single one and exact duplicated entries were removed.",
+        "comments": "The crawling was made on the following domains and years: .ad (2015,2017), .com (2018), news crawling (2011,2015,2016,2017) and other domains (2004). All the documents have been merged into a single one and exact duplicated entries were removed.",
         "corpus_versions": [
             {
                 "version": "v1",
                 "date": "29/05/2020",
                 "path": "pangeanic_crawl_ca_v1",
                 "size": "89m",
-                "publication": "i am unsure whether the corpus can be published or not"
+                "publication": "I am unsure whether the corpus can be published or not"
             }
         ]
     },
@@ -144,14 +144,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "sentence split",
-        "comments": "collection of translated movie subtitles from http://www.opensubtitles.org/",
+        "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/",
         "corpus_versions": [
             {
                 "version": "20180404",
                 "date": "28/05/2020",
                 "path": "open_subtitles_ca_20180404",
                 "size": "3.5m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -170,14 +170,14 @@
         "document_level": "yes",
         "cleaning": "corpuscleaner pipeline should be applied",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. the corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). monolingual files have been normalized (@user and urls are standarized to 'ididid' dnd 'urlurlurl', respectively)",
+        "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively)",
         "corpus_versions": [
             {
                 "version": "v1",
                 "date": "29/05/2020",
                 "path": "tweetmt_ca_es_eu_v1",
                 "size": "ca: 84k, eu: 63k, es: 180k",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -196,14 +196,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "sentence split",
-        "comments": "oscar is a multilingual corpus obtained by language classification and filtering of the common crawl.",
+        "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl.",
         "corpus_versions": [
             {
                 "version": "20200617",
                 "date": "18/06/2020",
                 "path": "oscar_en_20200617",
                 "size": "215.841m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -222,14 +222,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "oscar is a multilingual corpus obtained by language classification and filtering of the common crawl. so, i think it is ready to use but did not check by myself.",
+        "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. So, I THINK it is ready to use but did not check by myself.",
         "corpus_versions": [
             {
                 "version": "20200410",
                 "date": "10/04/2020",
                 "path": "oscar_eu_20200410",
                 "size": "48m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -248,14 +248,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "none",
+        "comments": null,
         "corpus_versions": [
             {
                 "version": "20181008",
                 "date": "10/04/2020",
                 "path": "elh_webcorp_20181008",
                 "size": "186m",
-                "publication": "the corpus version can be published according to its license."
+                "publication": "The corpus version can be published according to its license."
             }
         ]
     },
@@ -274,14 +274,14 @@
         "document_level": "no/not easily parseable/don't know/can't assure for all the corpus",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "none",
+        "comments": null,
         "corpus_versions": [
             {
                 "version": "2014",
                 "date": "23/06/2020",
                 "path": "wmt_news_en_2014",
                 "size": "1900m",
-                "publication": "the corpus version has already been published"
+                "publication": "The corpus version has already been published"
             }
         ]
     },
@@ -300,14 +300,14 @@
         "document_level": "yes",
         "cleaning": "yes, the corpus is ready to be input to a tokenizer/sentence splitter (if required).",
         "sentence_splitting_and_tokenizer": "",
-        "comments": "empty lines are used to mark document boundaries. the crawling is active and it it is planned to publish it. the licensing will be decided then.",
+        "comments": "Empty lines are used to mark document boundaries. The crawling is active and it it is planned to publish it. The licensing will be decided then.",
         "corpus_versions": [
             {
                 "version": "20200709",
                 "date": "13/07/2020",
                 "path": "euscrawl_eu_20200709",
                 "size": "115m",
-                "publication": "i am unsure whether the corpus can be published or not."
+                "publication": "I am unsure whether the corpus can be published or not."
             }
         ]
     }
