@@ -20,7 +20,7 @@ def parse_arguments():
 def get_matches(query, metadata):
     all_matches = list()
     for query_item in query:
-        if query_item == 'lang' or 'projects':
+        if query_item == 'lang' or 'projects' or 'domain':
             match = list(filter(lambda x: query[query_item] in x[query_item], metadata))
         else:
             match = list(filter(lambda x: x[query_item] == query[query_item], metadata))
