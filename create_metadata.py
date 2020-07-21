@@ -70,7 +70,7 @@ def get_state(state_entry, version_path):
 
 def get_languages(langs):
     langs_codes = dict(catalan='ca', english='en', spanish='es', basque='eu', finnish='fi', georgian='ka', kazah='kk',
-             latvian='lv', ukrainan='uk')
+             latvian='lv', ukrainan='uk', norwegian='no')
     langs_list = []
     for language in langs.split(', '):
         langs_list.append(langs_codes[language])
@@ -80,7 +80,8 @@ def process_corpora(entry):
     entry['corpus_versions'] = []
     entry['langs'] = get_languages(entry['langs'])
     path = entry['dir_name'] + '_' + entry['version']
-    entry['projects'] = entry['projects'].split()
+    entry['domain'] = entry['domain'].split(",")
+    entry['projects'] = entry['projects'].split(",")
     entry['corpus_versions'].append(
         get_corpus_version(entry['version'], entry['date'], path, entry['size'], entry['publication']))
     entry.pop('version')
@@ -93,7 +94,7 @@ def process_corpora(entry):
 def main():
     corpora = get_values('Corpora', 'C:U')
     versions = get_values('Corpus versions', 'T:X')
-    states = get_values('States', 'Y:AQ')
+    states = get_values('States', 'Z:AN')
     dict_corpora = corpora.to_dict(orient='records')
     dict_versions = versions.to_dict(orient='records')
     dict_states = states.to_dict(orient='records')
