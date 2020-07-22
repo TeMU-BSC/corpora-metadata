@@ -1,2 +1,11 @@
-- name: GitHub Action for pytest
-  uses: cclauss/GitHub-Action-for-pytest@0.5.0
+name: Run pytest on push
+
+on: [push, pull_request]
+
+jobs:
+  pytest:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+    - name: GitHub Action for pytest
+      uses: cclauss/GitHub-Action-for-pytest@0.5.0
