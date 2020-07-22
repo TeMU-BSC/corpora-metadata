@@ -34,7 +34,7 @@
         "langs": ["ca"],
         "parallel": "no",
         "encoding": "utf-8",
-        "format": "bsc-crawl-json",
+        "format": "warc",
         "license": "unknown",
         "domain": ["general"],
         "projects": ["mt4all"],
@@ -60,12 +60,12 @@
                             {
                                 "name": "cleaning",
                                 "src": "warc",
-                                "tgt": "fairseq-lm",
+                                "tgt": "fafairseq-lm",
                                 "script": "python corpus-cleaner/clean.py cat-warc --input-path corpora/crawling_ca_20200525 --input-format warc --output-format fairseq-lm --lang-filter ca --parallel",
                                 "order": "0"
                             },
                             {
-                                "name": "deduplication",
+                                "name": "postprocessing",
                                 "src": "fairseq-lm",
                                 "tgt": "fairseq-lm",
                                 "script": "bash corpus-cleaner/postprocess.sh",
@@ -82,8 +82,7 @@
         "pretty_name": "parallel dogc",
         "source": "http://opus.nlpl.eu/dogc-v2.php",
         "provider": "dogc",
-        "langs": ["ca",
-            "es"],
+        "langs": ["ca","es"],
         "parallel": "yes",
         "encoding": "utf-8",
         "format": "plain text",
@@ -191,9 +190,7 @@
         "pretty_name": "tweetmt corpus",
         "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#downloads",
         "provider": "tweet translation workshop at sepln 2015",
-        "langs": ["eu",
-            "ca",
-            "es"],
+        "langs": ["eu","ca","es"],
         "parallel": "yes",
         "encoding": "utf-8",
         "format": "plain text",
@@ -360,7 +357,7 @@
         "encoding": "utf-8",
         "format": "warc",
         "license": "unknown",
-        "domain": ["finance", "customer support"],
+        "domain": ["finance"," customer support"],
         "projects": ["mt4all"],
         "document_level": "yes",
         "cleaning": "corpuscleaner pipeline should be applied",
@@ -427,7 +424,31 @@
                 "path": "crawling_lv_20200721",
                 "size": "1.8g",
                 "publication": "I am unsure whether the corpus can be published or not.",
-                "corpus_version_states": []
+                "corpus_version_states": [
+                    {
+                        "state": "cleaned",
+                        "date": "20200722",
+                        "path": "crawling_lv_20200721_cleaned_20200722",
+                        "prior_state": "original",
+                        "release": "",
+                        "actions": [
+                            {
+                                "name": "cleaning",
+                                "src": "warc",
+                                "tgt": "fairseq-lm",
+                                "script": "python corpus-cleaner/clean.py lv-warc --input-path data/crawling_lv_20200721 --input-format warc --output-format fairseq-lm --lang-filter lv --parallel",
+                                "order": "0"
+                            },
+                            {
+                                "name": "postprocessing",
+                                "src": "fairseq-lm",
+                                "tgt": "fairseq-lm",
+                                "script": "bash corpus-cleaner/scripts/postprocess.sh",
+                                "order": "1"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
