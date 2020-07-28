@@ -1,3 +1,11 @@
+'''
+https://developers.google.com/sheets/api/quickstart/python
+
+https://console.developers.google.com/apis/dashboard
+
+https://docs.python.org/3/library/csv.html#csv.DictReader
+'''
+
 import pandas as pd
 import gspread
 import json
@@ -6,8 +14,9 @@ import json
 def open_spreadsheet(sheet_name):
     # Edit your credentials and share the spreadsheet with your client_email from the credentials fle
     gc = gspread.service_account(filename='credentials.json')
-    spreadsheet = gc.open("Metadata for MT4ALL")
+    spreadsheet = gc.open("Corpora Metadata")
     sheet = spreadsheet.worksheet(sheet_name)
+    print(sheet)
     return sheet
 
 def lowercase_df(column_names, df):
