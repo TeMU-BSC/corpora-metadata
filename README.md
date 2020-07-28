@@ -1,25 +1,35 @@
-# README
+# Corpora automated metadata
+
 ## Project Description
-Automated metadata consists of two small Pythons scripts that, given a Google 
-Form and a Google Spreadsheet on corpora metadata, create the necessary tools to store and navigate throught the
-corpora records.
+
+Automated metadata consists of two small Python scripts that, given a Google 
+Form and a Google Spreadsheet on corpora metadata, create the necessary tools
+to store and navigate throught the corpora records.
 
 ## Usage
+
+### 0. Prepare virtual environment and test call to Google Sheets API v4
+
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+$ python quickstart.py
+``` 
+
 ### 1. Create 'metadata.json'
-To create the 'metadata.json', you'll need a Google Spreadsheets API. 
 
-Go to google.sheets and enable the API, create service account credentials and save them in a file called 'credentials.json'.
-Share the document you want to read from with your client_email, extracted from the credentials file.
+```bash
+$ python create_metadata.py
+``` 
 
-Run the following command: 
-```
-$ python3 create_metadata.py
-```
 ### 2. Corpus Finder
-The Corpus Finder can be used to search for corpora with specific characteristics: language, parallel, format, domain,
+
+The Corpus Finder can be used to search for corpora with specific characteristics: language, parallel, format, domain, 
 projects... These may be extended in the future.
 
 Run the following command:
-```
-$ python3 corpus_finder.py --langs eu --parallel no --format txt --domain general --projects mt4all
+
+```bash
+$ python corpus_finder.py --langs eu --parallel no --format txt --domain general --projects mt4all
 ```
