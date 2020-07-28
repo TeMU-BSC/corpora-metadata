@@ -1,3 +1,6 @@
-pandas>=1.0.4
-gspread>=3.6.0
-pytest>=5.4.3
+pandas
+gspread
+pytest
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
