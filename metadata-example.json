@@ -1,0 +1,152 @@
+{
+  "wikipedia_ca": {
+    "name": "Catalan Wikipedia",
+    "source": "ca.wikipedia.org",
+    "provider": "BSC",
+    "languages": [
+      "ca"
+    ],
+    "parallel": false,
+    "licence": "CC0",
+    "domain": "general",
+    "document_level": true,
+    "derived": false,
+    "third_parties": [
+      "mt4all"
+    ],
+    "comments": "",
+    "versions": {
+      "v1": {
+        "name": "Crawling on 2020-05-25",
+        "states": {
+          "s1": {
+            "name": "crawled",
+            "created_at": "2020-05-25",
+            "format": "warc",
+            "encoding": "utf-8",
+            "size_in_tokens": null,
+            "prior_state": null,
+            "actions": {
+              "a1": {
+                "name": "crawling",
+                "input_format": "warc",
+                "output_format": "fairseq-lm",
+                "script_location": "https://github.com/TeMU-BSC/crawler",
+                "command": "python crawl.py https://ca.wikipedia.org"
+              }
+            },
+            "annotation": {
+              "types": [
+                "part-of-speach",
+                "named-entities"
+              ],
+              "format": "brat"
+            },
+            "resources": []
+          },
+          "s2": {
+            "name": "cleaned_and_postprocessed",
+            "created_at": "2020-05-30",
+            "format": "fairseq-lm",
+            "encoding": "utf-8",
+            "size_in_tokens": null,
+            "prior_state": "s1",
+            "actions": {
+              "a1": {
+                "name": "cleaning",
+                "input_format": "warc",
+                "output_format": "fairseq-lm",
+                "script_location": "https://github.com/TeMU-BSC/crawler",
+                "command": "python crawl.py https://ca.wikipedia.org"
+              },
+              "a2": {
+                "name": "postprocessing",
+                "input_format": "fairseq-lm",
+                "output_format": "fairseq-lm",
+                "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+                "command": "bash corpus-cleaner/postprocess.sh"
+              }
+            },
+            "annotation": {
+              "types": [
+                "part-of-speach",
+                "named-entities"
+              ],
+              "format": "brat"
+            },
+            "resources": [
+              "./wikipedia_ca/v1/s2/resources/trigrams.txt"
+            ]
+          },
+          "s3": {
+            "name": "sentence_split",
+            "created_at": "2020-06-07",
+            "format": "plain-text",
+            "encoding": "utf-8",
+            "size_in_tokens": null,
+            "prior_state": "s2",
+            "actions": {
+              "a1": {
+                "name": "splitting",
+                "input_format": "fairseq-lm",
+                "output_format": "fairseq-lm",
+                "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+                "command": "python split.py wikipedia_ca/v1/s2"
+              }
+            },
+            "annotation": {
+              "types": [
+                "part-of-speach",
+                "named-entities"
+              ],
+              "format": "brat"
+            },
+            "resources": []
+          },
+          "s4": {
+            "name": "tokenized",
+            "created_at": "2020-06-13",
+            "format": "plain-text",
+            "encoding": "utf-8",
+            "size_in_tokens": 24851789,
+            "prior_state": "s3",
+            "actions": {
+              "a1": {
+                "name": "tokenizing",
+                "input_format": "fairseq-lm",
+                "output_format": "fairseq-lm",
+                "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+                "command": "python tokenize.py wikipedia_ca/v1/s3"
+              }
+            },
+            "annotation": {
+              "types": [
+                "part-of-speach",
+                "named-entities"
+              ],
+              "format": "brat"
+            },
+            "resources": []
+          }
+        }
+      }
+    }
+  },
+  "megacorpus_ca": {
+    "name": "Catalan Megacorpus",
+    "source": "wikipedia_ca/v1/s4, cawac_ca/v2/s2, oscar_ca/v3/s4",
+    "provider": "BSC",
+    "languages": [
+      "ca"
+    ],
+    "parallel": false,
+    "licence": "MIT",
+    "domain": "general",
+    "document_level": true,
+    "derived": true,
+    "third_parties": [
+      "mt4all"
+    ],
+    "comments": "Union of all corpora in catalan language that TEMU has by 2020-07-30"
+  }
+}
