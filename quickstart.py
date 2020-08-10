@@ -3,7 +3,7 @@ Example call to the Google Sheets API v4.
 https://developers.google.com/sheets/api/quickstart/python
 
 The TEMU's Corpora Metadata spreadsheet:
-https://docs.google.com/spreadsheets/d/1fo06Ybykml7AFqCy-iCBvlmp7eglIhjrtVdFnQcrvM0
+https://docs.google.com/spreadsheets/d/1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw
 '''
 
 import pickle
@@ -16,8 +16,8 @@ from google.auth.transport.requests import Request
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1fo06Ybykml7AFqCy-iCBvlmp7eglIhjrtVdFnQcrvM0'
-SAMPLE_RANGE_NAME = 'Corpora!A2:H'
+SAMPLE_SPREADSHEET_ID = '1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw'
+SAMPLE_RANGE_NAME = 'Form Responses 1!A2:H'
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -53,7 +53,7 @@ def main():
     if not values:
         print('No data found.')
     else:
-        print('Corpus, Fullname, Language:')
+        # print('Corpus, Fullname, Language:')
         for row in values:
             # Print columns D, E and H, which correspond to indices 3, 4 and 7.
             print('%s, %s, %s' % (row[3], row[4], row[7]))
