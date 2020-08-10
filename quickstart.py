@@ -1,23 +1,56 @@
 '''
-Example call to the Google Sheets API v4.
+To run this script you need the 'credentials.json' file. To get it, follow the
+steps in the documentation of the Google Sheets API v4:
 https://developers.google.com/sheets/api/quickstart/python
 
-The TEMU's Corpora Metadata spreadsheet:
+The TEMU's Corpora Metadata has been registered through the following Google form:
+https://docs.google.com/forms/d/1D5BQc3hMKuOL6jrsNdICXeKga5iCRCjpMHrwR83LYDM
+
+and its answers are being stored in this Google spreadsheet:
 https://docs.google.com/spreadsheets/d/1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw
+
+Languages codes have been found in the library:
+https://pypi.org/project/iso-language-codes/
 '''
 
 import pickle
 import os.path
+import json
+
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
+from iso_language_codes import language, language_name, language_dictionary
+
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
-# The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw'
-SAMPLE_RANGE_NAME = 'Form Responses 1!A2:H'
+# The ID and range of a spreadsheet.
+SPREADSHEET_ID = '1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw'
+RANGE_NAME = 'Answers!A1:AI'
+
+# langs_codes = dict(catalan='ca', english='en', spanish='es', basque='eu', finnish='fi', georgian='ka', kazah='kk',
+#                    latvian='lv', ukrainan='uk', norwegian='no')
+# open('languages.json', 'w').write(json.dumps(language_dictionary(), ensure_ascii=False, sort_keys=True, indent=4))
+
+
+def to_snake_case(input: str) -> str:
+    return input.replace(' ', '_').lower()
+
+
+def language_code(language_name: str) -> str:
+    '''Return the language code for a given language name.'''
+    for lang in language_dictionary().items():
+        code = lang[0]
+        info = lang[1]
+        if info.get('Name') == language_name:
+            return code
+
+
+def set_state():
+    pass
+
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -46,17 +79,25 @@ def main():
 
     # Call the Sheets API
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range=SAMPLE_RANGE_NAME).execute()
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID,
+                                range=RANGE_NAME).execute()
     values = result.get('values', [])
 
     if not values:
         print('No data found.')
-    else:
-        # print('Corpus, Fullname, Language:')
-        for row in values:
-            # Print columns D, E and H, which correspond to indices 3, 4 and 7.
-            print('%s, %s, %s' % (row[3], row[4], row[7]))
+        return
+
+    question_titles = values[0]
+    question_titles[0] = 'timestamp'
+    question_titles[2] = 'email_address'
+    fieldnames = question_titles
+    rows = values[1:]
+    keys = [to_snake_case(field) for field in fieldnames]
+    # print(keys)
+    data = [dict(zip(keys, row)) for row in rows]
+
+    open('responses.json', 'w').write(json.dumps(data, ensure_ascii=False, indent=4))
+
 
 if __name__ == '__main__':
     main()

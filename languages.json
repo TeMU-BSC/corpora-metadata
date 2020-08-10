@@ -1,0 +1,742 @@
+{
+    "": {
+        "Autonym": "",
+        "Name": "Zuojiang Zhuang"
+    },
+    "aa": {
+        "Autonym": "Qafar",
+        "Name": "Afar"
+    },
+    "ab": {
+        "Autonym": "Аҧсуа Бызшәа‎ (Aṗsua Byzšwa), Аҧсшәа‎ (Aṗsšwa)",
+        "Name": "Abkhazian"
+    },
+    "ae": {
+        "Autonym": "",
+        "Name": "Avestan"
+    },
+    "af": {
+        "Autonym": "Afrikaans",
+        "Name": "Afrikaans"
+    },
+    "ak": {
+        "Autonym": "Akan",
+        "Name": "Akan"
+    },
+    "am": {
+        "Autonym": "አማርኛ",
+        "Name": "Amharic"
+    },
+    "an": {
+        "Autonym": "Aragonés",
+        "Name": "Aragonese"
+    },
+    "ar": {
+        "Autonym": "العربية",
+        "Name": "Arabic"
+    },
+    "as": {
+        "Autonym": "অসমীয়া",
+        "Name": "Assamese"
+    },
+    "av": {
+        "Autonym": "Авар Мацӏ‎ (Awar Mac̣), Магӏарул Мацӏ‎ (MaʿArul Mac̣)",
+        "Name": "Avaric"
+    },
+    "ay": {
+        "Autonym": "",
+        "Name": "Aymara"
+    },
+    "az": {
+        "Autonym": "Azərbaycan",
+        "Name": "Azerbaijani"
+    },
+    "ba": {
+        "Autonym": "Башҡорт Теле‎ (Başķort Tele), Башҡортса‎ (Başķortsa)",
+        "Name": "Bashkir"
+    },
+    "be": {
+        "Autonym": "Беларуская",
+        "Name": "Belarusian"
+    },
+    "bg": {
+        "Autonym": "Български",
+        "Name": "Bulgarian"
+    },
+    "bi": {
+        "Autonym": "Bislama",
+        "Name": "Bislama"
+    },
+    "bm": {
+        "Autonym": "Bamanakan",
+        "Name": "Bambara"
+    },
+    "bn": {
+        "Autonym": "বাংলা",
+        "Name": "Bangla"
+    },
+    "bo": {
+        "Autonym": "བོད་སྐད་",
+        "Name": "Tibetan"
+    },
+    "br": {
+        "Autonym": "Brezhoneg",
+        "Name": "Breton"
+    },
+    "bs": {
+        "Autonym": "Bosanski",
+        "Name": "Bosnian"
+    },
+    "ca": {
+        "Autonym": "Català",
+        "Name": "Catalan"
+    },
+    "ce": {
+        "Autonym": "Нохчийн",
+        "Name": "Chechen"
+    },
+    "ch": {
+        "Autonym": "Chamorru",
+        "Name": "Chamorro"
+    },
+    "co": {
+        "Autonym": "Corsu",
+        "Name": "Corsican"
+    },
+    "cr": {
+        "Autonym": "",
+        "Name": "Cree"
+    },
+    "cs": {
+        "Autonym": "Čeština",
+        "Name": "Czech"
+    },
+    "cu": {
+        "Autonym": "Церковнослове́Нскїй",
+        "Name": "Church Slavic"
+    },
+    "cv": {
+        "Autonym": "Чӑвашла",
+        "Name": "Chuvash"
+    },
+    "cy": {
+        "Autonym": "Cymraeg",
+        "Name": "Welsh"
+    },
+    "da": {
+        "Autonym": "Dansk",
+        "Name": "Danish"
+    },
+    "de": {
+        "Autonym": "Deutsch",
+        "Name": "German"
+    },
+    "dv": {
+        "Autonym": "ދިވެހިބަސް",
+        "Name": "Divehi"
+    },
+    "dz": {
+        "Autonym": "རྫོང་ཁ",
+        "Name": "Dzongkha"
+    },
+    "ee": {
+        "Autonym": "Eʋegbe",
+        "Name": "Ewe"
+    },
+    "el": {
+        "Autonym": "Ελληνικά",
+        "Name": "Greek"
+    },
+    "en": {
+        "Autonym": "English",
+        "Name": "English"
+    },
+    "eo": {
+        "Autonym": "Esperanto",
+        "Name": "Esperanto"
+    },
+    "es": {
+        "Autonym": "Español",
+        "Name": "Spanish"
+    },
+    "et": {
+        "Autonym": "Eesti",
+        "Name": "Estonian"
+    },
+    "eu": {
+        "Autonym": "Euskara",
+        "Name": "Basque"
+    },
+    "fa": {
+        "Autonym": "فارسی",
+        "Name": "Persian"
+    },
+    "ff": {
+        "Autonym": "Pulaar",
+        "Name": "Fulah"
+    },
+    "fi": {
+        "Autonym": "Suomi",
+        "Name": "Finnish"
+    },
+    "fj": {
+        "Autonym": "",
+        "Name": "Fijian"
+    },
+    "fo": {
+        "Autonym": "Føroyskt",
+        "Name": "Faroese"
+    },
+    "fr": {
+        "Autonym": "Français",
+        "Name": "French"
+    },
+    "fy": {
+        "Autonym": "Frysk",
+        "Name": "Western Frisian"
+    },
+    "ga": {
+        "Autonym": "Gaeilge",
+        "Name": "Irish"
+    },
+    "gd": {
+        "Autonym": "Gàidhlig",
+        "Name": "Scottish Gaelic"
+    },
+    "gl": {
+        "Autonym": "Galego",
+        "Name": "Galician"
+    },
+    "gn": {
+        "Autonym": "",
+        "Name": "Guarani"
+    },
+    "gu": {
+        "Autonym": "ગુજરાતી",
+        "Name": "Gujarati"
+    },
+    "gv": {
+        "Autonym": "Gaelg",
+        "Name": "Manx"
+    },
+    "ha": {
+        "Autonym": "Hausa",
+        "Name": "Hausa"
+    },
+    "he": {
+        "Autonym": "עברית",
+        "Name": "Hebrew"
+    },
+    "hi": {
+        "Autonym": "हिन्दी",
+        "Name": "Hindi"
+    },
+    "ho": {
+        "Autonym": "",
+        "Name": "Hiri Motu"
+    },
+    "hr": {
+        "Autonym": "Hrvatski",
+        "Name": "Croatian"
+    },
+    "ht": {
+        "Autonym": "Ayisyen, Kreyòl",
+        "Name": "Haitian Creole"
+    },
+    "hu": {
+        "Autonym": "Magyar",
+        "Name": "Hungarian"
+    },
+    "hy": {
+        "Autonym": "Հայերեն",
+        "Name": "Armenian"
+    },
+    "hz": {
+        "Autonym": "",
+        "Name": "Herero"
+    },
+    "ia": {
+        "Autonym": "Interlingua",
+        "Name": "Interlingua"
+    },
+    "id": {
+        "Autonym": "Indonesia",
+        "Name": "Indonesian"
+    },
+    "ie": {
+        "Autonym": "",
+        "Name": "Interlingue"
+    },
+    "ig": {
+        "Autonym": "Igbo",
+        "Name": "Igbo"
+    },
+    "ii": {
+        "Autonym": "ꆈꌠꉙ",
+        "Name": "Sichuan Yi"
+    },
+    "ik": {
+        "Autonym": "",
+        "Name": "Inupiaq"
+    },
+    "io": {
+        "Autonym": "",
+        "Name": "Ido"
+    },
+    "is": {
+        "Autonym": "Íslenska",
+        "Name": "Icelandic"
+    },
+    "it": {
+        "Autonym": "Italiano",
+        "Name": "Italian"
+    },
+    "iu": {
+        "Autonym": "ᐃᓄᒃᑎᑐᑦ",
+        "Name": "Inuktitut"
+    },
+    "ja": {
+        "Autonym": "日本語",
+        "Name": "Japanese"
+    },
+    "jv": {
+        "Autonym": "Basa Jawa",
+        "Name": "Javanese"
+    },
+    "ka": {
+        "Autonym": "ქართული",
+        "Name": "Georgian"
+    },
+    "kg": {
+        "Autonym": "",
+        "Name": "Kongo"
+    },
+    "ki": {
+        "Autonym": "Gikuyu",
+        "Name": "Kikuyu"
+    },
+    "kj": {
+        "Autonym": "Oshikwanyama",
+        "Name": "Kuanyama"
+    },
+    "kk": {
+        "Autonym": "Қазақ Тілі",
+        "Name": "Kazakh"
+    },
+    "kl": {
+        "Autonym": "Kalaallisut",
+        "Name": "Kalaallisut"
+    },
+    "km": {
+        "Autonym": "ខ្មែរ",
+        "Name": "Khmer"
+    },
+    "kn": {
+        "Autonym": "ಕನ್ನಡ",
+        "Name": "Kannada"
+    },
+    "ko": {
+        "Autonym": "한국어",
+        "Name": "Korean"
+    },
+    "kr": {
+        "Autonym": "",
+        "Name": "Kanuri"
+    },
+    "ks": {
+        "Autonym": "کٲشُر",
+        "Name": "Kashmiri"
+    },
+    "ku": {
+        "Autonym": "Kurdî",
+        "Name": "Kurdish"
+    },
+    "kv": {
+        "Autonym": "",
+        "Name": "Komi"
+    },
+    "kw": {
+        "Autonym": "Kernewek",
+        "Name": "Cornish"
+    },
+    "ky": {
+        "Autonym": "Кыргызча",
+        "Name": "Kyrgyz"
+    },
+    "la": {
+        "Autonym": "",
+        "Name": "Latin"
+    },
+    "lb": {
+        "Autonym": "Lëtzebuergesch",
+        "Name": "Luxembourgish"
+    },
+    "lg": {
+        "Autonym": "Luganda",
+        "Name": "Ganda"
+    },
+    "li": {
+        "Autonym": "Limbourgeois, Limburgs",
+        "Name": "Limburgish"
+    },
+    "ln": {
+        "Autonym": "Lingála",
+        "Name": "Lingala"
+    },
+    "lo": {
+        "Autonym": "ລາວ",
+        "Name": "Lao"
+    },
+    "lt": {
+        "Autonym": "Lietuvių",
+        "Name": "Lithuanian"
+    },
+    "lu": {
+        "Autonym": "Tshiluba",
+        "Name": "Luba-Katanga"
+    },
+    "lv": {
+        "Autonym": "Latviešu",
+        "Name": "Latvian"
+    },
+    "mg": {
+        "Autonym": "Malagasy",
+        "Name": "Malagasy"
+    },
+    "mh": {
+        "Autonym": "",
+        "Name": "Marshallese"
+    },
+    "mi": {
+        "Autonym": "Te Reo Maori",
+        "Name": "Maori"
+    },
+    "mk": {
+        "Autonym": "Македонски",
+        "Name": "Macedonian"
+    },
+    "ml": {
+        "Autonym": "മലയാളം",
+        "Name": "Malayalam"
+    },
+    "mn": {
+        "Autonym": "Монгол",
+        "Name": "Mongolian"
+    },
+    "mr": {
+        "Autonym": "मराठी",
+        "Name": "Marathi"
+    },
+    "ms": {
+        "Autonym": "Melayu",
+        "Name": "Malay"
+    },
+    "mt": {
+        "Autonym": "Malti",
+        "Name": "Maltese"
+    },
+    "my": {
+        "Autonym": "မြန်မာ",
+        "Name": "Burmese"
+    },
+    "na": {
+        "Autonym": "",
+        "Name": "Nauru"
+    },
+    "nb": {
+        "Autonym": "Norsk Bokmål",
+        "Name": "Norwegian Bokmål"
+    },
+    "nd": {
+        "Autonym": "Isindebele",
+        "Name": "North Ndebele"
+    },
+    "ne": {
+        "Autonym": "नेपाली",
+        "Name": "Nepali"
+    },
+    "ng": {
+        "Autonym": "",
+        "Name": "Ndonga"
+    },
+    "nl": {
+        "Autonym": "Nederlands",
+        "Name": "Dutch"
+    },
+    "nn": {
+        "Autonym": "Nynorsk",
+        "Name": "Norwegian Nynorsk"
+    },
+    "no": {
+        "Autonym": "Norsk",
+        "Name": "Norwegian"
+    },
+    "nr": {
+        "Autonym": "Isindebele",
+        "Name": "South Ndebele"
+    },
+    "nv": {
+        "Autonym": "Diné",
+        "Name": "Navajo"
+    },
+    "ny": {
+        "Autonym": "Chichewa, Chicheŵa‎ (Chichewa), Chinyanja",
+        "Name": "Nyanja"
+    },
+    "oc": {
+        "Autonym": "Occitan",
+        "Name": "Occitan"
+    },
+    "oj": {
+        "Autonym": "",
+        "Name": "Ojibwa"
+    },
+    "om": {
+        "Autonym": "Oromoo",
+        "Name": "Oromo"
+    },
+    "or": {
+        "Autonym": "ଓଡ଼ିଆ",
+        "Name": "Odia"
+    },
+    "os": {
+        "Autonym": "Ирон",
+        "Name": "Ossetic"
+    },
+    "pa": {
+        "Autonym": "ਪੰਜਾਬੀ",
+        "Name": "Punjabi"
+    },
+    "pi": {
+        "Autonym": "",
+        "Name": "Pali"
+    },
+    "pl": {
+        "Autonym": "Polski",
+        "Name": "Polish"
+    },
+    "ps": {
+        "Autonym": "پښتو",
+        "Name": "Pashto"
+    },
+    "pt": {
+        "Autonym": "Português",
+        "Name": "Portuguese"
+    },
+    "qu": {
+        "Autonym": "Runasimi",
+        "Name": "Quechua"
+    },
+    "rm": {
+        "Autonym": "Rumantsch",
+        "Name": "Romansh"
+    },
+    "rn": {
+        "Autonym": "Ikirundi",
+        "Name": "Rundi"
+    },
+    "ro": {
+        "Autonym": "Română",
+        "Name": "Romanian"
+    },
+    "ru": {
+        "Autonym": "Русский",
+        "Name": "Russian"
+    },
+    "rw": {
+        "Autonym": "Kinyarwanda",
+        "Name": "Kinyarwanda"
+    },
+    "sa": {
+        "Autonym": "संस्कृत भाषा",
+        "Name": "Sanskrit"
+    },
+    "sc": {
+        "Autonym": "",
+        "Name": "Sardinian"
+    },
+    "sd": {
+        "Autonym": "سنڌي",
+        "Name": "Sindhi"
+    },
+    "se": {
+        "Autonym": "Davvisámegiella",
+        "Name": "Northern Sami"
+    },
+    "sg": {
+        "Autonym": "Sängö",
+        "Name": "Sango"
+    },
+    "sh": {
+        "Autonym": "",
+        "Name": "Serbo-Croatian"
+    },
+    "si": {
+        "Autonym": "සිංහල",
+        "Name": "Sinhala"
+    },
+    "sk": {
+        "Autonym": "Slovenčina",
+        "Name": "Slovak"
+    },
+    "sl": {
+        "Autonym": "Slovenščina",
+        "Name": "Slovenian"
+    },
+    "sm": {
+        "Autonym": "Gagana Samoa",
+        "Name": "Samoan"
+    },
+    "sn": {
+        "Autonym": "Chishona",
+        "Name": "Shona"
+    },
+    "so": {
+        "Autonym": "Soomaali",
+        "Name": "Somali"
+    },
+    "sq": {
+        "Autonym": "Shqip",
+        "Name": "Albanian"
+    },
+    "sr": {
+        "Autonym": "Српски",
+        "Name": "Serbian"
+    },
+    "ss": {
+        "Autonym": "Siswati",
+        "Name": "Swati"
+    },
+    "st": {
+        "Autonym": "Sesotho",
+        "Name": "Southern Sotho"
+    },
+    "su": {
+        "Autonym": "Sunda",
+        "Name": "Sundanese"
+    },
+    "sv": {
+        "Autonym": "Svenska",
+        "Name": "Swedish"
+    },
+    "sw": {
+        "Autonym": "Kiswahili",
+        "Name": "Swahili"
+    },
+    "ta": {
+        "Autonym": "தமிழ்",
+        "Name": "Tamil"
+    },
+    "te": {
+        "Autonym": "తెలుగు",
+        "Name": "Telugu"
+    },
+    "tg": {
+        "Autonym": "Тоҷикӣ",
+        "Name": "Tajik"
+    },
+    "th": {
+        "Autonym": "ไทย",
+        "Name": "Thai"
+    },
+    "ti": {
+        "Autonym": "ትግርኛ",
+        "Name": "Tigrinya"
+    },
+    "tk": {
+        "Autonym": "Türkmen Dili",
+        "Name": "Turkmen"
+    },
+    "tl": {
+        "Autonym": "Tagalog",
+        "Name": "Tagalog"
+    },
+    "tn": {
+        "Autonym": "Setswana",
+        "Name": "Tswana"
+    },
+    "to": {
+        "Autonym": "Lea Fakatonga",
+        "Name": "Tongan"
+    },
+    "tr": {
+        "Autonym": "Türkçe",
+        "Name": "Turkish"
+    },
+    "ts": {
+        "Autonym": "Xitsonga",
+        "Name": "Tsonga"
+    },
+    "tt": {
+        "Autonym": "Татар",
+        "Name": "Tatar"
+    },
+    "tw": {
+        "Autonym": "",
+        "Name": "Twi"
+    },
+    "ty": {
+        "Autonym": "Reo Tahiti",
+        "Name": "Tahitian"
+    },
+    "ug": {
+        "Autonym": "ئۇيغۇرچە",
+        "Name": "Uyghur"
+    },
+    "uk": {
+        "Autonym": "Українська",
+        "Name": "Ukrainian"
+    },
+    "ur": {
+        "Autonym": "اردو",
+        "Name": "Urdu"
+    },
+    "uz": {
+        "Autonym": "O‘Zbek",
+        "Name": "Uzbek"
+    },
+    "ve": {
+        "Autonym": "Tshivenḓa",
+        "Name": "Venda"
+    },
+    "vi": {
+        "Autonym": "Tiếng Việt",
+        "Name": "Vietnamese"
+    },
+    "vo": {
+        "Autonym": "Volapük",
+        "Name": "Volapük"
+    },
+    "wa": {
+        "Autonym": "",
+        "Name": "Walloon"
+    },
+    "wo": {
+        "Autonym": "Wolof",
+        "Name": "Wolof"
+    },
+    "xh": {
+        "Autonym": "Isixhosa",
+        "Name": "Xhosa"
+    },
+    "yi": {
+        "Autonym": "ייִדיש",
+        "Name": "Yiddish"
+    },
+    "yo": {
+        "Autonym": "Èdè Yorùbá",
+        "Name": "Yoruba"
+    },
+    "za": {
+        "Autonym": "",
+        "Name": "Zhuang"
+    },
+    "zh": {
+        "Autonym": "中文",
+        "Name": "Chinese"
+    },
+    "zu": {
+        "Autonym": "Isizulu",
+        "Name": "Zulu"
+    }
+}
