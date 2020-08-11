@@ -14,13 +14,12 @@ to store and navigate throught the corpora records.
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
-$ python quickstart.py
 ``` 
 
-### 1. Create 'metadata.json'
+### 1. Create or update 'metadata.json'
 
 ```bash
-$ python create_metadata.py
+$ python metadata_updater.py
 ``` 
 
 ### 2. Corpus Finder
@@ -31,5 +30,7 @@ projects... These may be extended in the future.
 Run the following command:
 
 ```bash
-$ python corpus_finder.py --langs eu --parallel no --format txt --domain general --projects mt4all
+$ # python corpus_finder.py --langs eu --parallel no --format txt --domain general --projects mt4all
+$ python corpus_finder.py --parallel yes --format warc --domain general --third-parties mt4all
+
 ```
