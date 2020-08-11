@@ -19,13 +19,59 @@ https://pypi.org/project/iso-language-codes/
 import pickle
 import os.path
 import json
-from typing import List
+from dataclasses import dataclass
+from typing import Optional, Sequence
 
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 from iso_language_codes import language, language_name, language_dictionary
+
+
+@dataclass
+class State:
+    state_path: str
+    state_name: str
+    encoding: str
+    format: str
+    state_date: str
+    size_in_gigabytes: Optional[str] = None
+    size_in_million_tokens: Optional[str] = None
+    annotation_types: Optional[Sequence[str]] = None
+    annotation_format: Optional[str] = None
+    release_url: Optional[str] = None
+    prior_state: Optional[str] = None
+    actions: Optional[Sequence[str]] = None
+    script_location: Optional[str] = None
+    command: Optional[str] = None
+    action_comments: Optional[str] = None
+
+
+@dataclass
+class Version:
+    version_path: str
+    version_name: str
+    version_date: str
+    states: Sequence[State]
+
+
+@dataclass
+class Corpus:
+    corpus_path: str
+    corpus_name: str
+    source: str
+    provider: str
+    languages: Sequence[str]
+    parallel: str
+    domain: str
+    document_level: str
+    third_parties: Sequence[str]
+    license: str
+    publishable: str
+    comments: Optional[str] = None
+    versions: Sequence[Version]
+
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -53,7 +99,7 @@ def language_code(language_name: str) -> str:
             return code
 
 
-def from_checkboxes_to_list(checkboxes: str) -> List[str]:
+def from_checkboxes_to_list(checkboxes: str) -> Sequence[str]:
     '''Convert some words separated by comma and whitespace (', ') into a list of strings.'''
     return checkboxes.split(', ')
 
@@ -72,7 +118,7 @@ def set_version():
 def set_corpus():
     '''Build the corpus structure.'''
     corpus_keys = ['corpus_path', 'corpus_name', 'source', 'provider', 'languages', 'parallel',
-                   'domain', 'document_level', 'third_parties', 'licence', 'publishable', 'comments', 'versions']
+                   'domain', 'document_level', 'third_parties', 'license', 'publishable', 'comments', 'versions']
 
 
 def main():
@@ -123,18 +169,36 @@ def main():
         responses, ensure_ascii=False, indent=4))
 
     for response in responses:
-        for k, v in response.items():
 
-            # Convert checkbox fields into lists.
+        # Convert checkbox fields into lists.
+        for k, v in response.items():
             if k in CHECKBOX_FIELDS:
                 response[k] = from_checkboxes_to_list(v)
 
-            # TODO nest versions and states fields
+        # Organize nested versions and states fields
+        if response.get('i_want_to_register_a_new:') == 'Corpus':
+            corpus = Corpus(
+                corpus_path=response.get('corpus_path'),
+                corpus_name=response.get('corpus_name'),
+                source=response.get('source'),
+                # ...
+            )
+        elif response.get('i_want_to_register_a_new:') == 'Version':
+            # TODO Search for the corresponding corpus_path in version_path
+            print('version...')
 
+        elif response.get('i_want_to_register_a_new:') == 'State':
+            # TODO Search for the corresponding version_path in state_path
+            print('state...')
 
     # Save processed responses into the final 'metadata.json' file.
     open('metadata.json', 'w').write(json.dumps(
         responses, ensure_ascii=False, indent=4))
+
+    # TESTING
+    version = Version(version_path='/fake/path', version_name='Fake Name',
+                      version_date='dd/mm/yyyy', states=[{}])
+    print(vars(version))
 
 
 if __name__ == '__main__':

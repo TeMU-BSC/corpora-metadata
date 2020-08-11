@@ -1,11 +1,12 @@
 [
     {
-        "timestamp": "10/08/2020 15:21:57",
+        "timestamp": "11/08/2020 13:35:55",
         "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuceRAGwU9ZIt6dVfL4-JyMXoPMJhz4ay4uLNnz-tOMCEY5mqyZJdObn09EGTbqIK7I",
         "email_address": "odegiber@gmail.com",
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "crawling_ca",
         "corpus_name": "Catalan Crawling",
+        "aggregated": "No",
         "source": "Crawling of Catalan webpages",
         "provider": "BSC",
         "languages": "Catalan",
@@ -25,24 +26,16 @@
         "format": "warc",
         "state_date": "25/05/2020",
         "size_in_gigabytes": "312GB",
-        "size_in_million_tokens": "3485M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "3485M"
     },
     {
-        "timestamp": "10/08/2020 17:23:28",
+        "timestamp": "11/08/2020 15:15:26",
         "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnud-k9sPPTR8LRxBL_8KfQQq2K_vuvFPEy3f-X2EduQ_aFyswLUXxGIYA-h27pp0ruE",
         "email_address": "odegiber@gmail.com",
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "dogc_ca_es",
         "corpus_name": "Parallel DOGC",
+        "aggregated": "No",
         "source": "http://opus.nlpl.eu/DOGC-v2.php",
         "provider": "DOGC",
         "languages": "Catalan, Spanish",
@@ -55,23 +48,14 @@
         "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
         "version_path": "dogc_ca_es/v1",
         "version_name": "Parallel DOGC v2",
-        "version_date": "01/01/2012",
+        "version_date": "25/05/2020",
         "state_path": "dogc_ca_es/v1/s1",
         "state_name": "original",
         "encoding": "utf-8",
         "format": "sentence",
         "state_date": "28/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": " ca: 163M, es: 148.2M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": " ca: 163M, es: 148.2M"
     },
     {
         "timestamp": "10/08/2020 15:24:23",
@@ -80,6 +64,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "oscar_ca",
         "corpus_name": "Catalan Oscar",
+        "aggregated": "No",
         "source": "https://traces1.inria.fr/oscar/",
         "provider": "INRIA",
         "languages": "Catalan",
@@ -99,16 +84,7 @@
         "format": "document",
         "state_date": "28/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "728M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "728M"
     },
     {
         "timestamp": "10/08/2020 15:28:36",
@@ -117,6 +93,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "pangeanic_crawl_ca",
         "corpus_name": "Catalan Pangeanic Crawl",
+        "aggregated": "No",
         "source": "Pangeanic Database",
         "provider": "Pangeanic",
         "languages": "Catalan",
@@ -136,16 +113,7 @@
         "format": "sentence",
         "state_date": "28/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "89M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "89M"
     },
     {
         "timestamp": "10/08/2020 15:32:01",
@@ -154,6 +122,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "open_subtitles_ca",
         "corpus_name": "Catalan Open Subtitles",
+        "aggregated": "No",
         "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz",
         "provider": "OpenSubtitles",
         "languages": "Catalan",
@@ -173,16 +142,7 @@
         "format": "sentence",
         "state_date": "28/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "3.5M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "3.5M"
     },
     {
         "timestamp": "10/08/2020 15:47:08",
@@ -191,6 +151,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "oscar_en",
         "corpus_name": "English Oscar",
+        "aggregated": "No",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "INRIA",
         "languages": "English",
@@ -210,16 +171,7 @@
         "format": "document",
         "state_date": "17/06/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "215.841M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "215.841M"
     },
     {
         "timestamp": "10/08/2020 15:47:45",
@@ -228,6 +180,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "oscar_eu",
         "corpus_name": "Basque Oscar",
+        "aggregated": "No",
         "source": "https://oscar-corpus.com/#corpus",
         "provider": "INRIA",
         "languages": "Basque",
@@ -247,16 +200,7 @@
         "format": "document",
         "state_date": "05/06/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "48M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "48M"
     },
     {
         "timestamp": "10/08/2020 15:42:28",
@@ -265,6 +209,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "elh_webcorp_eu",
         "corpus_name": "Elhuyar Web Corpus",
+        "aggregated": "No",
         "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
         "provider": "Elhuyar",
         "languages": "Basque",
@@ -284,16 +229,7 @@
         "format": "sentence",
         "state_date": "10/04/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "186M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "186M"
     },
     {
         "timestamp": "10/08/2020 15:51:11",
@@ -302,6 +238,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "wmt_newscrawl_en",
         "corpus_name": "WMT English News",
+        "aggregated": "No",
         "source": "http://www.statmt.org/wmt14/translation-task.html",
         "provider": "WMT shared task's organizers",
         "languages": "English",
@@ -321,16 +258,7 @@
         "format": "sentence",
         "state_date": "23/06/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "1900M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "1900M"
     },
     {
         "timestamp": "10/08/2020 15:53:59",
@@ -339,6 +267,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "cawac_ca",
         "corpus_name": "Catalan Web Corpus (cawac)",
+        "aggregated": "No",
         "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
         "provider": "NLP group from University of Zagreb",
         "languages": "Catalan",
@@ -358,16 +287,7 @@
         "format": "html",
         "state_date": "28/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "780M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "780M"
     },
     {
         "timestamp": "10/08/2020 15:59:36",
@@ -376,6 +296,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "tweetmt_ca_es_eu",
         "corpus_name": "TweetMT corpus",
+        "aggregated": "No",
         "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#Downloads",
         "provider": "Tweet Translation Workshop at SEPLN 2015",
         "languages": "Basque, Catalan, Spanish",
@@ -395,16 +316,7 @@
         "format": "document",
         "state_date": "29/05/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M"
     },
     {
         "timestamp": "10/08/2020 16:02:26",
@@ -413,6 +325,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "euscrawl_eu",
         "corpus_name": "EusCrawl",
+        "aggregated": "No",
         "source": "crawling of Basque newspapers",
         "provider": "UPV/EHU",
         "languages": "Basque",
@@ -432,16 +345,7 @@
         "format": "document",
         "state_date": "13/07/2020",
         "size_in_gigabytes": "",
-        "size_in_million_tokens": "115M",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_million_tokens": "115M"
     },
     {
         "timestamp": "10/08/2020 16:04:40",
@@ -450,6 +354,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "crawling_en",
         "corpus_name": "English Crawling",
+        "aggregated": "No",
         "source": "Crawling of English websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
         "provider": "BSC",
         "languages": "English",
@@ -468,17 +373,7 @@
         "encoding": "utf-8",
         "format": "warc",
         "state_date": "21/07/2020",
-        "size_in_gigabytes": "636GB",
-        "size_in_million_tokens": "",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_gigabytes": "636GB"
     },
     {
         "timestamp": "10/08/2020 16:06:42",
@@ -487,6 +382,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "crawling_fi",
         "corpus_name": "Finnish crawling",
+        "aggregated": "No",
         "source": "Crawling of Finnish websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
         "provider": "BSC",
         "languages": "Finnish",
@@ -505,17 +401,7 @@
         "encoding": "utf-8",
         "format": "warc",
         "state_date": "21/07/2020",
-        "size_in_gigabytes": "20GB",
-        "size_in_million_tokens": "",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_gigabytes": "20GB"
     },
     {
         "timestamp": "10/08/2020 16:08:26",
@@ -524,6 +410,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "crawling_lv",
         "corpus_name": "Latvian Crawling",
+        "aggregated": "No",
         "source": "Crawling of Latvian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
         "provider": "BSC",
         "languages": "Latvian",
@@ -542,17 +429,7 @@
         "encoding": "utf-8",
         "format": "warc",
         "state_date": "21/07/2020",
-        "size_in_gigabytes": "1.8GB",
-        "size_in_million_tokens": "",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_gigabytes": "1.8GB"
     },
     {
         "timestamp": "10/08/2020 16:09:51",
@@ -561,6 +438,7 @@
         "i_want_to_register_a_new:": "Corpus",
         "corpus_path": "crawling_no",
         "corpus_name": "Norwegian Crawling",
+        "aggregated": "No",
         "source": "Crawling of Norwegian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
         "provider": "BSC",
         "languages": "Norwegian",
@@ -579,17 +457,7 @@
         "encoding": "utf-8",
         "format": "warc",
         "state_date": "21/07/2020",
-        "size_in_gigabytes": "75GB",
-        "size_in_million_tokens": "",
-        "annotation_types": "",
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "",
-        "actions": "",
-        "script_location": "",
-        "command": "",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "No, I've just downloaded/crawled the dataset."
+        "size_in_gigabytes": "75GB"
     },
     {
         "timestamp": "10/08/2020 16:13:25",
@@ -598,6 +466,7 @@
         "i_want_to_register_a_new:": "State",
         "corpus_path": "",
         "corpus_name": "",
+        "aggregated": "",
         "source": "",
         "provider": "",
         "languages": "",
@@ -624,9 +493,7 @@
         "prior_state": "s1",
         "actions": "cleaning",
         "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py cat-warc --input-path corpora/crawling_ca_20200525 --input-format warc --output-format fairseq-lm --lang-filter ca --parallel; bash corpus-cleaner/postprocess.sh",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "Yes, I'd like to register the actions executed."
+        "command": "python corpus-cleaner/clean.py cat-warc --input-path corpora/crawling_ca_20200525 --input-format warc --output-format fairseq-lm --lang-filter ca --parallel; bash corpus-cleaner/postprocess.sh"
     },
     {
         "timestamp": "10/08/2020 16:17:19",
@@ -635,6 +502,7 @@
         "i_want_to_register_a_new:": "State",
         "corpus_path": "",
         "corpus_name": "",
+        "aggregated": "",
         "source": "",
         "provider": "",
         "languages": "",
@@ -661,9 +529,7 @@
         "prior_state": "s1",
         "actions": "cleaning",
         "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py lv-warc --input-path data/crawling_lv_20200721 --input-format warc --output-format fairseq-lm --lang-filter lv --parallel; bash corpus-cleaner/scripts/postprocess.sh",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "Yes, I'd like to register the actions executed."
+        "command": "python corpus-cleaner/clean.py lv-warc --input-path data/crawling_lv_20200721 --input-format warc --output-format fairseq-lm --lang-filter lv --parallel; bash corpus-cleaner/scripts/postprocess.sh"
     },
     {
         "timestamp": "10/08/2020 16:19:28",
@@ -672,6 +538,7 @@
         "i_want_to_register_a_new:": "State",
         "corpus_path": "",
         "corpus_name": "",
+        "aggregated": "",
         "source": "",
         "provider": "",
         "languages": "",
@@ -698,9 +565,7 @@
         "prior_state": "s1",
         "actions": "cleaning",
         "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py finnish-crawling --input-path data/finnish-crawling --input-format warc --output-format fairseq-lm --lang-filter fi --parallel; bash corpus-cleaner/scripts/postprocess.sh",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "Yes, I'd like to register the actions executed."
+        "command": "python corpus-cleaner/clean.py finnish-crawling --input-path data/finnish-crawling --input-format warc --output-format fairseq-lm --lang-filter fi --parallel; bash corpus-cleaner/scripts/postprocess.sh"
     },
     {
         "timestamp": "10/08/2020 16:21:21",
@@ -709,6 +574,7 @@
         "i_want_to_register_a_new:": "State",
         "corpus_path": "",
         "corpus_name": "",
+        "aggregated": "",
         "source": "",
         "provider": "",
         "languages": "",
@@ -735,9 +601,7 @@
         "prior_state": "s1",
         "actions": "cleaning",
         "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py no-warc --input-path data/crawling_no_20200720 --input-format warc --output-format fairseq-lm --lang-filter no --parallel --remove-glob-rep-sen; bash corpus-cleaner/scripts/postprocess2.sh",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "Yes, I'd like to register the actions executed."
+        "command": "python corpus-cleaner/clean.py no-warc --input-path data/crawling_no_20200720 --input-format warc --output-format fairseq-lm --lang-filter no --parallel --remove-glob-rep-sen; bash corpus-cleaner/scripts/postprocess2.sh"
     },
     {
         "timestamp": "10/08/2020 16:22:48",
@@ -746,6 +610,7 @@
         "i_want_to_register_a_new:": "State",
         "corpus_path": "",
         "corpus_name": "",
+        "aggregated": "",
         "source": "",
         "provider": "",
         "languages": "",
@@ -772,8 +637,6 @@
         "prior_state": "s1",
         "actions": "cleaning",
         "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py english-crawling --input-path data/english-crawling --input-format warc --output-format fairseq-lm --lang-filter en --parallel --remove-glob-rep-sen --dictionary-filter-sen example-dict.txt --url-doc data/en_urls.txt; bash corpus-cleaner/scripts/postprocess2.sh",
-        "action_comments": "",
-        "have_you_executed_any_script_to_process_the_dataset?": "Yes, I'd like to register the actions executed."
+        "command": "python corpus-cleaner/clean.py english-crawling --input-path data/english-crawling --input-format warc --output-format fairseq-lm --lang-filter en --parallel --remove-glob-rep-sen --dictionary-filter-sen example-dict.txt --url-doc data/en_urls.txt; bash corpus-cleaner/scripts/postprocess2.sh"
     }
 ]
