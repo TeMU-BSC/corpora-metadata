@@ -1,749 +1,910 @@
 [
-    {
-        "timestamp": "11/08/2020 13:35:55",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuceRAGwU9ZIt6dVfL4-JyMXoPMJhz4ay4uLNnz-tOMCEY5mqyZJdObn09EGTbqIK7I",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "crawling_ca",
-        "corpus_name": "Catalan Crawling",
-        "aggregated": "No",
-        "source": "Crawling of Catalan webpages",
-        "provider": "BSC",
-        "languages": [
-            "Catalan"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "We're studying the license matters with the BSC lawyer",
+  {
+    "corpus_path": "crawling_ca",
+    "corpus_name": "Catalan Crawling",
+    "source": "Crawling of Catalan webpages",
+    "provider": "BSC",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "We're studying the license matters with the BSC lawyer",
+    "versions": [
+      {
         "version_path": "crawling_ca/v1",
         "version_name": "Catalan Crawling on 2020-05-25",
         "version_date": "25/05/2020",
-        "state_path": "crawling_ca/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "warc",
-        "state_date": "25/05/2020",
-        "size_in_gigabytes": "312GB",
-        "size_in_million_tokens": "3485M"
-    },
-    {
-        "timestamp": "11/08/2020 15:15:26",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnud-k9sPPTR8LRxBL_8KfQQq2K_vuvFPEy3f-X2EduQ_aFyswLUXxGIYA-h27pp0ruE",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "dogc_ca_es",
-        "corpus_name": "Parallel DOGC",
-        "aggregated": "No",
-        "source": "http://opus.nlpl.eu/DOGC-v2.php",
-        "provider": "DOGC",
-        "languages": [
-            "Catalan",
-            "Spanish"
-        ],
-        "parallel": "Yes",
-        "domain": "Legal",
-        "document_level": "No",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC0",
-        "publishable": "Yes",
-        "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
-        "version_path": "dogc_ca_es/v1",
+        "states": [
+          {
+            "state_path": "crawling_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "25/05/2020",
+            "size_in_gigabytes": "312GB",
+            "size_in_million_tokens": "3485M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_ca/v1/s2",
+            "state_name": "cleaned",
+            "encoding": "utf-8",
+            "format": "fairseq-lm",
+            "state_date": "20/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "391M",
+            "annotation_types": "",
+            "annotation_format": "",
+            "release_url": "",
+            "prior_state": "s1",
+            "actions": [
+              "cleaning"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py cat-warc --input-path corpora/crawling_ca_20200525 --input-format warc --output-format fairseq-lm --lang-filter ca --parallel; bash corpus-cleaner/postprocess.sh",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "dogc_ca-es",
+    "corpus_name": "Parallel DOGC",
+    "source": "http://opus.nlpl.eu/DOGC-v2.php",
+    "provider": "DOGC",
+    "languages": [
+      "Catalan",
+      "Spanish"
+    ],
+    "parallel": "Yes",
+    "domain": "Legal",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC0",
+    "publishable": "Yes",
+    "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
+    "versions": [
+      {
+        "version_path": "dogc_ca-es/v1",
         "version_name": "Parallel DOGC v2",
         "version_date": "25/05/2020",
-        "state_path": "dogc_ca_es/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "sentence",
-        "state_date": "28/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": " ca: 163M, es: 148.2M"
-    },
-    {
-        "timestamp": "10/08/2020 15:24:23",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuedm_1rxYD9xC20afqTUpeVnpvMtVC1BO4K6EEP28QaK_q1uTThoPytx1iFrzkzTwU",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "oscar_ca",
-        "corpus_name": "Catalan Oscar",
-        "aggregated": "No",
-        "source": "https://traces1.inria.fr/oscar/",
-        "provider": "INRIA",
-        "languages": [
-            "Catalan"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC0",
-        "publishable": "Yes",
-        "comments": "The corpus has already been published. Each line could be considered as a document as it is not sentence splitted.",
+        "states": [
+          {
+            "state_path": "dogc_ca-es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "28/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "ca: 163M, es: 148.2M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_ca",
+    "corpus_name": "Catalan Oscar",
+    "source": "https://traces1.inria.fr/oscar/",
+    "provider": "INRIA",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC0",
+    "publishable": "Yes",
+    "comments": "The corpus has already been published. Each line could be considered as a document as it is not sentence splitted.",
+    "versions": [
+      {
         "version_path": "oscar_ca/v1",
         "version_name": "Catalan Oscar 20200127",
         "version_date": "27/01/2020",
-        "state_path": "oscar_ca/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "document",
-        "state_date": "28/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "728M"
-    },
-    {
-        "timestamp": "10/08/2020 15:28:36",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnufKrg72zxX1sgkfXbKgPUQsEh0Z5p4u2nUuVaUdKOcmVRp1k2QvOk2_Gl0vGdnIE7A",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "pangeanic_crawl_ca",
-        "corpus_name": "Catalan Pangeanic Crawl",
-        "aggregated": "No",
-        "source": "Pangeanic Database",
-        "provider": "Pangeanic",
-        "languages": [
-            "Catalan"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "No",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "The crawling was made on the following domains and years: .ad (2015,2017), .com (2018), news crawling (2011,2015,2016,2017) and other domains (2004). All the documents have been merged into a single one and exact duplicated entries were removed.",
+        "states": [
+          {
+            "state_path": "oscar_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "document",
+            "state_date": "28/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "728M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "pangeanic_crawl_ca",
+    "corpus_name": "Catalan Pangeanic Crawl",
+    "source": "Pangeanic Database",
+    "provider": "Pangeanic",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "No",
+    "third_parties": "",
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "The crawling was made on the following domains and years: .ad (2015,2017), .com (2018), news crawling (2011,2015,2016,2017) and other domains (2004). All the documents have been merged into a single one and exact duplicated entries were removed.",
+    "versions": [
+      {
         "version_path": "pangeanic_crawl_ca/v1",
         "version_name": "Pangeanic Crawling v1",
         "version_date": "28/05/2020",
-        "state_path": "pangeanic_crawl_ca/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "sentence",
-        "state_date": "28/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "89M"
-    },
-    {
-        "timestamp": "10/08/2020 15:32:01",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnue1nfT-RM5saZwHjHNnnRli829fVKdFhaSQ8JSPOD5RMbsN1kIWJfbcl6Zi3FzWwgI",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "open_subtitles_ca",
-        "corpus_name": "Catalan Open Subtitles",
-        "aggregated": "No",
-        "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz",
-        "provider": "OpenSubtitles",
-        "languages": [
-            "Catalan"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "No",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Cite OpenSub",
-        "publishable": "Yes",
-        "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/",
+        "states": [
+          {
+            "state_path": "pangeanic_crawl_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "28/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "89M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "open_subtitles_ca",
+    "corpus_name": "Catalan Open Subtitles",
+    "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz",
+    "provider": "OpenSubtitles",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Cite OpenSub",
+    "publishable": "Yes",
+    "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/",
+    "versions": [
+      {
         "version_path": "open_subtitles_ca/v1",
         "version_name": "Catalan Open Subtitles 20180404",
         "version_date": "04/04/2018",
-        "state_path": "open_subtitles_ca/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "sentence",
-        "state_date": "28/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "3.5M"
-    },
-    {
-        "timestamp": "10/08/2020 15:47:08",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnudmxf46HZsGOmpKkN-8FyK77-iiOxkbXDcfYFxPmY3iAw5OTBmQ6aDWzhBVTF1lyOs",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "oscar_en",
-        "corpus_name": "English Oscar",
-        "aggregated": "No",
-        "source": "https://oscar-corpus.com/#corpus",
-        "provider": "INRIA",
-        "languages": [
-            "English"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC0",
-        "publishable": "Yes",
-        "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+        "states": [
+          {
+            "state_path": "open_subtitles_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "28/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "3.5M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_en",
+    "corpus_name": "English Oscar",
+    "source": "https://oscar-corpus.com/#corpus",
+    "provider": "INRIA",
+    "languages": [
+      "English"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC0",
+    "publishable": "Yes",
+    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+    "versions": [
+      {
         "version_path": "oscar_en/v1",
         "version_name": "English OSCAR 20200617",
         "version_date": "17/06/2020",
-        "state_path": "oscar_en/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "document",
-        "state_date": "17/06/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "215.841M"
-    },
-    {
-        "timestamp": "10/08/2020 15:47:45",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnud1kR9t9yY9_o5v1dSfwVUZetlPPSIect0N-HaRUiyA4ew5nckuemScXQ_giAmHOh4",
-        "email_address": "gorka.labaka@ehu.eus",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "oscar_eu",
-        "corpus_name": "Basque Oscar",
-        "aggregated": "No",
-        "source": "https://oscar-corpus.com/#corpus",
-        "provider": "INRIA",
-        "languages": [
-            "Basque"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC0",
-        "publishable": "Yes",
-        "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+        "states": [
+          {
+            "state_path": "oscar_en/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "document",
+            "state_date": "17/06/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "215.841M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_eu",
+    "corpus_name": "Basque Oscar",
+    "source": "https://oscar-corpus.com/#corpus",
+    "provider": "INRIA",
+    "languages": [
+      "Basque"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC0",
+    "publishable": "Yes",
+    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+    "versions": [
+      {
         "version_path": "oscar_en/v1",
         "version_name": "Basque OSCAR 20200410",
         "version_date": "10/04/2020",
-        "state_path": "oscar_eu/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "document",
-        "state_date": "05/06/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "48M"
-    },
-    {
-        "timestamp": "10/08/2020 15:42:28",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnueOn9XQlVsLxHmze08qPB2RyW_Ewh5pFwa6DLvShUh-KRXQtCKmeQtGVaX2ajxZPMI",
-        "email_address": "gorka.labaka@ehu.eus",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "elh_webcorp_eu",
-        "corpus_name": "Elhuyar Web Corpus",
-        "aggregated": "No",
-        "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
-        "provider": "Elhuyar",
-        "languages": [
-            "Basque"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "No",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC-BY-NC-SA",
-        "publishable": "Yes",
-        "comments": "The corpus can be published according to its license.",
-        "version_path": "elh_webcorp_eu",
+        "states": [
+          {
+            "state_path": "oscar_eu/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "document",
+            "state_date": "05/06/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "48M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "gorka.labaka@ehu.eus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "elh_webcorp_eu",
+    "corpus_name": "Elhuyar Web Corpus",
+    "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
+    "provider": "Elhuyar",
+    "languages": [
+      "Basque"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC-BY-NC-SA",
+    "publishable": "Yes",
+    "comments": "The corpus can be published according to its license.",
+    "versions": [
+      {
+        "version_path": "elh_webcorp_eu/v1",
         "version_name": "Elhuyar Web Corpus 20181008",
         "version_date": "08/10/2018",
-        "state_path": "elh_webcorp_eu/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "sentence",
-        "state_date": "10/04/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "186M"
-    },
-    {
-        "timestamp": "10/08/2020 15:51:11",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnufw6WGZ6DdOLapZ8dhDisWzb5v10mcJVTA8qSLkLXW0EYOncHXoodhaYVD3TRCIq60",
-        "email_address": "gorka.labaka@ehu.eus",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "wmt_newscrawl_en",
-        "corpus_name": "WMT English News",
-        "aggregated": "No",
-        "source": "http://www.statmt.org/wmt14/translation-task.html",
-        "provider": "WMT shared task's organizers",
-        "languages": [
-            "English"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "No",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "Yes",
-        "comments": "No clear license provided - publically available on the web. The corpus has already been published",
+        "states": [
+          {
+            "state_path": "elh_webcorp_eu/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "10/04/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "186M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "gorka.labaka@ehu.eus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "wmt_newscrawl_en",
+    "corpus_name": "WMT English News",
+    "source": "http://www.statmt.org/wmt14/translation-task.html",
+    "provider": "WMT shared task's organizers",
+    "languages": [
+      "English"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "Yes",
+    "comments": "No clear license provided - publically available on the web. The corpus has already been published",
+    "versions": [
+      {
         "version_path": "wmt_newscrawl_en/v1",
         "version_name": "WMT English News 2014",
         "version_date": "23/06/2020",
-        "state_path": "wmt_newscrawl_en/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "sentence",
-        "state_date": "23/06/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "1900M"
-    },
-    {
-        "timestamp": "10/08/2020 15:53:59",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnufroiWccPA2TZgjbIrsYOXmGdhtviTEbJtKTeflnK6IqHe6uyGUcH3a5FQuM7h1mEw",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "cawac_ca",
-        "corpus_name": "Catalan Web Corpus (cawac)",
-        "aggregated": "No",
-        "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
-        "provider": "NLP group from University of Zagreb",
-        "languages": [
-            "Catalan"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "CC-BY-SA",
-        "publishable": "Yes",
-        "comments": "The corpus has already been published.",
+        "states": [
+          {
+            "state_path": "wmt_newscrawl_en/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "23/06/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "1900M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "gorka.labaka@ehu.eus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "cawac_ca",
+    "corpus_name": "Catalan Web Corpus (cawac)",
+    "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
+    "provider": "NLP group from University of Zagreb",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "CC-BY-SA",
+    "publishable": "Yes",
+    "comments": "The corpus has already been published.",
+    "versions": [
+      {
         "version_path": "cawac_ca/v1",
         "version_name": "Catalan Web Corpus v1",
         "version_date": "28/05/2020",
-        "state_path": "cawac_ca/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "html",
-        "state_date": "28/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "780M"
-    },
-    {
-        "timestamp": "10/08/2020 15:59:36",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnudkPS5CKEqG8kXmG6pSHN-0CUL_m45cpO2FSSWtk2o9JWeCwEgyDbHUbeg-6bgW-44",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "tweetmt_ca_es_eu",
-        "corpus_name": "TweetMT corpus",
-        "aggregated": "No",
-        "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#Downloads",
-        "provider": "Tweet Translation Workshop at SEPLN 2015",
-        "languages": [
-            "Basque",
-            "Catalan",
-            "Spanish"
-        ],
-        "parallel": "Yes",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Twitter License: https://dev.twitter.com/overview/terms/agreement-and-policy#6._Be_a_Good_Partner_to_Twitter",
-        "publishable": "Yes",
-        "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively). The corpus has already been published.",
-        "version_path": "tweetmt_ca_es_eu/v1",
+        "states": [
+          {
+            "state_path": "cawac_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "html",
+            "state_date": "28/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "780M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "tweetmt_ca-es-eu",
+    "corpus_name": "TweetMT corpus",
+    "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#Downloads",
+    "provider": "Tweet Translation Workshop at SEPLN 2015",
+    "languages": [
+      "Basque",
+      "Catalan",
+      "Spanish"
+    ],
+    "parallel": "Yes",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": "",
+    "license": "Twitter License: https://dev.twitter.com/overview/terms/agreement-and-policy#6._Be_a_Good_Partner_to_Twitter",
+    "publishable": "Yes",
+    "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively). The corpus has already been published.",
+    "versions": [
+      {
+        "version_path": "tweetmt_ca-es-eu/v1",
         "version_name": "TweetMT Corpus v1",
         "version_date": "11/11/2015",
-        "state_path": "tweetmt_ca_es_eu",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "document",
-        "state_date": "29/05/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M"
-    },
-    {
-        "timestamp": "10/08/2020 16:02:26",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuf9X7EJvnouEmj8gO88oMSuHgtSuoUxqTE_bFlivb1V_cLyWs6TboBtEu5zuqDT8Ss",
-        "email_address": "gorka.labaka@ehu.eus",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "euscrawl_eu",
-        "corpus_name": "EusCrawl",
-        "aggregated": "No",
-        "source": "crawling of Basque newspapers",
-        "provider": "UPV/EHU",
-        "languages": [
-            "Basque"
-        ],
-        "parallel": "No",
-        "domain": "General",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "Empty lines are used to mark document boundaries. The crawling is active and it it is planned to publish it. The licensing will be decided then. I am unsure whether the corpus can be published or not.",
-        "version_path": "euscrawl_eu",
+        "states": [
+          {
+            "state_path": "tweetmt_ca-es-eu",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "document",
+            "state_date": "29/05/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "euscrawl_eu",
+    "corpus_name": "EusCrawl",
+    "source": "crawling of Basque newspapers",
+    "provider": "UPV/EHU",
+    "languages": [
+      "Basque"
+    ],
+    "parallel": "No",
+    "domain": "General",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "Empty lines are used to mark document boundaries. The crawling is active and it it is planned to publish it. The licensing will be decided then. I am unsure whether the corpus can be published or not.",
+    "versions": [
+      {
+        "version_path": "euscrawl_eu/v1",
         "version_name": "EusCrawl 20200709",
         "version_date": "09/07/2020",
-        "state_path": "euscrawl_eu/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "document",
-        "state_date": "13/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "115M"
-    },
-    {
-        "timestamp": "10/08/2020 16:04:40",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuc8UBWr6keOO5M0nUSE3Om84NPhSyNNcsf4f5nHliKKvTTtuOJQ2evQ2FsbRabQZ-A",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "crawling_en",
-        "corpus_name": "English Crawling",
-        "aggregated": "No",
-        "source": "Crawling of English websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
-        "provider": "BSC",
-        "languages": [
-            "English"
-        ],
-        "parallel": "No",
-        "domain": "Finance",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "We're studying the license matters with the BSC lawyer",
+        "states": [
+          {
+            "state_path": "euscrawl_eu/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "document",
+            "state_date": "13/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "115M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "gorka.labaka@ehu.eus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "crawling_en",
+    "corpus_name": "English Crawling",
+    "source": "Crawling of English websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "provider": "BSC",
+    "languages": [
+      "English"
+    ],
+    "parallel": "No",
+    "domain": "Finance",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "We're studying the license matters with the BSC lawyer",
+    "versions": [
+      {
         "version_path": "crawling_en/v1",
         "version_name": "English Crawling on 2020-07-20",
         "version_date": "20/07/2020",
-        "state_path": "crawling_en/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "warc",
-        "state_date": "21/07/2020",
-        "size_in_gigabytes": "636GB"
-    },
-    {
-        "timestamp": "10/08/2020 16:06:42",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuep4vAEDM2qhzRpq19De_WhcUnmTSjtlmP1Mqus4csUpqG3_QBHOTKkZKcfIfuclgs",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "crawling_fi",
-        "corpus_name": "Finnish crawling",
-        "aggregated": "No",
-        "source": "Crawling of Finnish websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
-        "provider": "BSC",
-        "languages": [
-            "Finnish"
-        ],
-        "parallel": "No",
-        "domain": "Finance",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "We're studying the license matters with the BSC lawyer",
+        "states": [
+          {
+            "state_path": "crawling_en/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "21/07/2020",
+            "size_in_gigabytes": "636GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_en/v1/s2",
+            "state_name": "cleaned",
+            "encoding": "utf-8",
+            "format": "fairseq-lm",
+            "state_date": "27/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "67.732M",
+            "annotation_types": "",
+            "annotation_format": "",
+            "release_url": "",
+            "prior_state": "s1",
+            "actions": [
+              "cleaning"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py english-crawling --input-path data/english-crawling --input-format warc --output-format fairseq-lm --lang-filter en --parallel --remove-glob-rep-sen --dictionary-filter-sen example-dict.txt --url-doc data/en_urls.txt; bash corpus-cleaner/scripts/postprocess2.sh",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "crawling_fi",
+    "corpus_name": "Finnish crawling",
+    "source": "Crawling of Finnish websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "provider": "BSC",
+    "languages": [
+      "Finnish"
+    ],
+    "parallel": "No",
+    "domain": "Finance",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "We're studying the license matters with the BSC lawyer",
+    "versions": [
+      {
         "version_path": "crawling_fi/v1",
         "version_name": "Finnish Crawling on 2020-07-20",
         "version_date": "21/07/2020",
-        "state_path": "crawling_fi/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "warc",
-        "state_date": "21/07/2020",
-        "size_in_gigabytes": "20GB"
-    },
-    {
-        "timestamp": "10/08/2020 16:08:26",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnudxcwtRkD1qV7SR2f-bMmpiPE83_jnklPzVgcEAqY_ZXb8NbZ_N1DhdakkkMpmF--A",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "crawling_lv",
-        "corpus_name": "Latvian Crawling",
-        "aggregated": "No",
-        "source": "Crawling of Latvian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
-        "provider": "BSC",
-        "languages": [
-            "Latvian"
-        ],
-        "parallel": "No",
-        "domain": "Finance",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "We're studying the license matters with the BSC lawyer",
+        "states": [
+          {
+            "state_path": "crawling_fi/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "21/07/2020",
+            "size_in_gigabytes": "20GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_fi/v1/s2",
+            "state_name": "cleaned",
+            "encoding": "utf-8",
+            "format": "fairseq-lm",
+            "state_date": "24/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "44.613M",
+            "annotation_types": "",
+            "annotation_format": "",
+            "release_url": "",
+            "prior_state": "s1",
+            "actions": [
+              "cleaning"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py finnish-crawling --input-path data/finnish-crawling --input-format warc --output-format fairseq-lm --lang-filter fi --parallel; bash corpus-cleaner/scripts/postprocess.sh",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "crawling_lv",
+    "corpus_name": "Latvian Crawling",
+    "source": "Crawling of Latvian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "provider": "BSC",
+    "languages": [
+      "Latvian"
+    ],
+    "parallel": "No",
+    "domain": "Finance",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "We're studying the license matters with the BSC lawyer",
+    "versions": [
+      {
         "version_path": "crawling_lv/v1",
         "version_name": "Latvian Crawling on 2020-07-21",
         "version_date": "21/07/2020",
-        "state_path": "crawling_lv/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "warc",
-        "state_date": "21/07/2020",
-        "size_in_gigabytes": "1.8GB"
-    },
-    {
-        "timestamp": "10/08/2020 16:09:51",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuekxKbO3_6y4u3KOgNJFaWu9hYGM616PFIqBjs1O0j3UcgPSXZBRgmsNNpsFddwW3E",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "Corpus",
-        "corpus_path": "crawling_no",
-        "corpus_name": "Norwegian Crawling",
-        "aggregated": "No",
-        "source": "Crawling of Norwegian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
-        "provider": "BSC",
-        "languages": [
-            "Norwegian"
-        ],
-        "parallel": "No",
-        "domain": "Finance",
-        "document_level": "Yes",
-        "third_parties": [
-            "MT4ALL"
-        ],
-        "license": "Unknown",
-        "publishable": "I don't know",
-        "comments": "We're studying the license matters with the BSC lawyer",
+        "states": [
+          {
+            "state_path": "crawling_lv/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "21/07/2020",
+            "size_in_gigabytes": "1.8GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_lv/v1/s2",
+            "state_name": "cleaned",
+            "encoding": "utf-8",
+            "format": "fairseq-lm",
+            "state_date": "22/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "8.827M",
+            "annotation_types": "",
+            "annotation_format": "",
+            "release_url": "",
+            "prior_state": "s1",
+            "actions": [
+              "cleaning"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py lv-warc --input-path data/crawling_lv_20200721 --input-format warc --output-format fairseq-lm --lang-filter lv --parallel; bash corpus-cleaner/scripts/postprocess.sh",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "crawling_no",
+    "corpus_name": "Norwegian Crawling",
+    "source": "Crawling of Norwegian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "provider": "BSC",
+    "languages": [
+      "Norwegian"
+    ],
+    "parallel": "No",
+    "domain": "Finance",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Unknown",
+    "publishable": "I don't know",
+    "comments": "We're studying the license matters with the BSC lawyer",
+    "versions": [
+      {
         "version_path": "crawling_no/v1",
         "version_name": "Norwegian Crawling on 2020-07-20",
         "version_date": "20/07/2020",
-        "state_path": "crawling_no/v1/s1",
-        "state_name": "original",
-        "encoding": "utf-8",
-        "format": "warc",
-        "state_date": "21/07/2020",
-        "size_in_gigabytes": "75GB"
-    },
-    {
-        "timestamp": "10/08/2020 16:13:25",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnudr9xu0C7JluEFfr_RkNt9hwXhNU0Tk23vMrvCUTaNqJHw17TxTKM7JDObN-H1mepk",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "State",
-        "corpus_path": "",
-        "corpus_name": "",
-        "aggregated": "",
-        "source": "",
-        "provider": "",
-        "languages": [
-            ""
-        ],
-        "parallel": "",
-        "domain": "",
-        "document_level": "",
-        "third_parties": [
-            ""
-        ],
-        "license": "",
-        "publishable": "",
-        "comments": "",
-        "version_path": "",
-        "version_name": "",
-        "version_date": "",
-        "state_path": "crawling_ca/v1/s2",
-        "state_name": "cleaned",
-        "encoding": "utf-8",
-        "format": "fairseq-lm",
-        "state_date": "20/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "391M",
-        "annotation_types": [
-            ""
-        ],
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "s1",
-        "actions": [
-            "cleaning"
-        ],
-        "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py cat-warc --input-path corpora/crawling_ca_20200525 --input-format warc --output-format fairseq-lm --lang-filter ca --parallel; bash corpus-cleaner/postprocess.sh"
-    },
-    {
-        "timestamp": "10/08/2020 16:17:19",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnue860PHXf35WJLYj_crnwU2p8uYusVgNzS-26pxwog0d5t1JjCihrTHfrVEpeVfZlM",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "State",
-        "corpus_path": "",
-        "corpus_name": "",
-        "aggregated": "",
-        "source": "",
-        "provider": "",
-        "languages": [
-            ""
-        ],
-        "parallel": "",
-        "domain": "",
-        "document_level": "",
-        "third_parties": [
-            ""
-        ],
-        "license": "",
-        "publishable": "",
-        "comments": "",
-        "version_path": "",
-        "version_name": "",
-        "version_date": "",
-        "state_path": "crawling_lv/v1/s2",
-        "state_name": "cleaned",
-        "encoding": "utf-8",
-        "format": "fairseq-lm",
-        "state_date": "22/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "8.827M",
-        "annotation_types": [
-            ""
-        ],
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "s1",
-        "actions": [
-            "cleaning"
-        ],
-        "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py lv-warc --input-path data/crawling_lv_20200721 --input-format warc --output-format fairseq-lm --lang-filter lv --parallel; bash corpus-cleaner/scripts/postprocess.sh"
-    },
-    {
-        "timestamp": "10/08/2020 16:19:28",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnuf5D5qu09DTBoO9y89uMP04jgS0MnHLtyvuazapxgSWWsEXT3HbezWPssue_uVYhw4",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "State",
-        "corpus_path": "",
-        "corpus_name": "",
-        "aggregated": "",
-        "source": "",
-        "provider": "",
-        "languages": [
-            ""
-        ],
-        "parallel": "",
-        "domain": "",
-        "document_level": "",
-        "third_parties": [
-            ""
-        ],
-        "license": "",
-        "publishable": "",
-        "comments": "",
-        "version_path": "",
-        "version_name": "",
-        "version_date": "",
-        "state_path": "crawling_fi/v1/s2",
-        "state_name": "cleaned",
-        "encoding": "utf-8",
-        "format": "fairseq-lm",
-        "state_date": "24/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "44.613M",
-        "annotation_types": [
-            ""
-        ],
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "s1",
-        "actions": [
-            "cleaning"
-        ],
-        "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py finnish-crawling --input-path data/finnish-crawling --input-format warc --output-format fairseq-lm --lang-filter fi --parallel; bash corpus-cleaner/scripts/postprocess.sh"
-    },
-    {
-        "timestamp": "10/08/2020 16:21:21",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnufQRboiFmoFlwcNOyon0YYxY8RkaR_-wk0LJAvqAIrtzwL-zn2_TGzOAoqC1zY1k_k",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "State",
-        "corpus_path": "",
-        "corpus_name": "",
-        "aggregated": "",
-        "source": "",
-        "provider": "",
-        "languages": [
-            ""
-        ],
-        "parallel": "",
-        "domain": "",
-        "document_level": "",
-        "third_parties": [
-            ""
-        ],
-        "license": "",
-        "publishable": "",
-        "comments": "",
-        "version_path": "",
-        "version_name": "",
-        "version_date": "",
-        "state_path": "crawling_no/v1/s2",
-        "state_name": "cleaned",
-        "encoding": "utf-8",
-        "format": "fairseq-lm",
-        "state_date": "27/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "93.523M",
-        "annotation_types": [
-            ""
-        ],
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "s1",
-        "actions": [
-            "cleaning"
-        ],
-        "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py no-warc --input-path data/crawling_no_20200720 --input-format warc --output-format fairseq-lm --lang-filter no --parallel --remove-glob-rep-sen; bash corpus-cleaner/scripts/postprocess2.sh"
-    },
-    {
-        "timestamp": "10/08/2020 16:22:48",
-        "edit_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSfAg7EcDVeaAdBfzOafORSV1pKb03QKLbIpH6XVXQ1R7gKKBw/viewform?edit2=2_ABaOnud3t1EX_oHnhl5U1Y-J0L8FzHpkpK3c9Gjt_bZwsD1WGhxh7mil7RToNHPIcUCEUIQ",
-        "email_address": "odegiber@gmail.com",
-        "i_want_to_register_a_new:": "State",
-        "corpus_path": "",
-        "corpus_name": "",
-        "aggregated": "",
-        "source": "",
-        "provider": "",
-        "languages": [
-            ""
-        ],
-        "parallel": "",
-        "domain": "",
-        "document_level": "",
-        "third_parties": [
-            ""
-        ],
-        "license": "",
-        "publishable": "",
-        "comments": "",
-        "version_path": "",
-        "version_name": "",
-        "version_date": "",
-        "state_path": "crawling_en/v1/s2",
-        "state_name": "cleaned",
-        "encoding": "utf-8",
-        "format": "fairseq-lm",
-        "state_date": "27/07/2020",
-        "size_in_gigabytes": "",
-        "size_in_million_tokens": "67.732M",
-        "annotation_types": [
-            ""
-        ],
-        "annotation_format": "",
-        "release_url": "",
-        "prior_state": "s1",
-        "actions": [
-            "cleaning"
-        ],
-        "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-        "command": "python corpus-cleaner/clean.py english-crawling --input-path data/english-crawling --input-format warc --output-format fairseq-lm --lang-filter en --parallel --remove-glob-rep-sen --dictionary-filter-sen example-dict.txt --url-doc data/en_urls.txt; bash corpus-cleaner/scripts/postprocess2.sh"
-    }
+        "states": [
+          {
+            "state_path": "crawling_no/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "21/07/2020",
+            "size_in_gigabytes": "75GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_no/v1/s2",
+            "state_name": "cleaned",
+            "encoding": "utf-8",
+            "format": "fairseq-lm",
+            "state_date": "27/07/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "93.523M",
+            "annotation_types": "",
+            "annotation_format": "",
+            "release_url": "",
+            "prior_state": "s1",
+            "actions": [
+              "cleaning"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py no-warc --input-path data/crawling_no_20200720 --input-format warc --output-format fairseq-lm --lang-filter no --parallel --remove-glob-rep-sen; bash corpus-cleaner/scripts/postprocess2.sh",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "united_nations_ca-en",
+    "corpus_name": "Catalan - English United Nations Test Set",
+    "source": "https://zenodo.org/record/3888414#.XuEEJfJS9Bw; https://conferences.unite.un.org/UNCorpus/#test",
+    "provider": "UPC",
+    "languages": [
+      "Catalan",
+      "English"
+    ],
+    "parallel": "Yes",
+    "domain": "General",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "license": "Cite https://conferences.unite.un.org/UNCORPUS/Content/Doc/un.pdf",
+    "publishable": "Yes",
+    "comments": "This corpus comprises the English testset and the catalan testset. Each document has 4000 sentences.",
+    "versions": [
+      {
+        "version_path": "united_nations_ca-en/v1",
+        "version_name": "Catalan - English United Nations test set v1.0",
+        "version_date": "11/08/2020",
+        "states": [
+          {
+            "state_path": "united_nations_ca-en/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "11/08/2020",
+            "size_in_gigabytes": "",
+            "size_in_million_tokens": "ca: 0.123696, en: 0.106733",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "barr2_background_es",
+    "corpus_name": "BARR2 IBEREVAL Background 2018 task",
+    "source": "https://temu.bsc.es/BARR2/downloads/background_set.raw_text.tar.bz2",
+    "provider": "BARR2 shared task",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "domain": "Biomedical",
+    "document_level": "No",
+    "third_parties": "",
+    "license": "Unknown",
+    "publishable": "Yes",
+    "comments": "Downloadable from task webpage contained IDs, language tags and some documents tagged as English. DT file contains documents separated by new line characters being the first sentence the title",
+    "versions": [
+      {
+        "version_path": "barr2_background_es/v1",
+        "version_name": "BARR2 IBEREVAL 2018 task",
+        "version_date": "28/05/2018",
+        "states": [
+          {
+            "state_path": "barr2_background_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "sentence",
+            "state_date": "28/05/2018",
+            "size_in_gigabytes": "0.188GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          }
+        ]
+      }
+    ]
+  }
 ]
