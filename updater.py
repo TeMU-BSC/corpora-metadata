@@ -26,11 +26,11 @@ from typing import List
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-
 from iso_language_codes import language, language_name, language_dictionary
 
-LANGUAGES_FILENAME = 'languages.json'
-METADATA_FILENAME = 'metadata.json'
+from constants import (LANGUAGES_FILENAME, METADATA_FILENAME,
+                       CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
+                       LIST_KEYS)
 
 # Save language codes and names into a json file.
 # with open(LANGUAGES_FILENAME, 'w') as f:
@@ -42,16 +42,6 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 # The ID and range of a spreadsheet.
 SPREADSHEET_ID = '1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw'
 RANGE_NAME = 'Answers!A1:AJ'
-
-# Keys of each type of register.
-CORPUS_KEYS = ['corpus_path', 'corpus_name', 'source', 'provider', 'languages', 'parallel',
-               'domain', 'document_level', 'third_parties', 'license', 'publishable', 'comments', 'versions']
-VERSION_KEYS = ['version_path', 'version_name', 'version_date', 'states']
-STATE_KEYS = ['state_path', 'state_name', 'encoding', 'format', 'state_date', 'size_in_gigabytes', 'size_in_million_tokens',
-              'annotation_types', 'annotation_format', 'release_url', 'prior_state', 'actions', 'script_location', 'command', 'action_comments', 'email_address']
-
-# Form fields that have checkbox type should be converted into lists of strings later.
-CHECKBOX_FIELDS = ['languages', 'third_parties', 'annotation_types', 'actions']
 
 
 def to_snake_case(input: str) -> str:
@@ -95,7 +85,7 @@ def build_metadata(rows: List[dict]) -> List[dict]:
     new_states = list()
     for row in rows:
         # Convert checkbox form fields into lists of strings and trim whitespaces from string values.
-        row = {k: v.split(', ') if v and k in CHECKBOX_FIELDS else v.strip() if isinstance(v, str) else v
+        row = {k: v.split(', ') if v and k in LIST_KEYS else v.strip() if isinstance(v, str) else v
                for k, v in row.items()}
         # Find each type of response.
         if row.get('i_want_to_register_a_new:') == 'Corpus':

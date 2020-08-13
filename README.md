@@ -31,18 +31,12 @@ $ python updater.py
 
 If it's the first time you run this script, you should allow 'Quickstart' to access your Google Spreadsheets.
 
-### 2. Discover the corpora
-
-``` bash
-$ python discoverer.py
-$ python discoverer.py --languages --domains
-$ python discoverer.py --formats
-```
-
-### 3. Find corpora
+### 2. Find corpora
 
 The `finder.py` script can find specific corpus states by some attributes. Run `python finder.py --help` to see the list of search attributes.
 
 ``` bash
-$ python finder.py --languages ca es --parallel yes --format warc --domain general --third-parties mt4all
+$ python finder.py --languages catalan spanish --parallel yes --provider sepln
+$ python finder.py --domain biomedical
+$ python finder.py --third-parties mt4all
 ```
