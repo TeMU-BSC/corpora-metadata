@@ -29,9 +29,12 @@ from google.auth.transport.requests import Request
 
 from iso_language_codes import language, language_name, language_dictionary
 
+LANGUAGES_FILENAME = 'languages.json'
+METADATA_FILENAME = 'metadata.json'
 
 # Save language codes and names into a json file.
-# open('languages.json', 'w').write(json.dumps(language_dictionary(), ensure_ascii=False, sort_keys=True, indent=4))
+# with open(LANGUAGES_FILENAME, 'w') as f:
+#     json.dump(language_dictionary(), f, ensure_ascii=False, indent=2)
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -40,14 +43,15 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SPREADSHEET_ID = '1M2BrRHwWmG4zclofFviPQrg9V67kNmx13GuK3od1jtw'
 RANGE_NAME = 'Answers!A1:AJ'
 
+# Keys of each type of register.
 CORPUS_KEYS = ['corpus_path', 'corpus_name', 'source', 'provider', 'languages', 'parallel',
                'domain', 'document_level', 'third_parties', 'license', 'publishable', 'comments', 'versions']
 VERSION_KEYS = ['version_path', 'version_name', 'version_date', 'states']
 STATE_KEYS = ['state_path', 'state_name', 'encoding', 'format', 'state_date', 'size_in_gigabytes', 'size_in_million_tokens',
               'annotation_types', 'annotation_format', 'release_url', 'prior_state', 'actions', 'script_location', 'command', 'action_comments', 'email_address']
 
+# Form fields that have checkbox type should be converted into lists of strings later.
 CHECKBOX_FIELDS = ['languages', 'third_parties', 'annotation_types', 'actions']
-METADATA_FILENAME = 'metadata.json'
 
 
 def to_snake_case(input: str) -> str:
@@ -82,7 +86,7 @@ def set_state(row: dict) -> dict:
 
 
 def build_metadata(rows: List[dict]) -> List[dict]:
-    '''Return the metadata list of corpora.'''
+    '''Build the metadata structure for registered corpora.'''
     metadata = list()
 
     # Separate responses by type.
@@ -124,7 +128,7 @@ def build_metadata(rows: List[dict]) -> List[dict]:
                     if version.get('version_path') == parent_version_path:
                         version['states'].append(state)
 
-    # Return the final list nested list.
+    # Return the resulting nested corpus/versions/states structure.
     return metadata
 
 
@@ -161,7 +165,7 @@ def main():
         print('No data found.')
         return
 
-    # Process the data inside the spreadsheet
+    # Preprocess the raw data from the spreadsheet.
     questions = values[0]
     responses = values[1:]
     questions[0] = 'timestamp'  # last update through google form edit link
@@ -169,9 +173,9 @@ def main():
     headings = [to_snake_case(question) for question in questions]
     rows = [dict(zip_longest(headings, response)) for response in responses]
 
-    # Save the raw responses into a json file.
+    # Save the form responses (spreadsheet rows) into a json file just for reference.
     with open('responses.json', 'w') as f:
-        json.dump(rows, f, ensure_ascii=False, indent=4)
+        json.dump(rows, f, ensure_ascii=False, indent=2)
 
     # Save processed rows into the final metadata file.
     with open(METADATA_FILENAME, 'w') as f:
