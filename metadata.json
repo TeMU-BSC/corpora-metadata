@@ -2,18 +2,19 @@
   {
     "corpus_path": "crawling_ca",
     "corpus_name": "Catalan Crawling",
-    "source": "Crawling of Catalan webpages",
+    "domain": "General",
     "provider": "BSC",
+    "license": "Unknown",
+    "source": "Crawling of Catalan webpages",
     "languages": [
       "Catalan"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "We're studying the license matters with the BSC lawyer",
     "versions": [
@@ -67,19 +68,20 @@
   {
     "corpus_path": "dogc_ca-es",
     "corpus_name": "Parallel DOGC",
-    "source": "http://opus.nlpl.eu/DOGC-v2.php",
+    "domain": "Legal",
     "provider": "DOGC",
+    "license": "CC0",
+    "source": "http://opus.nlpl.eu/DOGC-v2.php",
     "languages": [
       "Catalan",
       "Spanish"
     ],
     "parallel": "Yes",
-    "domain": "Legal",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC0",
     "publishable": "Yes",
     "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
     "versions": [
@@ -113,20 +115,21 @@
   {
     "corpus_path": "oscar_ca",
     "corpus_name": "Catalan Oscar",
-    "source": "https://traces1.inria.fr/oscar/",
+    "domain": "General",
     "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://traces1.inria.fr/oscar/",
     "languages": [
       "Catalan"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC0",
     "publishable": "Yes",
-    "comments": "The corpus has already been published. Each line could be considered as a document as it is not sentence splitted.",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries.",
     "versions": [
       {
         "version_path": "oscar_ca/v1",
@@ -137,7 +140,7 @@
             "state_path": "oscar_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "document",
+            "format": "fairseq-lm",
             "state_date": "28/05/2020",
             "size_in_gigabytes": "",
             "size_in_million_tokens": "728M",
@@ -158,16 +161,17 @@
   {
     "corpus_path": "pangeanic_crawl_ca",
     "corpus_name": "Catalan Pangeanic Crawl",
-    "source": "Pangeanic Database",
+    "domain": "General",
     "provider": "Pangeanic",
+    "license": "Unknown",
+    "source": "Pangeanic Database",
     "languages": [
       "Catalan"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": "",
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "The crawling was made on the following domains and years: .ad (2015,2017), .com (2018), news crawling (2011,2015,2016,2017) and other domains (2004). All the documents have been merged into a single one and exact duplicated entries were removed.",
     "versions": [
@@ -201,18 +205,19 @@
   {
     "corpus_path": "open_subtitles_ca",
     "corpus_name": "Catalan Open Subtitles",
-    "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz",
+    "domain": "General",
     "provider": "OpenSubtitles",
+    "license": "Cite OpenSub",
+    "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz",
     "languages": [
       "Catalan"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Cite OpenSub",
     "publishable": "Yes",
     "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/",
     "versions": [
@@ -246,20 +251,21 @@
   {
     "corpus_path": "oscar_en",
     "corpus_name": "English Oscar",
-    "source": "https://oscar-corpus.com/#corpus",
+    "domain": "General",
     "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://oscar-corpus.com/#corpus",
     "languages": [
       "English"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC0",
     "publishable": "Yes",
-    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries.",
     "versions": [
       {
         "version_path": "oscar_en/v1",
@@ -270,7 +276,7 @@
             "state_path": "oscar_en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "document",
+            "format": "fairseq-lm",
             "state_date": "17/06/2020",
             "size_in_gigabytes": "",
             "size_in_million_tokens": "215.841M",
@@ -291,20 +297,21 @@
   {
     "corpus_path": "oscar_eu",
     "corpus_name": "Basque Oscar",
-    "source": "https://oscar-corpus.com/#corpus",
+    "domain": "General",
     "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://oscar-corpus.com/#corpus",
     "languages": [
       "Basque"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC0",
     "publishable": "Yes",
-    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each line could be considered as a document as it is not sentence splitted.",
+    "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries.",
     "versions": [
       {
         "version_path": "oscar_en/v1",
@@ -315,7 +322,7 @@
             "state_path": "oscar_eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "document",
+            "format": "fairseq-lm",
             "state_date": "05/06/2020",
             "size_in_gigabytes": "",
             "size_in_million_tokens": "48M",
@@ -336,18 +343,19 @@
   {
     "corpus_path": "elh_webcorp_eu",
     "corpus_name": "Elhuyar Web Corpus",
-    "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
+    "domain": "General",
     "provider": "Elhuyar",
+    "license": "CC-BY-NC-SA",
+    "source": "https://hizkuntzateknologiak.elhuyar.eus/en/resources",
     "languages": [
       "Basque"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC-BY-NC-SA",
     "publishable": "Yes",
     "comments": "The corpus can be published according to its license.",
     "versions": [
@@ -381,18 +389,19 @@
   {
     "corpus_path": "wmt_newscrawl_en",
     "corpus_name": "WMT English News",
-    "source": "http://www.statmt.org/wmt14/translation-task.html",
+    "domain": "General",
     "provider": "WMT shared task's organizers",
+    "license": "Unknown",
+    "source": "http://www.statmt.org/wmt14/translation-task.html",
     "languages": [
       "English"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "Yes",
     "comments": "No clear license provided - publically available on the web. The corpus has already been published",
     "versions": [
@@ -426,18 +435,19 @@
   {
     "corpus_path": "cawac_ca",
     "corpus_name": "Catalan Web Corpus (cawac)",
-    "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
+    "domain": "General",
     "provider": "NLP group from University of Zagreb",
+    "license": "CC-BY-SA",
+    "source": "http://nlp.ffzg.hr/resources/corpora/cawac/",
     "languages": [
       "Catalan"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "CC-BY-SA",
     "publishable": "Yes",
     "comments": "The corpus has already been published.",
     "versions": [
@@ -469,33 +479,36 @@
     ]
   },
   {
-    "corpus_path": "tweetmt_ca-es-eu",
+    "corpus_path": "tweetmt_ca_es_eu",
     "corpus_name": "TweetMT corpus",
-    "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#Downloads",
+    "domain": "General",
     "provider": "Tweet Translation Workshop at SEPLN 2015",
+    "license": "Twitter License: https://dev.twitter.com/overview/terms/agreement-and-policy#6._Be_a_Good_Partner_to_Twitter",
+    "source": "http://komunitatea.elhuyar.eus/tweetmt/resources/#Downloads",
     "languages": [
       "Basque",
       "Catalan",
       "Spanish"
     ],
     "parallel": "Yes",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
-    "third_parties": "",
-    "license": "Twitter License: https://dev.twitter.com/overview/terms/agreement-and-policy#6._Be_a_Good_Partner_to_Twitter",
+    "third_parties": [
+      "MT4ALL"
+    ],
     "publishable": "Yes",
     "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively). The corpus has already been published.",
     "versions": [
       {
-        "version_path": "tweetmt_ca-es-eu/v1",
+        "version_path": "tweetmt_ca_es_eu/v1",
         "version_name": "TweetMT Corpus v1",
         "version_date": "11/11/2015",
         "states": [
           {
-            "state_path": "tweetmt_ca-es-eu",
+            "state_path": "tweetmt_ca_es_eu",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "document",
+            "format": "sentence",
             "state_date": "29/05/2020",
             "size_in_gigabytes": "",
             "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M",
@@ -516,18 +529,19 @@
   {
     "corpus_path": "euscrawl_eu",
     "corpus_name": "EusCrawl",
-    "source": "crawling of Basque newspapers",
+    "domain": "General",
     "provider": "UPV/EHU",
+    "license": "Unknown",
+    "source": "crawling of Basque newspapers",
     "languages": [
       "Basque"
     ],
     "parallel": "No",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "Empty lines are used to mark document boundaries. The crawling is active and it it is planned to publish it. The licensing will be decided then. I am unsure whether the corpus can be published or not.",
     "versions": [
@@ -540,7 +554,7 @@
             "state_path": "euscrawl_eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "document",
+            "format": "fairseq-lm",
             "state_date": "13/07/2020",
             "size_in_gigabytes": "",
             "size_in_million_tokens": "115M",
@@ -561,18 +575,19 @@
   {
     "corpus_path": "crawling_en",
     "corpus_name": "English Crawling",
-    "source": "Crawling of English websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "domain": "Finance",
     "provider": "BSC",
+    "license": "Unknown",
+    "source": "Crawling of English websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
     "languages": [
       "English"
     ],
     "parallel": "No",
-    "domain": "Finance",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "We're studying the license matters with the BSC lawyer",
     "versions": [
@@ -626,18 +641,19 @@
   {
     "corpus_path": "crawling_fi",
     "corpus_name": "Finnish crawling",
-    "source": "Crawling of Finnish websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "domain": "Finance",
     "provider": "BSC",
+    "license": "Unknown",
+    "source": "Crawling of Finnish websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
     "languages": [
       "Finnish"
     ],
     "parallel": "No",
-    "domain": "Finance",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "We're studying the license matters with the BSC lawyer",
     "versions": [
@@ -691,18 +707,19 @@
   {
     "corpus_path": "crawling_lv",
     "corpus_name": "Latvian Crawling",
-    "source": "Crawling of Latvian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "domain": "Finance",
     "provider": "BSC",
+    "license": "Unknown",
+    "source": "Crawling of Latvian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
     "languages": [
       "Latvian"
     ],
     "parallel": "No",
-    "domain": "Finance",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "We're studying the license matters with the BSC lawyer",
     "versions": [
@@ -756,18 +773,19 @@
   {
     "corpus_path": "crawling_no",
     "corpus_name": "Norwegian Crawling",
-    "source": "Crawling of Norwegian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "domain": "Finance",
     "provider": "BSC",
+    "license": "Unknown",
+    "source": "Crawling of Norwegian websites from these URLs https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
     "languages": [
       "Norwegian"
     ],
     "parallel": "No",
-    "domain": "Finance",
+    "aggregated": "No",
     "document_level": "Yes",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Unknown",
     "publishable": "I don't know",
     "comments": "We're studying the license matters with the BSC lawyer",
     "versions": [
@@ -821,19 +839,20 @@
   {
     "corpus_path": "united_nations_ca-en",
     "corpus_name": "Catalan - English United Nations Test Set",
-    "source": "https://zenodo.org/record/3888414#.XuEEJfJS9Bw; https://conferences.unite.un.org/UNCorpus/#test",
+    "domain": "General",
     "provider": "UPC",
+    "license": "Cite https://conferences.unite.un.org/UNCORPUS/Content/Doc/un.pdf",
+    "source": "https://zenodo.org/record/3888414#.XuEEJfJS9Bw; https://conferences.unite.un.org/UNCorpus/#test",
     "languages": [
       "Catalan",
       "English"
     ],
     "parallel": "Yes",
-    "domain": "General",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": [
       "MT4ALL"
     ],
-    "license": "Cite https://conferences.unite.un.org/UNCORPUS/Content/Doc/un.pdf",
     "publishable": "Yes",
     "comments": "This corpus comprises the English testset and the catalan testset. Each document has 4000 sentences.",
     "versions": [
@@ -867,16 +886,17 @@
   {
     "corpus_path": "barr2_background_es",
     "corpus_name": "BARR2 IBEREVAL Background 2018 task",
-    "source": "https://temu.bsc.es/BARR2/downloads/background_set.raw_text.tar.bz2",
+    "domain": "Biomedical",
     "provider": "BARR2 shared task",
+    "license": "Unknown",
+    "source": "https://temu.bsc.es/BARR2/downloads/background_set.raw_text.tar.bz2",
     "languages": [
       "Spanish"
     ],
     "parallel": "No",
-    "domain": "Biomedical",
+    "aggregated": "No",
     "document_level": "No",
     "third_parties": "",
-    "license": "Unknown",
     "publishable": "Yes",
     "comments": "Downloadable from task webpage contained IDs, language tags and some documents tagged as English. DT file contains documents separated by new line characters being the first sentence the title",
     "versions": [

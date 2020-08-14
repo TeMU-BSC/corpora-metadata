@@ -22,23 +22,25 @@ def parse_arguments() -> dict:
     parser = argparse.ArgumentParser(
         description='Find specific corpora by some metadata attributes.')
 
-    # Arguments that accept any number of items
+    # Corpus-specific arguments.
     parser.add_argument("--languages",
                         help="language ISO names, see 'languages.json' file", nargs='*')
-    parser.add_argument("--third-parties",
-                        help="entities that should have external access to this corpora", nargs='*')
-
-    # Arguments that accept only one item
     parser.add_argument("--domain",
                         help="knowledge area to which the corpus belongs")
+    parser.add_argument("--third-parties",
+                        help="entities that should have external access to this corpora", nargs='*')
     parser.add_argument("--provider",
                         help="entity that has provided the corpus")
     parser.add_argument("--parallel",
                         help="either the same data is present in more than one language")
 
-    # Corpus-specific arguments.
+    # TODO State-specific arguments.
     # parser.add_argument("--format",
     #                     help="format in which the corpus state is stored")
+    # parser.add_argument("--annotation-types",
+    #                     help="", nargs='*')
+    # parser.add_argument("--actions",
+    #                     help="", nargs='*')
 
     args = parser.parse_args()
     query = vars(args)
@@ -48,12 +50,13 @@ def parse_arguments() -> dict:
 def get_matches(query: dict, metadata: List[dict]) -> list:
     '''Execute the query against the metadata.'''
     matches = metadata
-    print(query)
     for k, v in query.items():
         if v:
             if isinstance(v, list):
-                v = [item.lower() for item in v]
-                matches = list(filter(lambda corpus: set(v).issubset(
+                v_lower = [item.lower() for item in v]
+                if k == 'languages':
+                    v_lower = [language_name(item).lower() for item in v]
+                matches = list(filter(lambda corpus: set(v_lower).issubset(
                     set([item.lower() for item in corpus.get(k)])), matches))
             elif isinstance(v, str):
                 matches = list(filter(lambda corpus: v.lower()
@@ -64,8 +67,13 @@ def get_matches(query: dict, metadata: List[dict]) -> list:
 
 def to_tabular_format(matches: List[dict]) -> str:
     '''Convert the matches into tabular data format.
-    Author: ona.degibert@bsc.es'''
-    COLUMNS = ['CORPUS_PATH', 'CORPUS_NAME']
+    Credit for panda's dataframe snippet: ona.degibert@bsc.es'''
+    COLUMNS = [
+        'CORPUS_PATH',
+        'CORPUS_NAME',
+        'DOMAIN',
+        # 'PROVIDER'
+    ]
 
     if len(matches) == 0:
         return "No matches found.\nTry 'python finder.py --help' for more information."
@@ -83,8 +91,8 @@ def main():
 
     query = parse_arguments()
     matches = get_matches(query, metadata)
-
     tabular_results = to_tabular_format(matches)
+
     print(tabular_results)
 
 
