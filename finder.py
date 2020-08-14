@@ -13,8 +13,13 @@ from typing import List
 from iso_language_codes import language, language_name
 import pandas as pd
 
-from constants import (METADATA_FILENAME,
-                       CORPUS_KEYS, VERSION_KEYS, STATE_KEYS)
+from constants import (
+    METADATA_FILENAME,
+    CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
+    DISPLAY_ATTRIBUTES
+)
+
+import updater
 
 
 def parse_arguments() -> dict:
@@ -68,18 +73,13 @@ def get_matches(query: dict, metadata: List[dict]) -> list:
 def to_tabular_format(matches: List[dict]) -> str:
     '''Convert the matches into tabular data format.
     Credit for panda's dataframe snippet: ona.degibert@bsc.es'''
-    COLUMNS = [
-        'CORPUS_PATH',
-        'CORPUS_NAME',
-        'DOMAIN',
-        # 'PROVIDER'
-    ]
+    columns = [attribute.upper() for attribute in DISPLAY_ATTRIBUTES]
 
     if len(matches) == 0:
         return "No matches found.\nTry 'python finder.py --help' for more information."
 
-    results_df = pd.DataFrame(matches).iloc[:, 0:len(COLUMNS)]
-    results_df.columns = COLUMNS
+    results_df = pd.DataFrame(matches).iloc[:, 0:len(columns)]
+    results_df.columns = columns
     results_df.set_index(pd.Series(range(1, len(matches) + 1)), inplace=True)
     return results_df
 
@@ -97,4 +97,5 @@ def main():
 
 
 if __name__ == '__main__':
+    updater.main()
     main()

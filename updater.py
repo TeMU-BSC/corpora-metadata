@@ -28,9 +28,11 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from iso_language_codes import language, language_name, language_dictionary
 
-from constants import (LANGUAGES_FILENAME, METADATA_FILENAME,
-                       CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
-                       LIST_KEYS)
+from constants import (
+    LANGUAGES_FILENAME, METADATA_FILENAME,
+    CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
+    LIST_KEYS
+)
 
 # Save language codes and names into a json file.
 # with open(LANGUAGES_FILENAME, 'w') as f:
@@ -162,6 +164,9 @@ def main():
     questions[2] = 'email_address'  # person who has recorded the metadata
     headings = [to_snake_case(question) for question in questions]
     rows = [dict(zip_longest(headings, response)) for response in responses]
+
+    # Convert empty strings into None.
+    rows = [{k: v if v else None for k, v in row.items()} for row in rows]
 
     # Save the form responses (spreadsheet rows) into a json file just for reference.
     with open('responses.json', 'w') as f:

@@ -43,26 +43,41 @@ The `discoverer.py` script allows to know the available attributes to perform se
 
 The `finder.py` script can find either corpus and specific corpus states by some corpus-specific and/or state-specific attributes. Run `python finder.py --help` to see the available arguments.
 
-## 4. Examples of use case
+## 4. Examples of use cases
 
-### 4.1. Find biomedical corpora
+* List all corpora
 
 ``` bash
-$ python discoverer.py --domain
+$ python finder.py
+```
+
+* List all distinct third parties with access to some corpora
+
+``` bash
+$ python discoverer.py third_parties
+```
+
+* Find biomedical corpora
+
+``` bash
+$ python discoverer.py domain
 $ python finder.py --domain biomedical
 ```
 
-### 4.2. Find parallel corpora in Catalan and Spanish
+* Find parallel corpora in Catalan and Spanish
 
 ``` bash
-$ python discoverer.py --parallel --languages
+$ python discoverer.py parallel
+$ python discoverer.py languages
 $ python finder.py --parallel yes --languages Catalan Spanish
 ```
 
 Note that the search arguments are case-insensitive, so official capitalized 'Catalan' will find the same matches as lowercase 'catalan'.
 
-Alternatively, you can use the ISO language codes (see `languages.json`):
+Alternatively, you can use the ISO language codes (see `languages.json` ):
 
 ``` bash
 $ python finder.py --parallel yes --languages ca es
 ```
+
+Also note that every time you run the discoverer or the finder, the updater is called, so the metadata is always updated.
