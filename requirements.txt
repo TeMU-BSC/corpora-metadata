@@ -2,6 +2,7 @@ google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 autopep8
+pandas
 pylint
 pytest
 iso-language-codes
