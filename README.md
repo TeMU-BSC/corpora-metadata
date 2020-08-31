@@ -69,15 +69,9 @@ $ python finder.py --domain biomedical
 ``` bash
 $ python discoverer.py parallel
 $ python discoverer.py languages
-$ python finder.py --parallel yes --languages Catalan Spanish
-```
-
-Note that the search arguments are case-insensitive, so official capitalized 'Catalan' will find the same matches as lowercase 'catalan'.
-
-Alternatively, you can use the ISO language codes (see `languages.json` ):
-
-``` bash
 $ python finder.py --parallel yes --languages ca es
 ```
+
+Note that the search arguments for languages are the ISO language codes (see `languages.json` ).
 
 Also note that every time you run the discoverer or the finder, the updater is called, so the metadata is always updated.
