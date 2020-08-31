@@ -1,5 +1,6 @@
 # Filenames to write output data.
 LANGUAGES_FILENAME = 'languages.json'
+RESPONSES_FILENAME = 'responses.json'
 METADATA_FILENAME = 'metadata.json'
 
 # Keys of each type of register.
@@ -54,7 +55,8 @@ LIST_KEYS = [
 
 # Attributes to display in search results.
 DISPLAY_ATTRIBUTES = [
-    'corpus_path',
+    # 'corpus_path',
+    'state_path',
     'corpus_name',
-    'domain',
+    # 'domain',
 ]

@@ -10,12 +10,12 @@ import json
 from typing import List
 
 from iso_language_codes import language, language_name
-import pandas as pd
+from pandas import DataFrame
 
 from constants import (
     METADATA_FILENAME,
     CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
-    DISPLAY_ATTRIBUTES
+    DISPLAY_ATTRIBUTES,
 )
 
 import updater
@@ -53,15 +53,12 @@ def get_distinct_values(attribute: str, metadata: List[dict]) -> list:
 def to_tabular_format(attribute: str, values: List[dict]) -> str:
     '''Convert the values into one-column tabular data format.
     Credit for panda's dataframe snippet: ona.degibert@bsc.es'''
-    columns = [attribute.upper()]
-
     if len(values) == 0:
         return "No values found.\nTry 'python discoverer.py --help' for more information."
 
-    results_df = pd.DataFrame(values).iloc[:, 0:len(columns)]
-    results_df.columns = columns
-    results_df.set_index(pd.Series(range(1, len(values) + 1)), inplace=True)
-    return results_df
+    columns = [attribute]
+    df = DataFrame(values, index=range(1, len(values) + 1), columns=[attribute])
+    return df
 
 
 def main():

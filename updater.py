@@ -29,9 +29,9 @@ from google.auth.transport.requests import Request
 from iso_language_codes import language, language_name, language_dictionary
 
 from constants import (
-    LANGUAGES_FILENAME, METADATA_FILENAME,
+    LANGUAGES_FILENAME, RESPONSES_FILENAME, METADATA_FILENAME,
     CORPUS_KEYS, VERSION_KEYS, STATE_KEYS,
-    LIST_KEYS
+    LIST_KEYS,
 )
 
 # Save language codes and names into a json file.
@@ -169,7 +169,7 @@ def main():
     rows = [{k: v if v else None for k, v in row.items()} for row in rows]
 
     # Save the form responses (spreadsheet rows) into a json file just for reference.
-    with open('responses.json', 'w') as f:
+    with open(RESPONSES_FILENAME, 'w') as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
 
     # Save processed rows into the final metadata file.
