@@ -45,7 +45,7 @@
             "state_path": "crawling_ca/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "20/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "391M",
@@ -65,7 +65,7 @@
             "state_path": "crawling_ca/v1/s3",
             "state_name": "fixed_apostrophes",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "25/08/2020",
             "size_in_gigabytes": "2.3GB",
             "size_in_million_tokens": "391.232M",
@@ -79,6 +79,28 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "bash postprocess3.sh",
             "action_comments": "The corpus-cleaner execution was correct but introduced spaces among apostrophes so we fixed it with postprocess3.sh",
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "crawling_ca/v1/s4",
+            "state_name": "Clean and sentence split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "21/09/2020",
+            "size_in_gigabytes": "2.6GB",
+            "size_in_million_tokens": "434.817M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "cleaning",
+              "deduplication",
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py crawling_ca --input-path data/CATALA --input-format warc --output-format fairseq-lm --lang-filter ca --dictionary-filter-sen example-dict.txt --encoding utf-8 --parallel --backend ray",
+            "action_comments": "Fixed apostrophes and URLS\nBranch -fix-apostrophes-ca",
             "email_address": "odegiber@gmail.com"
           }
         ]
@@ -103,21 +125,21 @@
       "MT4ALL"
     ],
     "publishable": "Yes",
-    "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish",
+    "comments": "Collection of documents from the official journal of the Catalan Goverment in Catalan and Spanish\nOliver, Antoni. \"El corpus paral· lel del Diari Oficial de la Generalitat de Catalunya: compilació, anàlisi i exemples d’ús.\" Zeitschrift für Katalanistik 30 (2017): 269-291.\nhttps://projectetraces.uab.cat/tracesbd/zfk/2017/zfk_a2017n30p269.pdf",
     "versions": [
       {
-        "version_path": "dogc_ca-es/v1",
+        "version_path": "dogc_ca_es/v1",
         "version_name": "Parallel DOGC v2",
         "version_date": "25/05/2020",
         "states": [
           {
-            "state_path": "dogc_ca-es/v1/s1",
+            "state_path": "dogc_ca_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "28/05/2020",
-            "size_in_gigabytes": null,
-            "size_in_million_tokens": "ca: 163M, es: 148.2M",
+            "size_in_gigabytes": "ca: 0.801GB, es: 0.826GB",
+            "size_in_million_tokens": "ca: 126.6M, es: 132.2M",
             "annotation_types": null,
             "annotation_format": null,
             "release_url": null,
@@ -149,7 +171,7 @@
       "MT4ALL"
     ],
     "publishable": "Yes",
-    "comments": "Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries.",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries. \nhttps://hal.inria.fr/hal-02148693/document\nSuárez, Pedro Javier Ortiz, Benoît Sagot, and Laurent Romary. \"Asynchronous pipeline for processing huge corpora on medium to low resource infrastructures.\" 7th Workshop on the Challenges in the Management of Large Corpora (CMLC-7). Leibniz-Institut für Deutsche Sprache, 2019.",
     "versions": [
       {
         "version_path": "oscar_ca/v1",
@@ -160,7 +182,7 @@
             "state_path": "oscar_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "28/05/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "728M",
@@ -172,6 +194,75 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_ca/v1/s2",
+            "state_name": "sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "01/09/2020",
+            "size_in_gigabytes": "3.9GB",
+            "size_in_million_tokens": "662.033M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "cleaning",
+              "deduplication",
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/tree/only-sentence-splitting",
+            "command": "python corpus-cleaner/clean.py oscar-ca --input-path data/test --input-format fairseq-lm --output-format fairseq-lm --lang-filter ca--components PreFilterer SentenceSplitterComponent DocumentFilter SentenceFilter --encoding utf-8;\nbash scripts/postprocess3.sh",
+            "action_comments": "The corpus-cleaner execution was correct but introduced spaces among apostrophes so we fixed it with postprocess3.sh",
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      },
+      {
+        "version_path": "oscar_ca/v2",
+        "version_name": "Unfiltered Catalan Oscar (NOT PUBLISHABLE)",
+        "version_date": "15/09/2020",
+        "states": [
+          {
+            "state_path": "oscar_ca/v2/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "15/09/2020",
+            "size_in_gigabytes": "8.3GB",
+            "size_in_million_tokens": "1358M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_ca/v2/s2",
+            "state_name": "clean_and_sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "21/09/2020",
+            "size_in_gigabytes": "4.1GB",
+            "size_in_million_tokens": "704.043M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "cleaning",
+              "deduplication",
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py oscar_ca --input-path data/oscar_ca --input-format fairseq-lm --output-format fairseq-lm --lang-filter ca --encoding utf-8 --parallel --backend ray",
+            "action_comments": "Fixed apostrophes and URLS\nBranch -fix-apostrophes-ca",
             "email_address": "odegiber@gmail.com"
           }
         ]
@@ -204,7 +295,7 @@
             "state_path": "pangeanic_crawl_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "28/05/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "89M",
@@ -239,7 +330,7 @@
       "MT4ALL"
     ],
     "publishable": "Yes",
-    "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/",
+    "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/\nhttps://www.duo.uio.no/handle/10852/50459\nP. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
     "versions": [
       {
         "version_path": "open_subtitles_ca/v1",
@@ -250,7 +341,7 @@
             "state_path": "open_subtitles_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "28/05/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "3.5M",
@@ -296,10 +387,10 @@
             "state_path": "oscar_en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "17/06/2020",
             "size_in_gigabytes": "1209GB",
-            "size_in_million_tokens": "215.841M",
+            "size_in_million_tokens": "215841.256M",
             "annotation_types": null,
             "annotation_format": null,
             "release_url": null,
@@ -308,6 +399,27 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_en/v1/s2",
+            "state_name": "45M_sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "03/09/2020",
+            "size_in_gigabytes": "13GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "sentence splitting",
+              "shufffling"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python clean.py oscar_en_45_split --input-path data/oscar_en_45_split --input-format fairseq-lm --output-format fairseq-lm --lang-filter en --components PreFilterer SentenceSplitterComponent DocumentFilter SentenceFilter --encoding utf-8 --parallel --backend ray",
+            "action_comments": "The dataset originates from oscar_en. It is a subset of 45 shuffled random paragraphs (each treated as a document) that have been sentence split.",
             "email_address": "odegiber@gmail.com"
           }
         ]
@@ -334,7 +446,7 @@
     "comments": "OSCAR is a multilingual corpus obtained by language classification and filtering of the Common Crawl. Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries.",
     "versions": [
       {
-        "version_path": "oscar_eu/v1",
+        "version_path": "oscar_en/v1",
         "version_name": "Basque OSCAR 20200410",
         "version_date": "10/04/2020",
         "states": [
@@ -342,7 +454,7 @@
             "state_path": "oscar_eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "05/06/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "48M",
@@ -388,7 +500,7 @@
             "state_path": "elh_webcorp_eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "10/04/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "186M",
@@ -434,7 +546,7 @@
             "state_path": "wmt_newscrawl_en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "23/06/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "1900M",
@@ -469,7 +581,7 @@
       "MT4ALL"
     ],
     "publishable": "Yes",
-    "comments": "The corpus has already been published.",
+    "comments": "Nikola Ljubesic, Antonio Toral: caWaC - A web corpus of Catalan and its application to language modeling and machine translation. LREC 2014: 1728-1732https://www.aclweb.org/anthology/L14-1647/",
     "versions": [
       {
         "version_path": "cawac_ca/v1",
@@ -480,7 +592,7 @@
             "state_path": "cawac_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "html",
+            "format": "crawl-doc",
             "state_date": "28/05/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "780M",
@@ -498,7 +610,7 @@
             "state_path": "cawac_ca/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "22/08/2020",
             "size_in_gigabytes": "3.7GB",
             "size_in_million_tokens": "650.908M",
@@ -513,6 +625,28 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "python corpus-cleaner/clean.py cawac-dist --input-path data/cawac --input-format document --output-format fairseq-lm --lang-filter ca --lang-chars-filter 0.15 --dictionary-filter-sen example-dict.txt --encoding utf-8 --parallel --backend ray;\nbash scripts/postprocess3.sh",
             "action_comments": "The corpus-cleaner execution was correct but introduced spaces among apostrophes so we fixed it with postprocess3.sh",
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "cawac_ca/v1/s3",
+            "state_name": "clean and sentence split",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "21/09/2020",
+            "size_in_gigabytes": "3.7GB",
+            "size_in_million_tokens": "650.977M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "cleaning",
+              "deduplication",
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py cawac_ca --input-path data/cawac_ca --input-format document --output-format fairseq-lm --lang-filter ca --lang-chars-filter 0.15 --dictionary-filter-sen example-dict.txt --encoding utf-8 --parallel --backend ray",
+            "action_comments": "Fixed apostrophes and URLS\nBranch -fix-apostrophes-ca",
             "email_address": "odegiber@gmail.com"
           }
         ]
@@ -536,7 +670,7 @@
     "document_level": "Yes",
     "third_parties": null,
     "publishable": "Yes",
-    "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively). The corpus has already been published.",
+    "comments": "Four parallel files for two language pairs (es-ca and es-eu) and then three individual files for es, ca, and eu. The corpus has been automatically aligned, alignment average error rate is 2% (es-ca) and 15% (eu-es). Monolingual files have been normalized (@user and URLs are standarized to 'IDIDID' dnd 'URLURLURL', respectively). The corpus has already been published.\n\nhttps://upcommons.upc.edu/bitstream/handle/2117/77527/tweetmt-2-overview.pdf\nAlegria, Inaki, et al. \"Overview of TweetMT: a shared task on machine translation of tweets at SEPLN 2015.\" Proceedings of the Tweet Translation Workshop 2015. 2015.",
     "versions": [
       {
         "version_path": "tweetmt_ca-es-eu/v1",
@@ -547,7 +681,7 @@
             "state_path": "tweetmt_ca-es-eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "29/05/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "ca: 0.084M, eu: 0.063M, es: 0.180M",
@@ -593,7 +727,7 @@
             "state_path": "euscrawl_eu/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "13/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "115M",
@@ -657,7 +791,7 @@
             "state_path": "crawling_en/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "27/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "67.732M",
@@ -723,7 +857,7 @@
             "state_path": "crawling_fi/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "24/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "44.613M",
@@ -789,7 +923,7 @@
             "state_path": "crawling_lv/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "22/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "8.827M",
@@ -855,7 +989,7 @@
             "state_path": "crawling_no/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "27/07/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "93.523M",
@@ -876,7 +1010,7 @@
     ]
   },
   {
-    "corpus_path": "united_nations_ca-en",
+    "corpus_path": "united_nations_ca_en",
     "corpus_name": "Catalan - English United Nations Test Set",
     "domain": "General",
     "provider": "UPC",
@@ -896,15 +1030,15 @@
     "comments": "This corpus comprises the English testset and the catalan testset. Each document has 4000 sentences.",
     "versions": [
       {
-        "version_path": "united_nations_ca-en/v1",
+        "version_path": "united_nations_ca_en",
         "version_name": "Catalan - English United Nations test set v1.0",
         "version_date": "11/08/2020",
         "states": [
           {
-            "state_path": "united_nations_ca-en/v1/s1",
+            "state_path": "united_nations_ca_en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "sentence",
+            "format": "txt-sentence",
             "state_date": "11/08/2020",
             "size_in_gigabytes": null,
             "size_in_million_tokens": "ca: 0.123696, en: 0.106733",
@@ -934,7 +1068,7 @@
     ],
     "parallel": "No",
     "aggregated": "No",
-    "document_level": "No",
+    "document_level": "Yes",
     "third_parties": null,
     "publishable": "Yes",
     "comments": "Downloadable from task webpage contained IDs, language tags and some documents tagged as English. DT file contains documents separated by new line characters being the first sentence the title",
@@ -948,7 +1082,7 @@
             "state_path": "barr2_background_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "28/05/2018",
             "size_in_gigabytes": "0.188GB",
             "size_in_million_tokens": null,
@@ -966,9 +1100,9 @@
             "state_path": "barr2_background_es/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "25/08/2020",
-            "size_in_gigabytes": "148",
+            "size_in_gigabytes": "0.148GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -981,7 +1115,7 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "bash /gpfs/projects/bsc88/corpus-cleaner/20-08-2020/run-singularity-legacy.sh barr2-0.5-output --input-path /gpfs/projects/bsc88/Word_Embeddings/biomedical\n_es/barr2_background_es  --input-format fairseq-lm --output-format fairseq-lm   --lang-filter es",
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           }
         ]
       }
@@ -1014,7 +1148,7 @@
             "state_path": "emea_es-en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-sentence",
             "state_date": "03/03/2018",
             "size_in_gigabytes": "en: 0.076GB es: 0.087GB",
             "size_in_million_tokens": "es: 13.9M, en:26.0M",
@@ -1027,6 +1161,24 @@
             "command": null,
             "action_comments": null,
             "email_address": "barzegar.siamak@bsc.es"
+          },
+          {
+            "state_path": "emea_es-en/v1/s2",
+            "state_name": "fix broken sentences",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "29/10/2020",
+            "size_in_gigabytes": "0.087GB",
+            "size_in_million_tokens": "13.795.622",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": null,
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/commit/56328e877bba01f109842567b091f87907624745",
+            "command": "python postprocess_pdfs.py emea_es-en/v1/s1 emea_es-en/v1/s2",
+            "action_comments": null,
+            "email_address": "casimiro.carrino@bsc.es"
           }
         ]
       }
@@ -1060,7 +1212,7 @@
             "state_path": "wikipedia_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "18/08/2020",
             "size_in_gigabytes": "1.2 GB",
             "size_in_million_tokens": "198.36 M",
@@ -1078,7 +1230,7 @@
             "state_path": "wikipedia_ca/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "22/08/2020",
             "size_in_gigabytes": "0.981GB",
             "size_in_million_tokens": "167.725M",
@@ -1093,6 +1245,28 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "python corpus-cleaner/clean.py wiki-ca-dist --input-path data/wikipedia_ca --input-format fairseq-lm --output-format fairseq-lm --fast-lang-filter-threshold 0.2 --slow-lang-filter-threshold 0.8 --parallel --backend ray --lang-filter ca;\nbash scripts/postprocess3.sh",
             "action_comments": "The corpus-cleaner execution was correct but introduced spaces among apostrophes so we fixed it with postprocess3.sh",
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "wikipedia_ca/v1/s3",
+            "state_name": "clean_and_sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "21/09/2020",
+            "size_in_gigabytes": "0.983GB",
+            "size_in_million_tokens": "167.895M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "cleaning",
+              "deduplication",
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python corpus-cleaner/clean.py wiki-ca --input-path data/wiki_ca --input-format fairseq-lm --output-format fairseq-lm --fast-lang-filter-threshold 0.2 --slow-lang-filter-threshold 0.8 --lang-filter ca --encoding utf-8 --parallel --backend ray",
+            "action_comments": "Fixed apostrophes and URLS\nBranch -fix-apostrophes-ca",
             "email_address": "odegiber@gmail.com"
           }
         ]
@@ -1126,7 +1300,7 @@
             "state_path": "mespen_medline_es-en/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "03/12/2018",
             "size_in_gigabytes": "es: 1.2GB, en: 1.2GB",
             "size_in_million_tokens": null,
@@ -1138,15 +1312,15 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           },
           {
             "state_path": "mespen_medline_es-en/v1/s2",
             "state_name": "cleaned",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "27/08/2020",
-            "size_in_gigabytes": "26",
+            "size_in_gigabytes": "0.026GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1160,7 +1334,7 @@
             "script_location": null,
             "command": "bash /gpfs/projects/bsc88/corpus-cleaner/20-08-2020/run-singularity-legacy.sh barr2-0.5-output --input-path /gpfs/projects/bsc88/Word_Embeddings/biomedical_es/mespen_medline_es-en/v1/s1/es/  --input-format fairseq-lm --output-format fairseq-lm   --lang-filter es",
             "action_comments": "corpus-cleaning just applied on Spanish corpus",
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           }
         ]
       }
@@ -1194,7 +1368,7 @@
             "encoding": "utf-8",
             "format": "json",
             "state_date": "01/11/2018",
-            "size_in_gigabytes": "981",
+            "size_in_gigabytes": "0.981GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1204,15 +1378,15 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           },
           {
             "state_path": "reec_es/v1/s2",
             "state_name": "sentence_split",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "28/11/2019",
-            "size_in_gigabytes": "823",
+            "size_in_gigabytes": "0.823GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1224,15 +1398,15 @@
             "script_location": "Felipe did it, I am not sure we have the script or not.",
             "command": null,
             "action_comments": null,
-            "email_address": "barzegar.siamak@bsc.es"
+            "email_address": "siamak.barzegar@bsc.es"
           },
           {
             "state_path": "reec_es/v1/s3",
             "state_name": "clean_sentence_split_dedublicated",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "26/08/2020",
-            "size_in_gigabytes": "0.27",
+            "size_in_gigabytes": "0.27GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1246,7 +1420,7 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "bash /gpfs/projects/bsc88/corpus-cleaner/20-08-2020/run-singularity-legacy.sh barr2-0.5-output --input-path /gpfs/projects/bsc88/Word_Embeddings/biomedical_es/reec_es  --input-format fairseq-lm --output-format fairseq-lm   --lang-filter es",
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           }
         ]
       }
@@ -1264,7 +1438,7 @@
     ],
     "parallel": "No",
     "aggregated": "No",
-    "document_level": "No",
+    "document_level": "Yes",
     "third_parties": null,
     "publishable": "Yes",
     "comments": "Accepted codes (Medical Domain) for Json files of patents: \"A61B\", \"A61C\",\"A61F\", \"A61H\", \"A61K\", \"A61L\",\"A61M\", \"A61B\", \"A61P\"\nWe extracted \"title_localized\" and \"abstract_localized\" if \"country_cod\" was \"Spain\" and language was \"es\" (Spanish).",
@@ -1278,7 +1452,7 @@
             "state_path": "patents_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "20/05/2020",
             "size_in_gigabytes": "0.087GB",
             "size_in_million_tokens": null,
@@ -1290,7 +1464,27 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
+          },
+          {
+            "state_path": "patents_es/v1/s2",
+            "state_name": "fix broken sentences",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "29/10/2020",
+            "size_in_gigabytes": "0.088GB",
+            "size_in_million_tokens": "14.022486M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "postprocessing"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/commit/56328e877bba01f109842567b091f87907624745",
+            "command": "python postprocess_pdfs.py patents_es/v1/s1 patents_es/v1/s2",
+            "action_comments": null,
+            "email_address": "casimiro.carrino@bsc.es"
           }
         ]
       }
@@ -1322,7 +1516,7 @@
             "state_path": "scielo_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "31/10/2019",
             "size_in_gigabytes": "3.891GB",
             "size_in_million_tokens": null,
@@ -1366,7 +1560,7 @@
             "state_path": "wikipedia_health_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "28/11/2018",
             "size_in_gigabytes": "27.648GB",
             "size_in_million_tokens": null,
@@ -1378,15 +1572,15 @@
             "script_location": null,
             "command": null,
             "action_comments": null,
-            "email_address": "siamak.barzegar@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           },
           {
             "state_path": "wikipedia_health_es/v1/s2",
             "state_name": "clean_and_sentence_split_and_deduplicated",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "26/08/2020",
-            "size_in_gigabytes": "994",
+            "size_in_gigabytes": "0.994GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1400,7 +1594,7 @@
             "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
             "command": "bash /gpfs/projects/bsc88/corpus-cleaner/20-08-2020/run-singularity-legacy.sh barr2-0.5-output --input-path /gpfs/projects/bsc88/Word_Embeddings/biomedical_es/wikipedia_health_es/ --input-format fairseq-lm --output-format fairseq-lm   --lang-filter es",
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "siamak.barzegar@bsc.es"
           }
         ]
       }
@@ -1432,9 +1626,9 @@
             "state_path": "libros_casos_clinicos_es/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "txt",
+            "format": "txt-fairseq-lm",
             "state_date": "03/12/2018",
-            "size_in_gigabytes": "83",
+            "size_in_gigabytes": "0.0083GB",
             "size_in_million_tokens": null,
             "annotation_types": null,
             "annotation_format": null,
@@ -1448,25 +1642,23 @@
           },
           {
             "state_path": "libros_casos_clinicos_es/v1/s2",
-            "state_name": "cleaned",
+            "state_name": "fix broken sentences",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
-            "state_date": "26/08/2020",
-            "size_in_gigabytes": "5",
-            "size_in_million_tokens": null,
+            "format": "txt-fairseq-lm",
+            "state_date": "28/10/2020",
+            "size_in_gigabytes": "0.0081GB",
+            "size_in_million_tokens": "1.089256M",
             "annotation_types": null,
             "annotation_format": null,
             "release_url": null,
             "prior_state": "s1",
             "actions": [
-              "cleaning",
-              "deduplication",
-              "sentence splitting"
+              "postprocessing"
             ],
-            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
-            "command": "bash /gpfs/projects/bsc88/corpus-cleaner/20-08-2020/run-singularity-legacy.sh barr2-0.5-output --input-path /gpfs/projects/bsc88/Word_Embeddings/biomedical\n_es/libros_casos_clinicos_es  --input-format fairseq-lm --output-format fairseq-lm   --lang-filter es",
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/commit/56328e877bba01f109842567b091f87907624745#diff-8e4b343571dce05946a3a15e18dcc5946f12687ba6531eb72b72c36be1192654",
+            "command": "python postprocess_pdfs.py libros_casos_clinicos/v1/s1 libros_casos_clinicos/v1/s2",
             "action_comments": null,
-            "email_address": "barzegar.siamak@gmail.com"
+            "email_address": "casimiro.carrino@bsc.es"
           }
         ]
       }
@@ -1478,7 +1670,7 @@
     "domain": "General",
     "provider": "BSC",
     "license": "Unknown",
-    "source": "cawac_ca/v1/s2, crawling_ca/v1/s3, dogc_ca-es/v1/s1/ca.txt, open_subtitles_ca/v1/s1, oscar_ca/v1/s1, wikipedia_ca/v1/s2",
+    "source": "cawac_ca/v1/s2, crawling_ca/v1/s3, dogc_ca-es/v1/s1/ca.txt, open_subtitles_ca/v1/s1, oscar_ca/v1/s2, wikipedia_ca/v1/s2",
     "languages": [
       "Catalan"
     ],
@@ -1489,7 +1681,7 @@
       "MT4ALL"
     ],
     "publishable": "Yes",
-    "comments": "A new line has been added to the end of each file before concatenation to respect document boundaries. DOGC and OpenSub are not document parseable. Open license, but not sure which.",
+    "comments": "A new line has been added to the end of each file before concatenation to respect document boundaries. DOGC and OpenSub are not document parseable. Open license, but not sure which. Basic concatenation of all files",
     "versions": [
       {
         "version_path": "colossal_corpus_ca/v1",
@@ -1500,10 +1692,10 @@
             "state_path": "colossal_corpus_ca/v1/s1",
             "state_name": "original",
             "encoding": "utf-8",
-            "format": "fairseq-lm",
+            "format": "txt-fairseq-lm",
             "state_date": "25/08/2020",
             "size_in_gigabytes": "12GB",
-            "size_in_million_tokens": "2068.193M",
+            "size_in_million_tokens": "2002.072M",
             "annotation_types": null,
             "annotation_format": null,
             "release_url": null,
@@ -1513,6 +1705,928 @@
             "command": null,
             "action_comments": null,
             "email_address": "odegibert@gmail.com"
+          },
+          {
+            "state_path": "colossal_corpus_ca/v1/s2",
+            "state_name": "document_deduplicated",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "01/09/2020",
+            "size_in_gigabytes": "11GB",
+            "size_in_million_tokens": "1817.337M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "deduplication"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python clean.py colossal-ca-onion --input-path output/colossal-ca-2020-09-01-1243 --input-format warc --output-format fairseq-lm --only-reduce-output --parallel --lang-filter ca --remove-glob-rep-sen -1 --encoding utf-8 --dedup-buffer 999999999",
+            "action_comments": "Document deduplication only.",
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      },
+      {
+        "version_path": "colossal_corpus_ca/v2/",
+        "version_name": "crawling_ca/v1/s4, dogc_ca-es/v1/s1/ca.txt, oscar_ca/v2/s2, open_subtitles_ca/v1/s1, cawac_ca/v1/s3, wikipedia_ca/v1/s3, acn_ca/v1/s3, gene_crawling_ca/v1/s2",
+        "version_date": "29/10/2020",
+        "states": [
+          {
+            "state_path": "colossal_corpus_ca/v2/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "29/10/2020",
+            "size_in_gigabytes": "13GB",
+            "size_in_million_tokens": "2202,638M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "financial_testset_en-fi",
+    "corpus_name": "Financial Test Set English Finnish",
+    "domain": "Finance",
+    "provider": "Tilde",
+    "license": "Unknown",
+    "source": "Some crawled URLS from https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "languages": [
+      "English",
+      "Finnish"
+    ],
+    "parallel": "Yes",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Development and evaluation sets provided by Tilde.\n                         Lines   Words   Size\ndev-en-fi.en    1000    11017   72K\ndev-en-fi.fi    1000    7346    72K\neval-en-fi.en   1000    11257   72K\neval-en-fi.fi   1000    7517    72K\nContains document with the source urls.",
+    "versions": [
+      {
+        "version_path": "financial_testset_en-fi/v1",
+        "version_name": "Financial Test Set English Finnish 20200904",
+        "version_date": "04/09/2020",
+        "states": [
+          {
+            "state_path": "financial_testset_en-fi/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "04/09/2020",
+            "size_in_gigabytes": "0.001GB",
+            "size_in_million_tokens": "en: 0.022, fi: 0.014",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "financial_testset_en-lv",
+    "corpus_name": "Financial Test Set English Latvian",
+    "domain": "Finance",
+    "provider": "Tilde",
+    "license": "Unknown",
+    "source": "Some crawled URLS from https://drive.google.com/drive/folders/1furS91QJntoI-bD9w1oFNlOQn13wXJJW",
+    "languages": [
+      "English",
+      "Latvian"
+    ],
+    "parallel": "Yes",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Development and evaluation sets provided by Tilde.\n                        Lines   Words   Size\ndev-en-lv.en    1000    16961   108K\ndev-en-lv.lv    1000    13434   112K\neval-en-lv.en   1000    17035   108K\neval-en-lv.lv   1000    13428   112K\nContains document with the source urls.",
+    "versions": [
+      {
+        "version_path": "financial_testset_en-lv/v1/",
+        "version_name": "Financial Test Set English Finnish 20200904",
+        "version_date": "04/09/2020",
+        "states": [
+          {
+            "state_path": "financial_testset_en-lv/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "04/09/2020",
+            "size_in_gigabytes": "0.001GB",
+            "size_in_million_tokens": "en: 0.033, lv: 0.026",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "pdfsgeneral_es",
+    "corpus_name": "PDF General",
+    "domain": "Biomedical",
+    "provider": "???",
+    "license": "Unknown",
+    "source": "???",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": null,
+    "publishable": "Yes",
+    "comments": "???",
+    "versions": [
+      {
+        "version_path": "pdfsgeneral_es/v1",
+        "version_name": "PDFs General on 2018",
+        "version_date": "01/10/2018",
+        "states": [
+          {
+            "state_path": "pdfsgeneral_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "pdf",
+            "state_date": "01/10/2018",
+            "size_in_gigabytes": "17GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          },
+          {
+            "state_path": "pdfsgeneral_es/v1/s2",
+            "state_name": "txt",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "01/08/2020",
+            "size_in_gigabytes": "3.3GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "txt converting"
+            ],
+            "script_location": "/gpfs/projects/bsc88/Word_Embeddings/biomedical_es/pdfsgeneral_es/v1/scripts/convert_pdf_to_txt.py",
+            "command": "python3 convert_pdf_to_txt.py INPTU_DIR OUTPUT_DIR",
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          },
+          {
+            "state_path": "pdfsgeneral_es/v1/s3",
+            "state_name": "fix broken sentences introduced in the previous state (pdf parsing)",
+            "encoding": "utf-8",
+            "format": "textfile",
+            "state_date": "28/10/2020",
+            "size_in_gigabytes": "3.3GB",
+            "size_in_million_tokens": "108.958676M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s2",
+            "actions": [
+              "postprocessing"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/commit/56328e877bba01f109842567b091f87907624745?branch=56328e877bba01f109842567b091f87907624745&diff=unified",
+            "command": "python postprocess_pdfs.py pdfsgeneral/v1/s2 pdfsgeneral/v1/s3",
+            "action_comments": null,
+            "email_address": "casimiro.carrino@bsc.es"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "pubmed_es",
+    "corpus_name": "pubmed Spanish",
+    "domain": "Biomedical",
+    "provider": "???",
+    "license": "Unknown",
+    "source": "???",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": null,
+    "publishable": "Yes",
+    "comments": "???",
+    "versions": [
+      {
+        "version_path": "pubmed_es/v1",
+        "version_name": "pubmed_es",
+        "version_date": "17/10/2018",
+        "states": [
+          {
+            "state_path": "pubmed_es/v1/s1",
+            "state_name": "origin",
+            "encoding": "utf-8",
+            "format": "pdf",
+            "state_date": "17/10/2018",
+            "size_in_gigabytes": "0.431GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          },
+          {
+            "state_path": "pubmed_es/v1/s2",
+            "state_name": "txt convering",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "01/08/2020",
+            "size_in_gigabytes": "0.211GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "txt converting"
+            ],
+            "script_location": "/gpfs/projects/bsc88/Word_Embeddings/biomedical_es/pubmed_es/v1/scripts/convert_pdf_to_txt.py",
+            "command": "python3 convert_pdf_to_txt.py INPUT_DIR OUTPUT_DIR",
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          },
+          {
+            "state_path": "pubmed_es/v1/s3",
+            "state_name": "fix broken sentences introduced in the previous state (pdf parsing)",
+            "encoding": "utf-8",
+            "format": "textfile",
+            "state_date": "28/10/2020",
+            "size_in_gigabytes": "0.211GB",
+            "size_in_million_tokens": "1.955083 M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s2",
+            "actions": [
+              "postprocessing"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner/commit/56328e877bba01f109842567b091f87907624745",
+            "command": "python postprocess_pdfs.py pubmed_es/v1/s2 pubmed_es/v1/s3",
+            "action_comments": null,
+            "email_address": "casimiro.carrino@bsc.es"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "medical_es",
+    "corpus_name": "Biomedical crawling",
+    "domain": "Biomedical",
+    "provider": "BSC",
+    "license": "Unknown",
+    "source": "Biomedical crawling",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": null,
+    "publishable": "I don't know",
+    "comments": null,
+    "versions": [
+      {
+        "version_path": "medical_es/v1",
+        "version_name": "Biomedical ceawling on 2020-09-03",
+        "version_date": "03/09/2020",
+        "states": [
+          {
+            "state_path": "medical_es/v1/s1",
+            "state_name": "crawl",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "03/09/2020",
+            "size_in_gigabytes": "905",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "siamak.barzegar@bsc.es"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "wikinews_eu-en",
+    "corpus_name": "Wikinews English-Basque",
+    "domain": "News",
+    "provider": "Ixa (NewsReader)",
+    "license": "To be determined",
+    "source": "Some articles from Wikinews in English translated manually into Basque",
+    "languages": [
+      "Basque",
+      "English"
+    ],
+    "parallel": "Yes",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "I don't know",
+    "comments": "We have in mind to publish it but it has not been decided yet. Approx 1800 sentences.",
+    "versions": [
+      {
+        "version_path": "wikinews_eu-en/v1",
+        "version_name": "Wikinews English-Basque",
+        "version_date": "17/09/2020",
+        "states": [
+          {
+            "state_path": "wikinews_eu-en/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "17/09/2020",
+            "size_in_gigabytes": "0.0018GB",
+            "size_in_million_tokens": "en: 0.034901, eu: 0.028597",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": [
+              "cleaning",
+              "sentence splitting"
+            ],
+            "script_location": null,
+            "command": null,
+            "action_comments": "It has been sentence splitted and sentence level aligned",
+            "email_address": "olatz.perezdevinaspre@ehu.eus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_fi",
+    "corpus_name": "Finnish Oscar",
+    "domain": "General",
+    "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://oscar-corpus.com/",
+    "languages": [
+      "Finnish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted.  \nhttps://hal.inria.fr/hal-02148693/document\nDeduplicated version.",
+    "versions": [
+      {
+        "version_path": "oscar_fi/v1",
+        "version_name": "Finnish OSCAR 2020-09-29",
+        "version_date": "29/09/2020",
+        "states": [
+          {
+            "state_path": "oscar_fi/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "29/09/2020",
+            "size_in_gigabytes": "13GB",
+            "size_in_million_tokens": "1597.485M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_fi/v1/s2",
+            "state_name": "sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "05/10/2020",
+            "size_in_gigabytes": "12GB",
+            "size_in_million_tokens": "1385.422M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python clean.py oscar_fi --input-path data/oscar_fi --input-format fairseq-lm --output-format fairseq-lm --lang-filter fi --dictionary-filter-sen example-dict.txt --components PreFilterer SentenceSplitterComponent DocumentFilter SentenceFilter --encoding utf-8 --parallel --backend ray",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_lv",
+    "corpus_name": "Latvian Oscar",
+    "domain": "General",
+    "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://oscar-corpus.com/",
+    "languages": [
+      "Latvian"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted.  \nhttps://hal.inria.fr/hal-02148693/document\nDeduplicated version.",
+    "versions": [
+      {
+        "version_path": "oscar_lv/v1",
+        "version_name": "Latvian Oscar 2020-09-29",
+        "version_date": "29/09/2020",
+        "states": [
+          {
+            "state_path": "oscar_lv/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "29/09/2020",
+            "size_in_gigabytes": "1.8GB",
+            "size_in_million_tokens": "236.466M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_lv/v1/s2",
+            "state_name": "sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "05/10/2020",
+            "size_in_gigabytes": "1.6GB",
+            "size_in_million_tokens": "205.810M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python clean.py oscar_lv --input-path data/oscar_lv --input-format fairseq-lm --output-format fairseq-lm --lang-filter lv --dictionary-filter-sen example-dict.txt --components PreFilterer SentenceSplitterComponent DocumentFilter SentenceFilter --encoding utf-8 --parallel --backend ray",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_no",
+    "corpus_name": "Norwegian Oscar",
+    "domain": "General",
+    "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://oscar-corpus.com/",
+    "languages": [
+      "Norwegian"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted.  \nhttps://hal.inria.fr/hal-02148693/document\nDeduplicated version.",
+    "versions": [
+      {
+        "version_path": "oscar_no/v1",
+        "version_name": "Norwegian Oscar 2020-09-29",
+        "version_date": "29/09/2020",
+        "states": [
+          {
+            "state_path": "oscar_no/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "29/09/2020",
+            "size_in_gigabytes": "4.7GB",
+            "size_in_million_tokens": "804.837M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          },
+          {
+            "state_path": "oscar_no/v1/s2",
+            "state_name": "sentence_split",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "06/10/2020",
+            "size_in_gigabytes": "3.7GB",
+            "size_in_million_tokens": "626.718M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": "s1",
+            "actions": [
+              "sentence splitting"
+            ],
+            "script_location": "https://github.com/TeMU-BSC/corpus-cleaner",
+            "command": "python clean.py oscar_no --input-path data/oscar_no --input-format fairseq-lm --output-format fairseq-lm --lang-filter no --dictionary-filter-sen example-dict.txt --components PreFilterer SentenceSplitterComponent DocumentFilter SentenceFilter --encoding utf-8 --parallel --backend ray",
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "financial_testset_en-no",
+    "corpus_name": "Financial Test Set English Norwegian",
+    "domain": "Finance",
+    "provider": "Tilde",
+    "license": "Unknown",
+    "source": "Some crawled URLS from https://docs.google.com/spreadsheets/d/1OH1f7S3Gi4ZGg3A026lzv5XnJxG7H7v9Pd3EeznsQQQ/edit#gid=329848229",
+    "languages": [
+      "English",
+      "Norwegian"
+    ],
+    "parallel": "Yes",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Development and evaluation sets provided by Tilde.\n                         Lines   Words   Size\ndev-en-nb.en    1001    14152   88K\ndev-en-nb.nb    1001    12258    84K\neval-en-nb.en   1000    17318   108K\neval-en-nb.nb   1000    14942    104K\nContains document with the source urls.",
+    "versions": [
+      {
+        "version_path": "financial_testset_en-no/v1",
+        "version_name": "Norwegian Test Set English Finnish 20201008",
+        "version_date": "08/10/2020",
+        "states": [
+          {
+            "state_path": "financial_testset_en-no/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "08/10/2020",
+            "size_in_gigabytes": "0.0003 GB",
+            "size_in_million_tokens": "en: 0.031M, no: 0.027M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "europarl_es",
+    "corpus_name": "Spanish Europarl",
+    "domain": "General",
+    "provider": "University of Edinburgh",
+    "license": "Cite the paper http://homepages.inf.ed.ac.uk/pkoehn/publications/europarl-mtsummit05.pdf",
+    "source": "https://www.statmt.org/europarl/",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "http://homepages.inf.ed.ac.uk/pkoehn/publications/europarl-mtsummit05.pdf\n Europarl: A Parallel Corpus for Statistical Machine Translation, Philipp Koehn, MT Summit 2005, pdf. \n\nThe corpus is parallel but this is the Spanish monolingual version.",
+    "versions": [
+      {
+        "version_path": "europarl_es/v1",
+        "version_name": "Spanish Europarl v7",
+        "version_date": "18/02/2020",
+        "states": [
+          {
+            "state_path": "europarl_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "16/10/2020",
+            "size_in_gigabytes": "0.377GB",
+            "size_in_million_tokens": "56.084M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "open_subtitles_ca",
+    "corpus_name": "Spanish Open Subtitles",
+    "domain": "General",
+    "provider": "OpenSubtitles",
+    "license": "Cite OpenSub",
+    "source": "http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.es.gz",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Collection of translated movie subtitles from http://www.opensubtitles.org/\nhttps://www.duo.uio.no/handle/10852/50459\nP. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+    "versions": [
+      {
+        "version_path": "open_subtitles_es/v1",
+        "version_name": "Spanish Open Subtitles 20200218",
+        "version_date": "18/02/2020",
+        "states": [
+          {
+            "state_path": "open_subtitles_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-sentence",
+            "state_date": "16/10/2020",
+            "size_in_gigabytes": "6.4GB",
+            "size_in_million_tokens": "1172.478M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "oscar_es",
+    "corpus_name": "Spanish Oscar",
+    "domain": "General",
+    "provider": "INRIA",
+    "license": "CC0",
+    "source": "https://traces1.inria.fr/oscar/",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Each paragrah could be considered as a document as it is not sentence splitted. Added empty lines to mark document boundaries. \nhttps://hal.inria.fr/hal-02148693/document\nSuárez, Pedro Javier Ortiz, Benoît Sagot, and Laurent Romary. \"\"Asynchronous pipeline for processing huge corpora on medium to low resource infrastructures.\"\" 7th Workshop on the Challenges in the Management of Large Corpora (CMLC-7). Leibniz-Institut für Deutsche Sprache, 2019.",
+    "versions": [
+      {
+        "version_path": "oscar_es/v1",
+        "version_name": "Spanish Oscar 20200218",
+        "version_date": "18/02/2020",
+        "states": [
+          {
+            "state_path": "oscar_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "16/10/2020",
+            "size_in_gigabytes": "149GB",
+            "size_in_million_tokens": "488.603M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "paracrawl_es",
+    "corpus_name": "Spanish Paracrawl",
+    "domain": "General",
+    "provider": "OPUS",
+    "license": "CC0",
+    "source": "http://opus.nlpl.eu/download.php?f=ParaCrawl/v5/mono/es.txt.gz",
+    "languages": [
+      "Spanish"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "No",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "Yes",
+    "comments": "Monolingual version. Each paragrah could be considered as a document as it is not sentence splitted.",
+    "versions": [
+      {
+        "version_path": "paracrawl_es/v1",
+        "version_name": "Spanish Paracrawl 20200218",
+        "version_date": "18/02/2020",
+        "states": [
+          {
+            "state_path": "paracrawl_es/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "txt-fairseq-lm",
+            "state_date": "16/10/2020",
+            "size_in_gigabytes": "4.3GB",
+            "size_in_million_tokens": "672.123M",
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "/gpfs/projects/bsc88/corpora/acn_ca",
+    "corpus_name": "Noticies Agencia Catalana de Noticies",
+    "domain": "Newswire",
+    "provider": "Agencia Catalana de Noticies (INTRACATALÒNIA, S.A)",
+    "license": "CC-BY-NC-ND",
+    "source": "https://www.acn.cat/",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": null,
+    "publishable": "No",
+    "comments": "219.586 news articles. Latest article is October 11, 2020. There is a directory \"text\" with clean text of the article. Another \"json\" has the text plus the categories where it has been manually (?) classified by Territory, Domain, Section, etc.",
+    "versions": [
+      {
+        "version_path": "acn_ca/v1",
+        "version_name": "ACN crawling up to October 11 2020",
+        "version_date": "11/10/2020",
+        "states": [
+          {
+            "state_path": "acn_ca/v1/s1",
+            "state_name": "crawl",
+            "encoding": "utf-8",
+            "format": "text at document level, and json with text and classification metadata",
+            "state_date": "11/10/2020",
+            "size_in_gigabytes": "0.494 GB",
+            "size_in_million_tokens": null,
+            "annotation_types": [
+              "Document classification: section and territorial categories"
+            ],
+            "annotation_format": "json",
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "crodrig1@bsc.es"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "corpus_path": "gene_crawling_ca",
+    "corpus_name": "Catalan Crawling of Generalitat domains",
+    "domain": "Administrative",
+    "provider": "BSC, Generalitat",
+    "license": "CC-BY",
+    "source": "Crawled URLs from Generalitat domain: https://drive.google.com/drive/folders/1z12NVCYLuVeGMcdZ5ByrnCa37e_EjeNb",
+    "languages": [
+      "Catalan"
+    ],
+    "parallel": "No",
+    "aggregated": "No",
+    "document_level": "Yes",
+    "third_parties": [
+      "MT4ALL"
+    ],
+    "publishable": "I don't know",
+    "comments": null,
+    "versions": [
+      {
+        "version_path": "gene_crawling_ca/v1/s1",
+        "version_name": "Catalan Crawling of Generalitat 2020-10-22",
+        "version_date": "22/10/2020",
+        "states": [
+          {
+            "state_path": "gene_crawling_ca/v1/s1",
+            "state_name": "original",
+            "encoding": "utf-8",
+            "format": "warc",
+            "state_date": "22/10/2020",
+            "size_in_gigabytes": "75GB",
+            "size_in_million_tokens": null,
+            "annotation_types": null,
+            "annotation_format": null,
+            "release_url": null,
+            "prior_state": null,
+            "actions": null,
+            "script_location": null,
+            "command": null,
+            "action_comments": null,
+            "email_address": "odegiber@gmail.com"
           }
         ]
       }
